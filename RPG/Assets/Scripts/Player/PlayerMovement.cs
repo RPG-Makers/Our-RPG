@@ -17,21 +17,12 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        ProcessInputs();
-    }
-
-    private void FixedUpdate()
-    {
-        Move();
-    }
-
-    private void ProcessInputs()
-    {
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveY = Input.GetAxisRaw("Vertical");
         moveDirection = new Vector2(moveX, moveY).normalized;
     }
-    private void Move()
+
+    private void FixedUpdate()
     {
         rb.velocity = new Vector2(moveDirection.x * movementSpeed, moveDirection.y * movementSpeed);
     }
