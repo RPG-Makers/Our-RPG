@@ -6,7 +6,7 @@ using UnityEngine;
 public class WeaponStats : ScriptableObject
 {
     [SerializeField] private new string name;
-    [SerializeField] private float damage;
+    [SerializeField] public int damage;
     [SerializeField] private float reloading;
     [SerializeField] private int durability;
     [SerializeField] private int defaultPrice;

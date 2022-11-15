@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3e221783bbbba54bba897f445e776e3, type: 3}
   m_Name: SomeWeapon
   m_EditorClassIdentifier: 
-  name: 
-  damage: 0
+  name: SomeSword
+  damage: 1
   reloading: 0
   durability: 0
   defaultPrice: 0
