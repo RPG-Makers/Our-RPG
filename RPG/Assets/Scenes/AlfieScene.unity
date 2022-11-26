@@ -293,6 +293,7 @@ GameObject:
   m_Component:
   - component: {fileID: 766823606}
   - component: {fileID: 766823607}
+  - component: {fileID: 766823608}
   m_Layer: 0
   m_Name: WeaponSprite
   m_TagString: Untagged
@@ -314,7 +315,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1814593793}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 6.8584886}
 --- !u!212 &766823607
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -367,6 +368,26 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &766823608
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 766823605}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ff18ec81699c15546920b9e9fa9f6180, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &817239811
 GameObject:
   m_ObjectHideFlags: 0
@@ -2448,7 +2469,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapon: {fileID: 11400000, guid: ca4a6049cca8a964ba4c365a17ad9d86, type: 2}
-  weaponTransform: {fileID: 119805011}
+  weaponGo: {fileID: 766823605}
   enemyLayer:
     serializedVersion: 2
     m_Bits: 64
