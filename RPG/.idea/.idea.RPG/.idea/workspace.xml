@@ -29,13 +29,24 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/AIChase.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/WeaponSystem/WeaponMechanics.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/WeaponSystem/WeaponStats.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Quests/Quest1_Glasses.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/Assets/Scripts/PlayerMovement.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/AIChase.cs" />
+        <option value="$PROJECT_DIR$/Assets/PlayerHealth.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerHealth.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/AIChase.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/NPC/FirstTestNPC.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/NPC/Dialogue.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/NPC/FirstNPC.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerMovement.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Quests/Quest1_Glasses.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Quests/Quest1.cs" />
       </list>
     </option>
   </component>
@@ -49,6 +60,7 @@
     <property name="Discover.Launch.Via.Unity" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="settings.editor.selected.configurable" value="CodeLensConfigurable" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
@@ -80,6 +92,9 @@
       <option name="presentableId" value="Default" />
       <updated>1668341973932</updated>
       <workItem from="1668341979743" duration="2293000" />
+      <workItem from="1668483209735" duration="1174000" />
+      <workItem from="1668484817209" duration="9154000" />
+      <workItem from="1670051327303" duration="10339000" />
     </task>
     <servers />
   </component>
@@ -98,8 +113,23 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="461" y="165" key="SettingsEditor" timestamp="1670067076530">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1670067076530" />
+    <state width="498" height="446" key="SwitcherDM" timestamp="1668483643836">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="498" height="446" key="SwitcherDM/0.0.1920.1040@0.0.1920.1040" timestamp="1668483643836" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1668484032726">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1668484032726" />
   </component>
 </project>
