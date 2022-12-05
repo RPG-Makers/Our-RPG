@@ -12,17 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3e221783bbbba54bba897f445e776e3, type: 3}
   m_Name: SomeWeapon
   m_EditorClassIdentifier: 
-<<<<<<< HEAD:RPG/Assets/Scripts/WeaponSystem/WeaponS/Bow.asset
-  Name: Bow
-  Damage: 0
-  Reloading: 0
-  Durability: 0
-  DefaultPrice: 0
-=======
-  name: SomeSword
-  damage: 1
+  name: 
+  damage: 0
   reloading: 0
   durability: 0
   defaultPrice: 0
   type: 0
->>>>>>> parent of 7bfab04 (WeaponMechanics Architecture):RPG/Assets/Scripts/WeaponSystem/SomeWeapon.asset
