@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Sword
   m_EditorClassIdentifier: 
   Name: Sword
-  Damage: 1
+  Damage: 2
   Reloading: 0
   Durability: 0
   DefaultPrice: 0
