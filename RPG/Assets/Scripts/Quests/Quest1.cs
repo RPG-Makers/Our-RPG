@@ -29,8 +29,8 @@ public class Quest1 : MonoBehaviour
     private void Start()
     {
         
-        glassesItem = GameObject.Find("Glasses Quest 1");
-        simpleDialogue.onClick.AddListener(ShowSimpleDialogue);
+        glassesItem = GameObject.Find("Glasses Quest 1"); //предмет "очки" для выполнения первого квеста
+        //simpleDialogue.onClick.AddListener(ShowSimpleDialogue); реализовал через юнити редактор
         nextSimpleDialogue.onClick.AddListener(ShowNextSimpleDialogue);
         closeAllDialogue.onClick.AddListener(closeAllDialogueFunc);
         startQuest1.onClick.AddListener(StartQuest1);
@@ -39,21 +39,38 @@ public class Quest1 : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        menu.gameObject.SetActive(true);
-        background.gameObject.SetActive(true);
-        dialogue1.gameObject.SetActive(true);
-        closeAllDialogue.gameObject.SetActive(true);
+        menu.gameObject.SetActive(true); //подошли к нпц, открываем диалоговое окно с ним
+        background.gameObject.SetActive(true); //включаем подложку-затемнение фона
+        dialogue1.gameObject.SetActive(true); //приветствие от нпц и кнопки взаимодействия с ним
+        closeAllDialogue.gameObject.SetActive(true); //кнопка закрытия диалогового окна с нпц
     }
 
+    private void OnEnable()
+    {
+        EventDelegateExample.onFirstQuestItemFound += ConsoleMessage;
+    }
+    
+    private void OnDisable()
+    {
+        EventDelegateExample.onFirstQuestItemFound -= ConsoleMessage;
+    }
 
-    public void ShowSimpleDialogue()
+    private void ConsoleMessage()
+    {
+        Debug.Log("Игрок нашёл квестовый предмет 'Очки' для первого квеста");
+    }
+
+    //реализовал через юнити редактор
+    /*public void ShowSimpleDialogue()
     {
         dialogue1.gameObject.SetActive(false);
         simpleText1.gameObject.SetActive(true);
         nextSimpleDialogue.gameObject.SetActive(true);
         closeAllDialogue.gameObject.SetActive(true);
-    }
+    }*/
 
+    //одна кнопка переключения на следующий диалог, поэтому перелистываем текст в диалоге кодом, а не через юнити редактор
+    //если на каждый квест или на каждый нпц будет свой отдельный набор кнопок, то можно реализовать через редактор юнити
     public void ShowNextSimpleDialogue()
     {
         nextSimpleDialogue.gameObject.SetActive(false);
@@ -61,7 +78,7 @@ public class Quest1 : MonoBehaviour
         simpleText2.gameObject.SetActive(true);
     }
 
-    public void closeAllDialogueFunc()
+    public void closeAllDialogueFunc() //выключаем все диалоговые UI на сцене
     {
         nextSimpleDialogue.gameObject.SetActive(false);
         simpleText1.gameObject.SetActive(false);
@@ -72,7 +89,7 @@ public class Quest1 : MonoBehaviour
         background.gameObject.SetActive(false);
     }
 
-    public void StartQuest1()
+    public void StartQuest1() //прожали кнопку старта квеста. сразу проверяем, если предмет "очки" найден, квест тут же считается выполненным
     {
         if (glassesItem.GetComponent<Quest1_Glasses>().glassesFound)
         {
