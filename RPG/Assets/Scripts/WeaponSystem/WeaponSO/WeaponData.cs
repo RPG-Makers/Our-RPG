@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "SomeWeapon", menuName = "Create new weapon")]
-public class WeaponData : ScriptableObject
+public abstract class WeaponData : ScriptableObject
 {
     [SerializeField] public string Name;
     [SerializeField] public int Damage;

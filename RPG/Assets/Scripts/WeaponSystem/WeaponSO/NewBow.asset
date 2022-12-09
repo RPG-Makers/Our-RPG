@@ -9,11 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c21b69c2d4a8535479c1ebb75ee425e9, type: 3}
-  m_Name: Sword
+  m_Script: {fileID: 11500000, guid: 2baa99cff011cac498012d80fe0305f9, type: 3}
+  m_Name: NewBow
   m_EditorClassIdentifier: 
-  Name: some sword
+  Name: some bow idk
   Damage: 1
   Reloading: 0
   Durability: 0
   DefaultPrice: 0
+  arrow: {fileID: 860411638883191374, guid: 4ec5cc91824dcbd40a179332add3ac94, type: 3}

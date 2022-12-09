@@ -6,7 +6,7 @@ public class Health : MonoBehaviour
 {
     [SerializeField] private int health;
 
-    public void getHit(int damage)
+    public void GetDamage(int damage)
     {
         Debug.Log("We are in the getHit!");
         health -= damage;
