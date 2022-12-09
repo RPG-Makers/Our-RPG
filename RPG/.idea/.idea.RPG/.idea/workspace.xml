@@ -29,9 +29,14 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/WeaponSystem/WeaponMechanics.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/WeaponSystem/WeaponMechanics.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Delegates/EventDelegateExample.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/WeaponSystem/WeaponStats.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Quests/Quest1_Glasses.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Inventory/InventoryManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Inventory/ItemPickup.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Inventory/ItemController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Inventory/Item.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -44,9 +49,18 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/NPC/FirstTestNPC.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/NPC/Dialogue.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/NPC/FirstNPC.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Inventory/ItemController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Inventory/Item.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerMovement.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Quests/Quest1_Glasses.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Inventory/ItemPickup.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Inventory/InventoryManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Inventory/InventoryItemController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Minimap.cs" />
+        <option value="$PROJECT_DIR$/Assets/HorseRiding.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/HorseRiding.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Quests/Quest1.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Delegates/EventDelegateExample.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Quests/Quest1_Glasses.cs" />
       </list>
     </option>
   </component>
@@ -94,7 +108,14 @@
       <workItem from="1668341979743" duration="2293000" />
       <workItem from="1668483209735" duration="1174000" />
       <workItem from="1668484817209" duration="9154000" />
-      <workItem from="1670051327303" duration="10339000" />
+      <workItem from="1670051327303" duration="10825000" />
+      <workItem from="1670136509460" duration="13628000" />
+      <workItem from="1670244577290" duration="586000" />
+      <workItem from="1670251348241" duration="1760000" />
+      <workItem from="1670253155240" duration="1598000" />
+      <workItem from="1670255725158" duration="6400000" />
+      <workItem from="1670311675499" duration="2159000" />
+      <workItem from="1670318330709" duration="396000" />
     </task>
     <servers />
   </component>
