@@ -38,6 +38,11 @@
             <e p="WeaponStats.cs" t="Include" />
           </e>
         </e>
+        <e p="Sprites" t="Include">
+          <e p="mystic_woods_free_2.1" t="Include">
+            <e p="read_me.txt" t="Include" />
+          </e>
+        </e>
         <e p="TextMesh Pro" t="Include">
           <e p="Fonts" t="Include">
             <e p="LiberationSans - OFL.txt" t="Include" />
