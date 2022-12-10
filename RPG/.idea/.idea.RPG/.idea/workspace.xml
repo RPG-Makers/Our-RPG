@@ -51,7 +51,6 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/NPC/FirstNPC.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Inventory/ItemController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Inventory/Item.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerMovement.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Inventory/ItemPickup.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Inventory/InventoryManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Inventory/InventoryItemController.cs" />
@@ -61,6 +60,7 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Quests/Quest1.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Delegates/EventDelegateExample.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Quests/Quest1_Glasses.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerMovement.cs" />
       </list>
     </option>
   </component>
@@ -115,7 +115,9 @@
       <workItem from="1670253155240" duration="1598000" />
       <workItem from="1670255725158" duration="6400000" />
       <workItem from="1670311675499" duration="2159000" />
-      <workItem from="1670318330709" duration="396000" />
+      <workItem from="1670318330709" duration="990000" />
+      <workItem from="1670492972840" duration="4149000" />
+      <workItem from="1670503058470" duration="993000" />
     </task>
     <servers />
   </component>
