@@ -7,6 +7,7 @@
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.Player.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
+        <e p="HealthBar.cs" t="Include" />
         <e p="Scripts" t="Include">
           <e p="Delegates" t="Include">
             <e p="EventDelegateExample.cs" t="Include" />
@@ -14,6 +15,7 @@
           <e p="Enemy" t="Include">
             <e p="AIChase.cs" t="Include" />
           </e>
+          <e p="Health.cs" t="Include" />
           <e p="Inventory" t="Include">
             <e p="InventoryItemController.cs" t="Include" />
             <e p="InventoryManager.cs" t="Include" />
@@ -34,8 +36,18 @@
             <e p="Quest1_Glasses.cs" t="Include" />
           </e>
           <e p="WeaponSystem" t="Include">
+            <e p="Arrow.cs" t="Include" />
             <e p="WeaponMechanics.cs" t="Include" />
-            <e p="WeaponStats.cs" t="Include" />
+            <e p="WeaponScripts" t="Include">
+              <e p="Weapon.cs" t="Include" />
+              <e p="WeaponBow.cs" t="Include" />
+              <e p="WeaponSword.cs" t="Include" />
+            </e>
+            <e p="WeaponSO" t="Include">
+              <e p="BowData.cs" t="Include" />
+              <e p="WeaponData.cs" t="Include" />
+            </e>
+            <e p="WoodenArrow.cs" t="Include" />
           </e>
         </e>
         <e p="Sprites" t="Include">
