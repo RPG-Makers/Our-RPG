@@ -61,3 +61,5 @@ crashlytics-build.properties
 *.dwlt
 .vsconfig
 RPG/UserSettings/EditorUserSettings.asset
+RPG/UserSettings/Layouts/default-2021.dwlt
+RPG/UserSettings/EditorUserSettings.asset
