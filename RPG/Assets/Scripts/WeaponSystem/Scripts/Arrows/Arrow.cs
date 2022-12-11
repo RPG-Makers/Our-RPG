@@ -14,11 +14,11 @@ public abstract class Arrow : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Enemy"))
+        if (collision.TryGetComponent(out IDamageable hit))
         {
-            collision.gameObject.GetComponent<Health>().GetDamage(_damage);
+            hit.GetDamage(_damage);
         }
-        Destroy(gameObject);
         // Also here we can add some particle of arrow's destroying.
+        Destroy(gameObject);
     }
 }
