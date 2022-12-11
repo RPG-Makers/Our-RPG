@@ -6,6 +6,7 @@ TagManager:
   tags:
   - SimpleDialogue
   - Enemy
+  - Horse
   layers:
   - Default
   - TransparentFX

@@ -5,25 +5,42 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
-    private float health = 0f;
-    [SerializeField] private float maxHealth = 100f;
+    [SerializeField] private int currentHealth = 0;
+    [SerializeField] private int maxHealth = 100;
+
+    public HealthBar HealthBar;
 
     private void Start()
     {
-        health = maxHealth;
+        currentHealth = maxHealth;
+        HealthBar.SetMaxHealth(maxHealth);
     }
 
-    public void UpdateHealth(float mod)
+    public void UpdateHealth(int mod)
     {
-        health += mod;
+        currentHealth += mod;
 
-        if (health > maxHealth)
+        if (currentHealth > maxHealth)
         {
-            health = maxHealth;
-        } else if (health <= 0f)
+            currentHealth = maxHealth;
+        } else if (currentHealth <= 0)
         {
-            health = 0f;
+            currentHealth = 0;
             Debug.Log("Player Respawn");
         }
+    }
+
+    private void Update()
+    {
+        if (Input.GetKey(KeyCode.O))
+        {
+            getDamage(1);
+        }
+    }
+
+    public void getDamage(int damage)
+    {
+        currentHealth -= damage;
+        HealthBar.SetHealth(currentHealth);
     }
 }
