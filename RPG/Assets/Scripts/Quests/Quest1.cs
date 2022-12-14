@@ -13,7 +13,7 @@ public class Quest1 : MonoBehaviour
     public GameObject simpleText2;
     public GameObject questText1;
     public GameObject questText2;
-    
+
     public GameObject menu;
     public GameObject background;
 
@@ -24,21 +24,19 @@ public class Quest1 : MonoBehaviour
 
     public GameObject glassesItem;
 
-    
 
     private void Start()
     {
-        
         glassesItem = GameObject.Find("Glasses Quest 1"); //предмет "очки" для выполнения первого квеста
         //simpleDialogue.onClick.AddListener(ShowSimpleDialogue); реализовал через юнити редактор
         nextSimpleDialogue.onClick.AddListener(ShowNextSimpleDialogue);
         closeAllDialogue.onClick.AddListener(closeAllDialogueFunc);
         startQuest1.onClick.AddListener(StartQuest1);
-        
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (!other.gameObject.CompareTag("Player")) return;
         menu.gameObject.SetActive(true); //подошли к нпц, открываем диалоговое окно с ним
         background.gameObject.SetActive(true); //включаем подложку-затемнение фона
         dialogue1.gameObject.SetActive(true); //приветствие от нпц и кнопки взаимодействия с ним
@@ -49,7 +47,7 @@ public class Quest1 : MonoBehaviour
     {
         EventDelegateExample.onFirstQuestItemFound += ConsoleMessage;
     }
-    
+
     private void OnDisable()
     {
         EventDelegateExample.onFirstQuestItemFound -= ConsoleMessage;
@@ -89,7 +87,8 @@ public class Quest1 : MonoBehaviour
         background.gameObject.SetActive(false);
     }
 
-    public void StartQuest1() //прожали кнопку старта квеста. сразу проверяем, если предмет "очки" найден, квест тут же считается выполненным
+    public void
+        StartQuest1() //прожали кнопку старта квеста. сразу проверяем, если предмет "очки" найден, квест тут же считается выполненным
     {
         if (glassesItem.GetComponent<Quest1_Glasses>().glassesFound)
         {
