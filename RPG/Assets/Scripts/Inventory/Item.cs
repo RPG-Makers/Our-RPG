@@ -1,22 +1,23 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Item",menuName = "Item/Create New Item")]
-
-public class Item : ScriptableObject
+public abstract class Item : MonoBehaviour
 {
-    public int id;
-    public string itemName;
-    public int value;
-    public Sprite icon;
-    public ItemType itemType;
-    public int itemQuantity;
-    
-    public enum ItemType
+    [SerializeField] private string _name;
+    [SerializeField] private int _price;
+    [SerializeField] private Sprite _sprite;
+    public string Name => _name;
+    public Sprite Sprite => _sprite;
+
+    public Action OnCellInventoryClicked;
+
+    protected abstract void Use();
+
+    private void OnMouseDown()
     {
-        Potion,
-        Book,
-        Scroll
+        Inventory.Instance.Add(this);
+        Destroy(gameObject);
     }
 }
