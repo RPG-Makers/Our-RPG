@@ -5,9 +5,9 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class InventoryManager : MonoBehaviour
+public class Inventory : MonoBehaviour
 {
-    public static InventoryManager Instance; // Экземпляр объекта
+    public static Inventory Instance; // Экземпляр объекта
     public List<Item> Items = new List<Item>();
 
     public Transform ItemContent;
@@ -15,8 +15,7 @@ public class InventoryManager : MonoBehaviour
 
     public Toggle EnableRemove;
 
-    public InventoryItemController[]
-        InventoryItems; //это нужно для быстрой обработки данных и хранения данных без необходимости повторных запросов
+    public CellInventory[] InventoryItems; //это нужно для быстрой обработки данных и хранения данных без необходимости повторных запросов
 
     private void Awake()
     {
@@ -38,7 +37,7 @@ public class InventoryManager : MonoBehaviour
         //если в инвентаре уже есть предмет, то увеличивать его количество
     }
 
-    public void ListItems()
+    public void ListItems() // Метод, вызывающийся при открытии инвентаря.
     {
         //очищаем инвентарь перед открытием, иначе дублируются предметы
         foreach (Transform item in ItemContent)
@@ -53,8 +52,8 @@ public class InventoryManager : MonoBehaviour
             var itemIcon = obj.transform.Find("ItemIcon").GetComponent<Image>();
             var removeButton = obj.transform.Find("RemoveButton").GetComponent<Button>();
 
-            itemName.text = item.itemName; //проставляем название предметов и иконки
-            itemIcon.sprite = item.icon;
+            itemName.text = item.Name; //проставляем название предметов и иконки
+            itemIcon.sprite = item.Sprite;
 
             if (EnableRemove.isOn) //проверяем тоггл удаления предметов из инвентаря
             {
@@ -85,7 +84,7 @@ public class InventoryManager : MonoBehaviour
 
     public void SetInventoryItems() //формируем список предметов для отображения в инвентаре после нажатия на кнопку открытия инвентаря
     {
-        InventoryItems = ItemContent.GetComponentsInChildren<InventoryItemController>();
+        InventoryItems = ItemContent.GetComponentsInChildren<CellInventory>();
         for (int i = 0; i < Items.Count; i++)
         {
             InventoryItems[i].AddItem(Items[i]);
