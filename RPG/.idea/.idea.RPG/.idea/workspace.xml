@@ -29,7 +29,6 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/HealthBar.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/WeaponSystem/WeaponMechanics.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Delegates/EventDelegateExample.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Quests/Quest1_Glasses.cs" root0="FORCE_HIGHLIGHTING" />
@@ -55,7 +54,6 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Minimap.cs" />
         <option value="$PROJECT_DIR$/Assets/HorseRiding.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/HorseRiding.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Quests/Quest1.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Delegates/EventDelegateExample.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Quests/Quest1_Glasses.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerMovement.cs" />
@@ -63,6 +61,7 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerHealth.cs" />
         <option value="$PROJECT_DIR$/Assets/HealthBar.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Player/HorseRiding.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Quests/Quest1.cs" />
       </list>
     </option>
   </component>
@@ -121,6 +120,7 @@
       <workItem from="1670492972840" duration="4149000" />
       <workItem from="1670503058470" duration="993000" />
       <workItem from="1670677536141" duration="4812000" />
+      <workItem from="1670987248803" duration="83000" />
     </task>
     <servers />
   </component>
