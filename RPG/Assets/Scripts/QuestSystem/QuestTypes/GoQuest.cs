@@ -9,13 +9,14 @@ public class GoQuest : Quest
 
     public GoQuest(string name, string description, PlaceForQuest place) : base(name, description)
     {
-        place.PlayerSpotted += QuestCompleted;
         _place = place;
+        _place.PlayerSpotted += QuestCompleted;
     }
 
     private void QuestCompleted()
     {
         _place.PlayerSpotted -= QuestCompleted;
         Debug.Log($"Quest {this.Name} done");
+        // player.CloseQuest(this);
     }
 }

@@ -12,14 +12,21 @@ public class QuestGiver : MonoBehaviour
     [SerializeField] private int id;
     private bool givedQuest;
 
+    private void Awake()
+    {
+        switch (id)
+        {
+            default:
+                Debug.LogWarning("Uknown id!");
+                break;
+        }
+    }
 
     private void GiveQuest(GameObject player) // Target is to whom we give the quest. But we are planning to give a quests only to player.
     {
         // Need to change the place of initializing of quest!!!
-        if (givedQuest)
-        {
-            return;
-        }
+        if (givedQuest) { return; } // or (if _quest == null)
+
         if (id == 14)
         {
             GoQuest goQuest = new GoQuest("Go to Petya", "Find Petya and talk him something", placeToGo.GetComponent<PlaceForQuest>());
@@ -38,11 +45,9 @@ public class QuestGiver : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //Debug.Log("В меня что-то вошло");
         if (collision.CompareTag("Player"))
         {
             // Допустим, выдаём квест сразу как игрок зайдет в триггер.
-            //Debug.Log("Player in NPC");
             GiveQuest(collision.gameObject);
         }
     }
