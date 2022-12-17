@@ -4,13 +4,13 @@ using System.Collections.Generic;
 using System.Numerics;
 using UnityEngine;
 
-public class KillQuest : Quest
+public class KillTask : Task
 {
     private Type _typeOfEnemy;
     private int _currentAmount;
     private int _requiredAmount;
 
-    public KillQuest(string name, string description, Type typeOfEnemy, int amount) : base(name, description)
+    public KillTask(string name, string description, Type typeOfEnemy, int amount) : base(name, description)
     {
         _typeOfEnemy = typeOfEnemy;
         _currentAmount = 0;
@@ -22,12 +22,12 @@ public class KillQuest : Quest
         _currentAmount++;
         if (_currentAmount >= _requiredAmount)
         {
-            QuestCompleted();
+            TaskCompleted();
         }
     }
 
-    protected override void QuestCompleted()
+    protected override void TaskCompleted()
     {
-        base.QuestCompleted();
+        base.TaskCompleted();
     }
 }

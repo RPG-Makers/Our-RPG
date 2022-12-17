@@ -5,12 +5,12 @@ public abstract class QuestGiver : MonoBehaviour
     [SerializeField] protected GameObject _placeManager;
 
     // QuestSystem settings
-    protected Quest _quest;
+    protected Task _task;
     protected bool givedQuest;
 
-    protected virtual void GiveQuest(GameObject player) // Target is to whom we give the quest. But we are planning to give a quests only to player.
+    protected virtual void GiveTask(GameObject player) // Target is to whom we give the quest. But we are planning to give a quests only to player.
     {
-        player.GetComponent<PlayerQuest>().ReceiveQuest(_quest);
+        player.GetComponent<PlayerTask>().ReceiveTask(_task);
         //_quest = null;
         givedQuest = true;
     }
@@ -22,15 +22,15 @@ public abstract class QuestGiver : MonoBehaviour
             // Допустим, выдаём квест сразу как игрок зайдет в триггер.
             if (!givedQuest)
             {
-                GiveQuest(collision.gameObject);
+                GiveTask(collision.gameObject);
             }
-            else if (givedQuest && _quest.Completed)
+            else if (givedQuest && _task.Completed)
             {
                 Debug.Log("Thank you!");
             }
             else
             {
-                Debug.Log("You didn't complete my quest!");
+                Debug.Log("You didn't complete my task!");
             }
         }
     }

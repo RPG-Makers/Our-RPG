@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Warrior : QuestGiver
 {
-    protected override void GiveQuest(GameObject player)
+    protected override void GiveTask(GameObject player)
     {
         if (givedQuest) { return; }
 
-        _quest = new KillQuest("Kill 10 skeletons", "Find them and kill!", typeof(Skeleton), 10);
-        base.GiveQuest(player);
+        _task = new KillTask("Kill 10 skeletons", "Find them and kill!", typeof(Skeleton), 10);
+        base.GiveTask(player);
     }
 }

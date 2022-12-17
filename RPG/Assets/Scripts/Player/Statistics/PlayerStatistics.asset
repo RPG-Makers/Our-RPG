@@ -12,5 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8e1bfc413289f54c9a50e45aaedbe64, type: 3}
   m_Name: PlayerStatistics
   m_EditorClassIdentifier: 
-  NumberOfKilledEnemies: 0
   NumberOfDestroyedBoxes: 0

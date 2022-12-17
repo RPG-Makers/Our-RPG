@@ -4,6 +4,6 @@ using UnityEngine;
 
 public class PlacesLinks : MonoBehaviour
 {
-    [SerializeField] public PlaceForQuest Petya;
-    [SerializeField] public PlaceForQuest Castle;
+    [SerializeField] public PlaceForTask Petya;
+    [SerializeField] public PlaceForTask Castle;
 }

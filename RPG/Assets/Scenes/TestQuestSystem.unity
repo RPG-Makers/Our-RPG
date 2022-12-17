@@ -134,9 +134,9 @@ GameObject:
   - component: {fileID: 26769332}
   - component: {fileID: 26769328}
   - component: {fileID: 26769327}
+  - component: {fileID: 26769330}
   - component: {fileID: 26769326}
   - component: {fileID: 26769325}
-  - component: {fileID: 26769330}
   - component: {fileID: 26769331}
   m_Layer: 0
   m_Name: Player
@@ -453,6 +453,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: 1
+  playerStatistics: {fileID: 11400000, guid: e0f28b4645fb74c4787125e010291608, type: 2}
 --- !u!212 &146664729
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -766,6 +767,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: 1
+  playerStatistics: {fileID: 11400000, guid: e0f28b4645fb74c4787125e010291608, type: 2}
 --- !u!212 &285209894
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -891,6 +893,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: 1
+  playerStatistics: {fileID: 11400000, guid: e0f28b4645fb74c4787125e010291608, type: 2}
 --- !u!212 &555980547
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1140,6 +1143,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: 1
+  playerStatistics: {fileID: 11400000, guid: e0f28b4645fb74c4787125e010291608, type: 2}
 --- !u!212 &706622238
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1265,6 +1269,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: 1
+  playerStatistics: {fileID: 11400000, guid: e0f28b4645fb74c4787125e010291608, type: 2}
 --- !u!212 &760615448
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1457,6 +1462,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: 1
+  playerStatistics: {fileID: 11400000, guid: e0f28b4645fb74c4787125e010291608, type: 2}
 --- !u!212 &935688904
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1752,6 +1758,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: 1
+  playerStatistics: {fileID: 11400000, guid: e0f28b4645fb74c4787125e010291608, type: 2}
 --- !u!212 &1294775018
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2142,6 +2149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: 1
+  playerStatistics: {fileID: 11400000, guid: e0f28b4645fb74c4787125e010291608, type: 2}
 --- !u!212 &1800854277
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2239,6 +2247,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: 1
+  playerStatistics: {fileID: 11400000, guid: e0f28b4645fb74c4787125e010291608, type: 2}
 --- !u!212 &1876086326
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2392,6 +2401,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: 1
+  playerStatistics: {fileID: 11400000, guid: e0f28b4645fb74c4787125e010291608, type: 2}
 --- !u!212 &2026614949
 SpriteRenderer:
   m_ObjectHideFlags: 0

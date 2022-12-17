@@ -3,19 +3,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GoQuest : Quest
+public class GoTask : Task
 {
-    private PlaceForQuest _place;
+    private PlaceForTask _place;
 
-    public GoQuest(string name, string description, PlaceForQuest place) : base(name, description)
+    public GoTask(string name, string description, PlaceForTask place) : base(name, description)
     {
         _place = place;
-        _place.PlayerSpotted += QuestCompleted;
+        _place.PlayerSpotted += TaskCompleted;
     }
 
-    protected override void QuestCompleted()
+    protected override void TaskCompleted()
     {
-        _place.PlayerSpotted -= QuestCompleted;
-        base.QuestCompleted();
+        _place.PlayerSpotted -= TaskCompleted;
+        base.TaskCompleted();
     }
 }
