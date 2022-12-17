@@ -7,8 +7,6 @@ public class Steve : QuestGiver
         if (givedQuest) { return; }
 
         _quest = new GoQuest("Go to Petya", "Find Petya and talk him something", _placeManager.GetComponent<PlacesLinks>().Petya);
-        player.GetComponent<PlayerQuest>().ReceiveQuest(_quest);
-        //_quest = null;
-        givedQuest = true;
+        base.GiveQuest(player);
     }
 }

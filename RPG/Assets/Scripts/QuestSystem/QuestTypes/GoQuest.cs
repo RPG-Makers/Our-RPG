@@ -13,11 +13,9 @@ public class GoQuest : Quest
         _place.PlayerSpotted += QuestCompleted;
     }
 
-    private void QuestCompleted()
+    protected override void QuestCompleted()
     {
         _place.PlayerSpotted -= QuestCompleted;
-        Debug.Log($"Quest {this.Name} done");
-        Completed = true;
-        // player.CloseQuest(this);
+        base.QuestCompleted();
     }
 }

@@ -13,4 +13,11 @@ public abstract class Quest
         Name = name;
         Description = description;
     }
+
+    protected virtual void QuestCompleted()
+    {
+        Debug.Log($"Quest {Name} done");
+        Completed = true;
+        // player.CloseQuest(this);
+    }
 }

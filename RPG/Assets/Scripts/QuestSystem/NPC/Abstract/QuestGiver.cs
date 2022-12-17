@@ -2,14 +2,18 @@ using UnityEngine;
 
 public abstract class QuestGiver : MonoBehaviour
 {
-    [SerializeField] protected int id;
     [SerializeField] protected GameObject _placeManager;
 
     // QuestSystem settings
     protected Quest _quest;
     protected bool givedQuest;
 
-    protected abstract void GiveQuest(GameObject player); // Target is to whom we give the quest. But we are planning to give a quests only to player.
+    protected virtual void GiveQuest(GameObject player) // Target is to whom we give the quest. But we are planning to give a quests only to player.
+    {
+        player.GetComponent<PlayerQuest>().ReceiveQuest(_quest);
+        //_quest = null;
+        givedQuest = true;
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
