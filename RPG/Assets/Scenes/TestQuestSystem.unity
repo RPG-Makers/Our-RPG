@@ -390,30 +390,16 @@ GameObject:
   m_Component:
   - component: {fileID: 231895582}
   - component: {fileID: 231895581}
-  - component: {fileID: 231895580}
+  - component: {fileID: 231895585}
   - component: {fileID: 231895583}
   - component: {fileID: 231895584}
   m_Layer: 0
-  m_Name: NPCtoPetya
+  m_Name: Steve
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &231895580
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 231895579}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab4ad22205d0d1647aea887e0dcc48b7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  id: 0
-  _placeManager: {fileID: 1063846392}
 --- !u!212 &231895581
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -479,7 +465,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &231895583
 BoxCollider2D:
@@ -528,6 +514,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &231895585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 231895579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f88e177aa33bdb441996debda92cac58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 0
+  _placeManager: {fileID: 1063846392}
 --- !u!1 &607878430
 GameObject:
   m_ObjectHideFlags: 0
@@ -920,7 +920,7 @@ GameObject:
   - component: {fileID: 2043683461}
   - component: {fileID: 2043683460}
   m_Layer: 0
-  m_Name: NPCtoCastle
+  m_Name: Alex
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -982,7 +982,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2043683459}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab4ad22205d0d1647aea887e0dcc48b7, type: 3}
+  m_Script: {fileID: 11500000, guid: 264189424944f3442b35e9e436f32bc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   id: 1
@@ -1052,5 +1052,5 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

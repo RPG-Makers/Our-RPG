@@ -17,6 +17,7 @@ public class GoQuest : Quest
     {
         _place.PlayerSpotted -= QuestCompleted;
         Debug.Log($"Quest {this.Name} done");
+        Completed = true;
         // player.CloseQuest(this);
     }
 }
