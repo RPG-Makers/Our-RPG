@@ -6,6 +6,7 @@ public class BoxHealth : Health
 {
     protected override void Death()
     {
+        playerStatistics.NumberOfDestroyedBoxes++;
         Debug.Log("Box did something after death.");
     }
 }
