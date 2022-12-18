@@ -4,11 +4,16 @@ using UnityEngine;
 
 public class Warrior : QuestGiver
 {
-    protected override void GiveTask(GameObject player)
+    protected override void GiveQuest(GameObject player)
     {
         if (givedQuest) { return; }
 
-        _task = new KillTask("Kill 10 skeletons", "Find them and kill!", typeof(Skeleton), 10);
-        base.GiveTask(player);
+        Task[] tasks = new Task[2] {
+            new KillTask("Kill 10 skeletons", "Find them and kill!", nameof(Skeleton), 10),
+            new GoTask("Find Petya", "Talk with him", _placeManager.GetComponent<PlacesLinks>().Petya)
+        };
+
+        _quest = new Quest("Skeletons and Petya", "Kill skeletons and find Petya", tasks);
+        base.GiveQuest(player);
     }
 }

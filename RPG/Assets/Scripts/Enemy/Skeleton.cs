@@ -9,7 +9,7 @@ public class Skeleton : Enemy
         Debug.Log("Skeleton is attacking");
     }
 
-    protected override void DropLoot() // or Death() or somethings like this.....
+    protected override void DropLoot() // or Death() or somethings like this..... // Already have death in SkeletonHealth.cs!
     {
         Debug.Log("Skeleton droped some loot");
     }

@@ -5,27 +5,25 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "PlayerStatistics", menuName = "Create PlayerStatistics")]
 public class PlayerStatisticsData : ScriptableObject
 {
-    [SerializeField] public int NumberOfKilledEnemies => NumberOfKilledSkeletons; // Add other enemies.
-
-
-
-
-
-    private int numberOfKilledSkeletons;
-    [SerializeField] public int NumberOfKilledSkeletons
+    private PlayerQuest _playerQuest;
+    private void OnEnable()
     {
-        get { return numberOfKilledSkeletons; }
-        set
-        {
-            numberOfKilledSkeletons = value;
-            Debug.Log($"NumberOfKilledSkeletons: {numberOfKilledSkeletons}");
-        }
+        SkeletonHealth.Dead += IncreaseNumberOfKilledSkeletons;
+    }
+    private void OnDisable()
+    {
+        SkeletonHealth.Dead -= IncreaseNumberOfKilledSkeletons;
     }
 
+    [Header("Enemies")]
+    public int numberOfKilledSkeletons;
+    private void IncreaseNumberOfKilledSkeletons()
+    {
+        numberOfKilledSkeletons++;
+    }
+    public int NumberOfKilledEnemies => numberOfKilledSkeletons; // Add other enemies.
 
 
-
-
-
-    [SerializeField] public int NumberOfDestroyedBoxes;
+    [Header("Environment")]
+    public int NumberOfDestroyedBoxes;
 }
