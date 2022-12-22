@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Item : MonoBehaviour
+public abstract class Item : MonoBehaviour, IITEM
 {
     [SerializeField] private string _name;
     [SerializeField] private int _price;
@@ -13,7 +13,7 @@ public abstract class Item : MonoBehaviour
 
     public Action OnCellInventoryClicked;
 
-    protected abstract void Use();
+    public abstract void Use();
 
     private void OnMouseDown()
     {

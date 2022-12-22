@@ -24,7 +24,7 @@ public class CellInventory : MonoBehaviour
 
     private void OnMouseDown()
     {
-        //_item.use
+        (_item as IITEM).Use();
     }
 
     //public void UseItem() //клик на предмет в окне инвентаря, использование предметов
