@@ -5,9 +5,13 @@ using UnityEngine;
 
 public abstract class Item : MonoBehaviour, IITEM
 {
+    [SerializeField] public int MaxAmount { get; private set; }
+
     [SerializeField] private string _name;
     [SerializeField] private int _price;
     [SerializeField] private Sprite _sprite;
+    [SerializeField] private bool _stackable;
+    public bool Stackable => _stackable;
     public string Name => _name;
     public Sprite Sprite => _sprite;
 
@@ -17,7 +21,7 @@ public abstract class Item : MonoBehaviour, IITEM
 
     private void OnMouseDown()
     {
-        Inventory.Instance.Add(this);
+        //OldInventory.Instance.Add(this);
         Destroy(gameObject);
     }
 }
