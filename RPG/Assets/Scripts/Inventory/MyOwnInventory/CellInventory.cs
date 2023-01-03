@@ -14,6 +14,7 @@ public class CellInventory : IAddRemove
     private int _currentAmount;
     private bool _isFull;
     public bool IsFull => _isFull;
+    public bool IsEmpty => _currentAmount == 0;
 
     public void Add(Item item)
     {
