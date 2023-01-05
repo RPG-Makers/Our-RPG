@@ -8,6 +8,8 @@ public class Inventory : IAddRemove
     private int _indexOfFreeCell; // Указатель на полностью свободную ячейку. (Можно проходиться foreach по всем ячейкам и проверять IsFull, но экономнее будет иметь указатель.)
     private List<Item> _items; // Item types, that we already have in inventory.
 
+    private Dictionary<Item, int> _itemsDictionary = new Dictionary<Item, int>();
+
     public Inventory()
     {
         _cells = new List<CellInventory>();
@@ -30,6 +32,7 @@ public class Inventory : IAddRemove
             if (!TryChangeAmount(item))
             {
                 _cells[_indexOfFreeCell].Add(item);
+                _itemsDictionary.Add(item, _indexOfFreeCell);
                 _indexOfFreeCell++;
             }
         }
@@ -61,24 +64,35 @@ public class Inventory : IAddRemove
 
     void IAddRemove.Remove(Item item)
     {
-        if (_indexOfFreeCell == 0) // Инвентарь пуст. (Ну либо логика указателя прописана неверно).
+        if (_indexOfFreeCell != 0) // Указатель указывает не на 0, значит в инвентаре что-то есть.
         {
-            Debug.LogWarning("Inventory is empty! Nothing to remove.");
-        }
-        else if (!_items.Contains(item))
-        {
-            Debug.LogWarning("There are no this type of item in Inventory!");
-        }
-        else
-        {
-            // Так ну надо найти где вообще этот предмет лежит. Ну вернее если так посмотреть, то не конкретно этот предмет, а такой тип предмета.
-
-            // А может добавить что-то типа словаря, чтобы каждый раз foreach не запускать?
-            // То есть в качестве ключа у нас будет индекс ячейки, а в качестве значения тип предмета в этой ячейке.
-            foreach (var cell in _cells)
+            if (_itemsDictionary.ContainsKey(item)) // В какой-то ячейке есть интересующий предмет.
             {
-
+                int indexOfCell;
+                _itemsDictionary.TryGetValue(item, out indexOfCell);
+                _cells[_indexOfFreeCell].Remove(item);
+                //_itemsDictionary.
+                //int[] mas = new int[8];
+                //mas.
             }
         }
+        //if (_indexOfFreeCell == 0) // Инвентарь пуст. (Ну либо логика указателя прописана неверно).
+        //{
+        //    Debug.LogWarning("Inventory is empty! Nothing to remove.");
+        //    return;
+        //}
+        ////else if (!_items.Contains(item))
+        ////{
+        ////    Debug.LogWarning("There are no this type of item in Inventory!");
+        ////}
+
+        ////else
+        ////{
+        ////    // Так ну надо найти где вообще этот предмет лежит. Ну вернее если так посмотреть, то не конкретно этот предмет, а такой тип предмета.
+
+        ////    // А может добавить что-то типа словаря, чтобы каждый раз foreach не запускать?
+        ////    // То есть в качестве ключа у нас будет индекс ячейки, а в качестве значения тип предмета в этой ячейке.
+        ////    _itemsDictionary.ContainsValue(item);
+        ////}
     }
 }
