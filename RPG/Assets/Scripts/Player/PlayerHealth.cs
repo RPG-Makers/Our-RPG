@@ -3,44 +3,49 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerHealth : MonoBehaviour
+public class PlayerHealth : MonoBehaviour, IDamageable
 {
-    [SerializeField] private int currentHealth = 0;
-    [SerializeField] private int maxHealth = 100;
+    [SerializeField] private int _currentHealth = 0;
+    [SerializeField] private int _maxHealth = 100;
 
     public HealthBar HealthBar;
 
-    private void Start()
+    private void Awake()
     {
-        currentHealth = maxHealth;
-        HealthBar.SetMaxHealth(maxHealth);
-    }
-
-    public void UpdateHealth(int mod)
-    {
-        currentHealth += mod;
-
-        if (currentHealth > maxHealth)
-        {
-            currentHealth = maxHealth;
-        } else if (currentHealth <= 0)
-        {
-            currentHealth = 0;
-            Debug.Log("Player Respawn");
-        }
+        _currentHealth = _maxHealth;
+        HealthBar.SetMaxHealth(_maxHealth);
     }
 
     private void Update()
     {
         if (Input.GetKey(KeyCode.O))
         {
-            getDamage(1);
+            GetDamage(1);
         }
     }
 
-    public void getDamage(int damage)
+    public void IncreaseHealth(int amount)
     {
-        currentHealth -= damage;
-        HealthBar.SetHealth(currentHealth);
+        _currentHealth += amount;
+
+        if (_currentHealth > _maxHealth) _currentHealth = _maxHealth;
+        //else if (currentHealth <= 0)
+        //{
+        //    currentHealth = 0;
+        //    Debug.Log("Player Respawn");
+        //}
+        HealthBar.SetHealth(_currentHealth);
+    }
+
+    public void GetDamage(int damage)
+    {
+        _currentHealth -= damage;
+        HealthBar.SetHealth(_currentHealth);
+        if (_currentHealth <= 0) Death();
+    }
+
+    private void Death()
+    {
+        Debug.Log("Player died.");
     }
 }
