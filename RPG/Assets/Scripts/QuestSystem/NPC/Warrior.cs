@@ -8,12 +8,12 @@ public class Warrior : QuestGiver
     {
         if (givedQuest) { return; }
 
-        Task[] tasks = new Task[2] {
-            new KillTask("Kill 10 skeletons", "Find them and kill!", nameof(Skeleton), 10),
-            new GoTask("Find Petya", "Talk with him", _placeManager.GetComponent<PlacesLinks>().Petya)
-        };
+        //Task[] tasks = new Task[2] {
+            //new KillTask("Kill 10 skeletons", "Find them and kill!", nameof(Skeleton), 10),
+            //new GoTask("Find Petya", "Talk with him", _placeManager.GetComponent<PlacesLinks>().Petya)
+        //};
 
-        _quest = new Quest("Skeletons and Petya", "Kill skeletons and find Petya", tasks);
-        base.GiveQuest(player);
+        //_quest = new Quest("Skeletons and Petya", "Kill skeletons and find Petya", tasks);
+        //base.GiveQuest(player);
     }
 }

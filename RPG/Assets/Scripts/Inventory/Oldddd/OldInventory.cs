@@ -5,9 +5,9 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Inventory : MonoBehaviour
+public class OldInventory : MonoBehaviour
 {
-    public static Inventory Instance; // Экземпляр объекта
+    public static OldInventory Instance; // Экземпляр объекта
     public List<Item> Items = new List<Item>();
 
     public Transform ItemContent;
@@ -15,7 +15,7 @@ public class Inventory : MonoBehaviour
 
     public Toggle EnableRemove;
 
-    public CellInventory[] InventoryItems; //это нужно для быстрой обработки данных и хранения данных без необходимости повторных запросов
+    public OldCellInventory[] InventoryItems; //это нужно для быстрой обработки данных и хранения данных без необходимости повторных запросов
 
     private void Awake()
     {
@@ -84,7 +84,7 @@ public class Inventory : MonoBehaviour
 
     public void SetInventoryItems() //формируем список предметов для отображения в инвентаре после нажатия на кнопку открытия инвентаря
     {
-        InventoryItems = ItemContent.GetComponentsInChildren<CellInventory>();
+        InventoryItems = ItemContent.GetComponentsInChildren<OldCellInventory>();
         for (int i = 0; i < Items.Count; i++)
         {
             InventoryItems[i].AddItem(Items[i]);

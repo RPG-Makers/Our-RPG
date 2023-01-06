@@ -4,7 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CellInventory : MonoBehaviour
+public class OldCellInventory : MonoBehaviour
 {
     public Button removeButton;
 
@@ -13,7 +13,7 @@ public class CellInventory : MonoBehaviour
     //public Action OnCellInventoryClick;
     public void RemoveItem() //удаление предмета в окне инвентаря
     {
-        Inventory.Instance.Remove(_item);
+        OldInventory.Instance.Remove(_item);
         Destroy(gameObject);
     }
 
@@ -24,7 +24,7 @@ public class CellInventory : MonoBehaviour
 
     private void OnMouseDown()
     {
-        //_item.use
+        (_item as IITEM).Use();
     }
 
     //public void UseItem() //клик на предмет в окне инвентаря, использование предметов

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Ingredient : Item
 {
-    protected override void Use()
+    public override void Use()
     {
         Debug.Log("We have used the ingredient.");
     }
