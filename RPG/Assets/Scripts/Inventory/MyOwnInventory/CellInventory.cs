@@ -3,26 +3,23 @@ using System.Collections.Generic;
 using System.Runtime.Remoting.Messaging;
 using UnityEngine;
 
-public class CellInventory : IAddRemove
+public class CellInventory
 {
     // Наверное, здесь нужно ранить не список обьъектов, а один объект, который лежит в ячейке. Допустим, у нас лежит какой-то ингридиент, который может стакаться.
     // Какой смысл хранить список этого предмета? По сути это ведь один и тот же предмет, который ничем не отличается. В итоге мы просто будет уменьшать имееющееся значение, пока можем.
-    private Item _item;
     public Item Item => _item;
-
-    private int _maxAmount;
-    private int _currentAmount;
-    private bool _isFull;
     public bool IsFull => _isFull;
     public bool IsEmpty => _currentAmount == 0;
 
+    private Item _item;
+    private bool _isFull;
+    private int _currentAmount;
+    private int _maxAmount;
+
     public void Add(Item item)
     {
-        if (_currentAmount == 0) // Initializing values if cell is empty.
-        {
-            _item = item;
-            _maxAmount = item.MaxAmount;
-        }
+        // Вообще-то заполнена ячейка или нет мы должны проверять тут и в инвентаре просто вызывать здешний TryAdd. Но, возможно, так будет затратнее, потому что каждый раз придётся заходить в функцию вместо того, чтобы просто смотреть значение IsFull.
+        if (_currentAmount == 0) Init(item); // Initializing values if cell is empty.
         else if (_currentAmount == _maxAmount) // Cell is full.
         {
             Debug.LogWarning("Cell is full");
@@ -37,7 +34,13 @@ public class CellInventory : IAddRemove
         }
     }
 
-    public void Remove(Item item) // Probably don't need this argument!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    private void Init(Item item)
+    {
+        _item = item;
+        _maxAmount = item.MaxAmount;
+    }
+
+    public void Subtract()
     {
         if (_currentAmount == 0)
         {

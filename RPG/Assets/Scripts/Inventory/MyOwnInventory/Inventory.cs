@@ -2,97 +2,87 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Inventory : IAddRemove
+public class Inventory
 {
-    private List<CellInventory> _cells; // Remake to []
-    private int _indexOfFreeCell; // Указатель на полностью свободную ячейку. (Можно проходиться foreach по всем ячейкам и проверять IsFull, но экономнее будет иметь указатель.)
-    private List<Item> _items; // Item types, that we already have in inventory.
+    [SerializeField] private int _length;
 
-    private Dictionary<Item, int> _itemsDictionary = new Dictionary<Item, int>();
+    private CellInventory[] _cells;
+    private List<Item> _items; // Item types, that we already have in inventory.
 
     public Inventory()
     {
-        _cells = new List<CellInventory>();
-        _indexOfFreeCell = 0; //  By default the inventory is clear. That's why 0.
+        if (_length <= 0) Debug.LogError("Wrong length of Inventory!");
+        else
+        {
+            _cells = new CellInventory[_length];
+            _items = new List<Item>();
+        }
     }
 
-    void IAddRemove.Add(Item item)
+    public bool TryAdd(Item item)
     {
-        // Для начала здесь можем проверить, есть ли место в инвентаре. То есть для стакающихся есть ли слоты для увеличения, а для нестакающихся свободная ячейка.
-        // То есть проверить, можем ли мы вообще поместить этот предмет в инвентарь.
-        if (_indexOfFreeCell == _cells.Count) // Полностью свободных ячеек нет (но могут быть свободные места в 
+        if (!TryChangeAmount(item) && !TryPut(item))
         {
-            if (!TryChangeAmount(item)) // Если не удалось увеличить количество в какой-либо ячейке.
-            {
-                Debug.LogWarning("There are no space for this item!");
-            }
+            Debug.LogWarning("There are no space for this item!");
+            return false;
         }
-        else // Свободные ячейки есть.
-        {
-            if (!TryChangeAmount(item))
-            {
-                _cells[_indexOfFreeCell].Add(item);
-                _itemsDictionary.Add(item, _indexOfFreeCell);
-                _indexOfFreeCell++;
-            }
-        }
+        _items.Add(item);
+        return true;
     }
 
+    /// <summary>
+    /// Trying to find free cell in inventory and put an Item there.
+    /// </summary>
+    private bool TryPut(Item item)
+    {
+        foreach (var cell in _cells)
+        {
+            if (cell.Item == null)
+            {
+                cell.Add(item);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /// <summary>
+    /// Trying to change amount of item in existing cell instead of occupation of free cell.
+    /// </summary>
     private bool TryChangeAmount(Item item)
     {
-        if (item.Stackable) // Если предмет стакается.
+        if (item.Stackable)
         {
-            if (_items.Contains(item)) // Если в нашем инветаре уже имеется такой тип вещей, то мы постараемся увеличить имеющееся количество, вместо того, чтобы помещать предмет в свободную ячейку.
+            if (_items.Contains(item))
             {
-                foreach (CellInventory cell in _cells) // Ищем ячейку, в которой содержится наш предмет.
+                foreach (CellInventory cell in _cells)
                 {
-                    if (cell.Item == item) // Нашли ячейку, в котором лежит интересующий нас предмет.
+                    if (cell.Item == item)
                     {
-                        if (!cell.IsFull) // Если ячейка не переполнена.
+                        if (!cell.IsFull)
                         {
                             cell.Add(item);
-                            if (cell.IsFull) _indexOfFreeCell++;
-                            return true; // Удалось увеличить количество.
+                            return true;
                         }
                     }
                 }
             }
         }
-        // Если дошли до сюда, значит нам не удалось поместить предмет в имеющуюся ячейку (либо предмет не стакается, либо такого предмета нет в инвентаре, либо ячейка с ним переполнена).
         return false;
     }
 
-    void IAddRemove.Remove(Item item)
+    public void Remove(Item item)
     {
-        if (_indexOfFreeCell != 0) // Указатель указывает не на 0, значит в инвентаре что-то есть.
+        if (_items.Contains(item))
         {
-            if (_itemsDictionary.ContainsKey(item)) // В какой-то ячейке есть интересующий предмет.
+            foreach (CellInventory cell in _cells)
             {
-                int indexOfCell;
-                _itemsDictionary.TryGetValue(item, out indexOfCell);
-                _cells[_indexOfFreeCell].Remove(item);
-                //_itemsDictionary.
-                //int[] mas = new int[8];
-                //mas.
+                if (cell.Item == item)
+                {
+                    cell.Subtract();
+                    if (cell.IsEmpty) _items.Remove(item);
+                }
             }
         }
-        //if (_indexOfFreeCell == 0) // Инвентарь пуст. (Ну либо логика указателя прописана неверно).
-        //{
-        //    Debug.LogWarning("Inventory is empty! Nothing to remove.");
-        //    return;
-        //}
-        ////else if (!_items.Contains(item))
-        ////{
-        ////    Debug.LogWarning("There are no this type of item in Inventory!");
-        ////}
-
-        ////else
-        ////{
-        ////    // Так ну надо найти где вообще этот предмет лежит. Ну вернее если так посмотреть, то не конкретно этот предмет, а такой тип предмета.
-
-        ////    // А может добавить что-то типа словаря, чтобы каждый раз foreach не запускать?
-        ////    // То есть в качестве ключа у нас будет индекс ячейки, а в качестве значения тип предмета в этой ячейке.
-        ////    _itemsDictionary.ContainsValue(item);
-        ////}
     }
 }
