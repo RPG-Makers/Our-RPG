@@ -6,5 +6,5 @@ public abstract class Enemy : MonoBehaviour
 {
     protected EnemyData _enemyData;
     protected abstract void Attack();
-    protected abstract void DropLoot(); // Probably don't need. Because the death are in the Health script.
+    //protected abstract void DropLoot(); // Probably don't need. Because the death are in the Health script.
 }

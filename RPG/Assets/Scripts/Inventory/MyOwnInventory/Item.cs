@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class Item : MonoBehaviour, IITEM
@@ -11,9 +9,9 @@ public abstract class Item : MonoBehaviour, IITEM
     [SerializeField] private int _price;
     [SerializeField] private Sprite _sprite;
     [SerializeField] private bool _stackable;
-    public bool Stackable => _stackable;
     public string Name => _name;
     public Sprite Sprite => _sprite;
+    public bool Stackable => _stackable;
 
     public Action OnCellInventoryClicked;
 
