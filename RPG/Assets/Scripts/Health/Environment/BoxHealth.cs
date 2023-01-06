@@ -1,12 +1,14 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class BoxHealth : Health
 {
+    public static Action Died;
     protected override void Death()
     {
-        playerStatistics.NumberOfDestroyedBoxes++;
+        Died.Invoke();
         Debug.Log("Box did something after death.");
     }
 }

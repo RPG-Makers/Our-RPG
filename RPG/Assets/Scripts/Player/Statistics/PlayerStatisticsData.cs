@@ -5,25 +5,32 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "PlayerStatistics", menuName = "Create PlayerStatistics")]
 public class PlayerStatisticsData : ScriptableObject
 {
-    private PlayerQuest _playerQuest;
+    //private PlayerQuest _playerQuest;
     private void OnEnable()
     {
-        SkeletonHealth.Dead += IncreaseNumberOfKilledSkeletons;
+        SkeletonHealth.Died += IncreaseNumberOfKilledSkeletons;
+        BoxHealth.Died += IncreaseNumberOfDestroyedBoxes;
     }
+
     private void OnDisable()
     {
-        SkeletonHealth.Dead -= IncreaseNumberOfKilledSkeletons;
+        SkeletonHealth.Died -= IncreaseNumberOfKilledSkeletons;
+        BoxHealth.Died -= IncreaseNumberOfDestroyedBoxes;
     }
 
     [Header("Enemies")]
-    public int numberOfKilledSkeletons;
+    public int NumberOfKilledSkeletons;
     private void IncreaseNumberOfKilledSkeletons()
     {
-        numberOfKilledSkeletons++;
+        NumberOfKilledSkeletons++;
     }
-    public int NumberOfKilledEnemies => numberOfKilledSkeletons; // Add other enemies.
+    public int NumberOfKilledEnemies => NumberOfKilledSkeletons; // + other enemies
 
 
     [Header("Environment")]
     public int NumberOfDestroyedBoxes;
+    private void IncreaseNumberOfDestroyedBoxes()
+    {
+        NumberOfDestroyedBoxes++;
+    }
 }

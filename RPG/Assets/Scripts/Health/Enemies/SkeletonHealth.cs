@@ -5,10 +5,10 @@ using UnityEngine;
 
 public class SkeletonHealth : EnemyHealth
 {
-    public static Action Dead;
+    public static Action Died;
     protected override void Death()
     {
-        Dead.Invoke();
+        Died.Invoke();
         Debug.Log("Skeleton did something after death.");
     }
 }
