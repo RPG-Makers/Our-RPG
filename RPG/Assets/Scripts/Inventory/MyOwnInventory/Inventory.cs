@@ -1,20 +1,22 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Inventory
 {
-    [SerializeField] private int _length;
+    public CellInventory[] Cells => _cells;
 
     private CellInventory[] _cells;
     private List<Item> _items; // Item types, that we already have in inventory.
+    //private int _length; // Maybe [SerializeField]?
 
-    public Inventory()
+    public Inventory(int length)
     {
-        if (_length <= 0) Debug.LogError("Wrong length of Inventory!");
+        if (length <= 0) Debug.LogError("Wrong length of Inventory!");
         else
         {
-            _cells = new CellInventory[_length];
+            _cells = new CellInventory[length];
             _items = new List<Item>();
         }
     }
@@ -28,22 +30,6 @@ public class Inventory
         }
         _items.Add(item);
         return true;
-    }
-
-    /// <summary>
-    /// Trying to find free cell in inventory and put an Item there.
-    /// </summary>
-    private bool TryPut(Item item)
-    {
-        foreach (var cell in _cells)
-        {
-            if (cell.Item == null)
-            {
-                cell.Add(item);
-                return true;
-            }
-        }
-        return false;
     }
 
     /// <summary>
@@ -66,6 +52,22 @@ public class Inventory
                         }
                     }
                 }
+            }
+        }
+        return false;
+    }
+
+    /// <summary>
+    /// Trying to find free cell in inventory and put an Item there.
+    /// </summary>
+    private bool TryPut(Item item)
+    {
+        foreach (var cell in _cells)
+        {
+            if (cell.Item == null)
+            {
+                cell.Add(item);
+                return true;
             }
         }
         return false;

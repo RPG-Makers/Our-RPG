@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Runtime.Remoting.Messaging;
 using UnityEngine;
 
-public class CellInventory
+public class CellInventory : Component
 {
     public Item Item => _item;
     public bool IsFull => _currentAmount == _maxAmount;
     public bool IsEmpty => _currentAmount == 0;
+    public int CurrentAmount => _currentAmount;
 
     private Item _item;
     private int _currentAmount;
