@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(SkeletonHealth))]
-public class Skeleton : Enemy
+public class Skeleton : WarriorEnemy
 {
     protected override void Attack()
     {

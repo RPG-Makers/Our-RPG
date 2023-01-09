@@ -5,11 +5,11 @@ using UnityEngine;
 
 public abstract class WeaponData : ScriptableObject
 {
-    [SerializeField] public string Name;
-    [SerializeField] public int Damage;
-    [SerializeField] public float Reloading;
-    [SerializeField] public int Durability;
-    [SerializeField] public int DefaultPrice;
+    public string Name;
+    public int Damage;
+    public float Reloading;
+    public int Durability;
+    public int DefaultPrice;
     //[SerializeField] public weaponType Type;
     //public enum weaponType
     //{
