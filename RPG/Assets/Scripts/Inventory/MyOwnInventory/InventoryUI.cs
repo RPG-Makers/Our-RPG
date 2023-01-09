@@ -26,7 +26,7 @@ public class InventoryUI : MonoBehaviour
         int index = 0;
         foreach (CellInventory cell in _inventory.Cells)
         {
-            _cellSample.GetComponentInChildren<SpriteRenderer>().sprite = cell.Item.Sprite;
+            _cellSample.GetComponentInChildren<SpriteRenderer>().sprite = cell.Item.ItemData.Sprite;
             _cellSample.GetComponentInChildren<TextMeshProUGUI>().text = cell.CurrentAmount.ToString();
             cellsUI[index] = _cellSample;
             Debug.Log("—генерирован " + index);

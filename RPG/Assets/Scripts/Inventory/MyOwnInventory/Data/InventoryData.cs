@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "InventoryData", menuName = "Create new InventoryData")]
+[CreateAssetMenu(fileName = "InventoryData", menuName = "Inventory/InventoryData")]
 public class InventoryData : ScriptableObject
 {
-    public GameObject template;
     public CellInventory[] cells;
     private void Awake()
     {

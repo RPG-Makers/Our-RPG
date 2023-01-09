@@ -28,7 +28,7 @@ public class CellInventory : Component
     private void Init(Item item)
     {
         _item = item;
-        _maxAmount = item.MaxAmount;
+        _maxAmount = item.ItemData.MaxAmount;
     }
 
     private void DeInit()

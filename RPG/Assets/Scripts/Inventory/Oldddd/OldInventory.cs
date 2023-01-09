@@ -52,8 +52,8 @@ public class OldInventory : MonoBehaviour
             var itemIcon = obj.transform.Find("ItemIcon").GetComponent<Image>();
             var removeButton = obj.transform.Find("RemoveButton").GetComponent<Button>();
 
-            itemName.text = item.Name; //проставляем название предметов и иконки
-            itemIcon.sprite = item.Sprite;
+            ////////////itemName.text = item.Name; //проставляем название предметов и иконки
+            ////////////itemIcon.sprite = item.Sprite;
 
             if (EnableRemove.isOn) //проверяем тоггл удаления предметов из инвентаря
             {

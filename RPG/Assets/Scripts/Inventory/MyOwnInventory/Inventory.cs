@@ -3,13 +3,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Inventory
+public class Inventory : MonoBehaviour // Возможно, в этом скрипте имеет смысл использовать не Item, а ItemData.
 {
     public CellInventory[] Cells => _cells;
 
     private CellInventory[] _cells;
     private List<Item> _items; // Item types, that we already have in inventory.
     //private int _length; // Maybe [SerializeField]?
+
+
+
+    
+    private void OnEnable()
+    {
+        Item.OnTake += TryAdd;
+    }
+
+    private void OnDisable()
+    {
+        Item.OnTake -= TryAdd;
+    }
+
+
+
+
+
+
 
     public Inventory(int length)
     {
@@ -23,12 +42,15 @@ public class Inventory
 
     public bool TryAdd(Item item)
     {
+        Debug.Log("In TryAdd");
         if (!TryChangeAmount(item) && !TryPut(item))
         {
             Debug.LogWarning("There are no space for this item!");
             return false;
         }
         _items.Add(item);
+        Destroy(item);
+        Debug.Log("Предмет уничтожен");
         return true;
     }
 
@@ -37,7 +59,7 @@ public class Inventory
     /// </summary>
     private bool TryChangeAmount(Item item)
     {
-        if (item.Stackable)
+        if (item.ItemData.Stackable)
         {
             if (_items.Contains(item))
             {

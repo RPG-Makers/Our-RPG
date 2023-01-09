@@ -8,6 +8,7 @@ public class HorseRiding : MonoBehaviour
     [SerializeField] private Button dismountHorse;
 
     // Bug!!! When you are staying so close to several horses and click "Ride", both horses are coming.
+    // Now speed is not increasing. We can realize it by deactivaeting PlayerMovement.cs and enabling HorseMovement.cs. Or just increase variable "speed" in PlayerMovement.cs, but it is not good.
 
     public void RideHorse()
     {
