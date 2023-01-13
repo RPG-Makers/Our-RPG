@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class WarriorEnemy : Enemy
+public interface IArcher
 {
-    //private WeaponSword _swordData;
+    BowData BowData { get; set; }
+    void RangeAttack();
 }
