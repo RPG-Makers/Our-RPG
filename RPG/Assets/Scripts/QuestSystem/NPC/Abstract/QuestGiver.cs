@@ -24,7 +24,7 @@ public abstract class QuestGiver : MonoBehaviour
             {
                 GiveQuest(collision.gameObject);
             }
-            else if (givedQuest && _quest.Completed)
+            else if (givedQuest && _quest.QuestData.Completed)
             {
                 Debug.Log("Thank you!");
             }
