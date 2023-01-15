@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Skeleton))]
+[RequireComponent(typeof(ISkeleton))]
 public class SkeletonHealth : EnemyHealth
 {
     public static Action Died;
