@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using System.Runtime.Remoting.Messaging;
 using UnityEngine;
 
-public class CellInventory : Component
+public class CellInventory
 {
     public Item Item => _item;
+
     public bool IsFull => _currentAmount == _maxAmount;
     public bool IsEmpty => _currentAmount == 0;
     public int CurrentAmount => _currentAmount;
@@ -20,9 +21,9 @@ public class CellInventory : Component
         if (_currentAmount == 0)
         {
             Init(item); // Initializing values if cell is empty.
-            _currentAmount++;
         }
         _currentAmount++;
+        //Debug.Log("Добавили");
     }
 
     private void Init(Item item)

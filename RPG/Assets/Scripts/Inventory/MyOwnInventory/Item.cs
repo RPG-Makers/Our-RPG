@@ -6,7 +6,7 @@ using UnityEngine.UI;
 [RequireComponent(typeof(SpriteRenderer), typeof(Collider2D))]
 public abstract class Item : MonoBehaviour, IUsable
 {
-    private ItemData _itemData;
+    [SerializeField] private ItemData _itemData;
     public ItemData ItemData => _itemData;
     //[SerializeField] public int MaxAmount { get; private set; }
 
@@ -24,7 +24,7 @@ public abstract class Item : MonoBehaviour, IUsable
 
 
 
-    public delegate bool ItemHandler(Item item);
+    public delegate void ItemHandler(Item item, out bool added);
     public static event ItemHandler OnTake;
 
     private void OnMouseDown()
@@ -36,7 +36,12 @@ public abstract class Item : MonoBehaviour, IUsable
         {
             Debug.Log("Ща будем инвокать");
             // На сцене нет инвентаря, поэтому ошибка
-            OnTake.Invoke(this);
+            bool added;
+            OnTake.Invoke(this, out added);
+            if (added)
+            {
+                Destroy(gameObject);
+            }
             // Здесь нужно организовать общение "Предмет - Инвентарь".
             // Инвентарь узнаёт о том, что игрок попытался поднять какой-то предмет, и пытается добавить его (инвентарь пытается добавить предмет).
             // Далее инвентарь сообщает предмету о том, смог ли он добавить предмет. Если смог - уничтожаем Item, не смог - оставляем лежать дальше.

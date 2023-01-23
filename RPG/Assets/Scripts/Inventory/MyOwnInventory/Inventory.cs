@@ -1,25 +1,26 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class Inventory : MonoBehaviour // Возможно, в этом скрипте имеет смысл использовать не Item, а ItemData.
+public class Inventory // Возможно, в этом скрипте имеет смысл использовать не Item, а ItemData.
 {
     public CellInventory[] Cells => _cells;
 
     private CellInventory[] _cells;
-    private List<Item> _items; // Item types, that we already have in inventory.
+    private List<Item> _itemsTypes; // Item types, that we already have in inventory.
     //private int _length; // Maybe [SerializeField]?
 
 
 
     
-    private void OnEnable()
+    private void Init() // !!!!!!!!!!!!!!!!!!!!
     {
         Item.OnTake += TryAdd;
     }
 
-    private void OnDisable()
+    private void DeInit() // !!!!!!!!!!!!!!!!!!!!
     {
         Item.OnTake -= TryAdd;
     }
@@ -36,22 +37,34 @@ public class Inventory : MonoBehaviour // Возможно, в этом скрипте имеет смысл и
         else
         {
             _cells = new CellInventory[length];
-            _items = new List<Item>();
+
+            // Initialize _cells.
+            for (int i = 0; i < _cells.Length; i++)
+            {
+                _cells[i] = new CellInventory();
+            }
+
+            _itemsTypes = new List<Item>();
         }
+        Init(); // !!!!!!!!!!!!!!!!!!!!
     }
 
-    public bool TryAdd(Item item)
+    /// <summary>
+    /// Trying to add item in inventory.
+    /// </summary>
+    public void TryAdd(Item item, out bool added)
     {
-        Debug.Log("In TryAdd");
         if (!TryChangeAmount(item) && !TryPut(item))
         {
             Debug.LogWarning("There are no space for this item!");
-            return false;
+            added = false;
+            return;
         }
-        _items.Add(item);
-        Destroy(item);
-        Debug.Log("Предмет уничтожен");
-        return true;
+        _itemsTypes.Add(item);
+        // Deinit().!!!!!!!!!!!!!!!!!!!!!
+        //item.Destroy(); Удаление происходит в самом Item по результатам added = false или true.
+        //Debug.Log("Предмет добавлен");
+        added = true;
     }
 
     /// <summary>
@@ -61,7 +74,7 @@ public class Inventory : MonoBehaviour // Возможно, в этом скрипте имеет смысл и
     {
         if (item.ItemData.Stackable)
         {
-            if (_items.Contains(item))
+            if (_itemsTypes.Contains(item))
             {
                 foreach (CellInventory cell in _cells)
                 {
@@ -70,6 +83,7 @@ public class Inventory : MonoBehaviour // Возможно, в этом скрипте имеет смысл и
                         if (!cell.IsFull)
                         {
                             cell.Add(item);
+                            //Debug.Log("Changed amount.");
                             return true;
                         }
                     }
@@ -89,22 +103,27 @@ public class Inventory : MonoBehaviour // Возможно, в этом скрипте имеет смысл и
             if (cell.Item == null)
             {
                 cell.Add(item);
+                //Debug.Log("Added without changing amount.");
                 return true;
             }
         }
         return false;
     }
 
+    /// <summary>
+    /// Removes item from inventory.
+    /// </summary>
     public void Remove(Item item)
     {
-        if (_items.Contains(item))
+        if (_itemsTypes.Contains(item))
         {
             foreach (CellInventory cell in _cells)
             {
                 if (cell.Item == item)
                 {
                     cell.Subtract();
-                    if (cell.IsEmpty) _items.Remove(item);
+                    if (cell.IsEmpty) _itemsTypes.Remove(item);
+                    return;
                 }
             }
         }
