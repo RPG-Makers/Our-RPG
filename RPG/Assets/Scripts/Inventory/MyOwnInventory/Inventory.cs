@@ -1,33 +1,96 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class Inventory
+public class Inventory // Возможно, в этом скрипте имеет смысл использовать не Item, а ItemData.
 {
-    [SerializeField] private int _length;
+    public CellInventory[] Cells => _cells;
 
     private CellInventory[] _cells;
-    private List<Item> _items; // Item types, that we already have in inventory.
+    private List<Item> _itemsTypes; // Item types, that we already have in inventory.
+    //private int _length; // Maybe [SerializeField]?
 
-    public Inventory()
+
+
+    
+    private void Init() // !!!!!!!!!!!!!!!!!!!!
     {
-        if (_length <= 0) Debug.LogError("Wrong length of Inventory!");
-        else
-        {
-            _cells = new CellInventory[_length];
-            _items = new List<Item>();
-        }
+        Item.OnTake += TryAdd;
     }
 
-    public bool TryAdd(Item item)
+    private void DeInit() // !!!!!!!!!!!!!!!!!!!!
+    {
+        Item.OnTake -= TryAdd;
+    }
+
+
+
+
+
+
+
+    public Inventory(int length)
+    {
+        if (length <= 0) Debug.LogError("Wrong length of Inventory!");
+        else
+        {
+            _cells = new CellInventory[length];
+
+            // Initialize _cells.
+            for (int i = 0; i < _cells.Length; i++)
+            {
+                _cells[i] = new CellInventory();
+            }
+
+            _itemsTypes = new List<Item>();
+        }
+        Init(); // !!!!!!!!!!!!!!!!!!!!
+    }
+
+    /// <summary>
+    /// Trying to add item in inventory.
+    /// </summary>
+    public void TryAdd(Item item, out bool added)
     {
         if (!TryChangeAmount(item) && !TryPut(item))
         {
             Debug.LogWarning("There are no space for this item!");
-            return false;
+            added = false;
+            return;
         }
-        _items.Add(item);
-        return true;
+        _itemsTypes.Add(item);
+        // Deinit().!!!!!!!!!!!!!!!!!!!!!
+        //item.Destroy(); Удаление происходит в самом Item по результатам added = false или true.
+        //Debug.Log("Предмет добавлен");
+        added = true;
+    }
+
+    /// <summary>
+    /// Trying to change amount of item in existing cell instead of occupation of free cell.
+    /// </summary>
+    private bool TryChangeAmount(Item item)
+    {
+        if (item.ItemData.Stackable)
+        {
+            if (_itemsTypes.Contains(item))
+            {
+                foreach (CellInventory cell in _cells)
+                {
+                    if (cell.Item == item)
+                    {
+                        if (!cell.IsFull)
+                        {
+                            cell.Add(item);
+                            //Debug.Log("Changed amount.");
+                            return true;
+                        }
+                    }
+                }
+            }
+        }
+        return false;
     }
 
     /// <summary>
@@ -40,6 +103,7 @@ public class Inventory
             if (cell.Item == null)
             {
                 cell.Add(item);
+                //Debug.Log("Added without changing amount.");
                 return true;
             }
         }
@@ -47,40 +111,19 @@ public class Inventory
     }
 
     /// <summary>
-    /// Trying to change amount of item in existing cell instead of occupation of free cell.
+    /// Removes item from inventory.
     /// </summary>
-    private bool TryChangeAmount(Item item)
-    {
-        if (item.Stackable)
-        {
-            if (_items.Contains(item))
-            {
-                foreach (CellInventory cell in _cells)
-                {
-                    if (cell.Item == item)
-                    {
-                        if (!cell.IsFull)
-                        {
-                            cell.Add(item);
-                            return true;
-                        }
-                    }
-                }
-            }
-        }
-        return false;
-    }
-
     public void Remove(Item item)
     {
-        if (_items.Contains(item))
+        if (_itemsTypes.Contains(item))
         {
             foreach (CellInventory cell in _cells)
             {
                 if (cell.Item == item)
                 {
                     cell.Subtract();
-                    if (cell.IsEmpty) _items.Remove(item);
+                    if (cell.IsEmpty) _itemsTypes.Remove(item);
+                    return;
                 }
             }
         }

@@ -24,7 +24,7 @@ public class OldCellInventory : MonoBehaviour
 
     private void OnMouseDown()
     {
-        (_item as IITEM).Use();
+        (_item as IUsable).Use();
     }
 
     //public void UseItem() //клик на предмет в окне инвентаря, использование предметов

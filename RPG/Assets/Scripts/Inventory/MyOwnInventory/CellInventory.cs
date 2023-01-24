@@ -5,11 +5,11 @@ using UnityEngine;
 
 public class CellInventory
 {
-    // Наверное, здесь нужно ранить не список обьъектов, а один объект, который лежит в ячейке. Допустим, у нас лежит какой-то ингридиент, который может стакаться.
-    // Какой смысл хранить список этого предмета? По сути это ведь один и тот же предмет, который ничем не отличается. В итоге мы просто будет уменьшать имееющееся значение, пока можем.
     public Item Item => _item;
+
     public bool IsFull => _currentAmount == _maxAmount;
     public bool IsEmpty => _currentAmount == 0;
+    public int CurrentAmount => _currentAmount;
 
     private Item _item;
     private int _currentAmount;
@@ -21,21 +21,21 @@ public class CellInventory
         if (_currentAmount == 0)
         {
             Init(item); // Initializing values if cell is empty.
-            _currentAmount++;
         }
         _currentAmount++;
+        //Debug.Log("Добавили");
     }
 
     private void Init(Item item)
     {
         _item = item;
-        _maxAmount = item.MaxAmount;
+        _maxAmount = item.ItemData.MaxAmount;
     }
 
     private void DeInit()
     {
         _item = null;
-        _maxAmount = 0; // вот тут кстати у нас IsFull не будет проходить, потому что
+        _maxAmount = 1; // вот тут кстати у нас IsFull не будет проходить (при _maxAmount = 0), потому что
         // в начале current == max и мы никогда не зайдем ни в какую ячейку.
         // Скорее всего, если мы будем проверять, можем ли поместить предмет, в методе ячейки, то такой проблемы не будет. Но опять-таки, столько раз вызывать функцию обосраться дорого.
     }
@@ -55,8 +55,7 @@ public class CellInventory
             _currentAmount--;
             if (_currentAmount == 0) // Deinitializing values if cell is empty.
             {
-                _item = null;
-                _maxAmount = 0;
+                DeInit();
             }
         }
     }

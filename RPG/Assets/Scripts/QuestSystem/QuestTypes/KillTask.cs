@@ -10,7 +10,7 @@ public class KillTask : Task
     private int _currentAmount;
     private int _requiredAmount;
 
-    public KillTask(string name, string description, string typeOfEnemy, int amount) : base(name, description)
+    public KillTask(string name, string description, string typeOfEnemy, int amount) : base(name, description) // Probably not type, just nameOfEnemy.
     {
         _typeOfEnemy = typeOfEnemy;
         _currentAmount = 0;

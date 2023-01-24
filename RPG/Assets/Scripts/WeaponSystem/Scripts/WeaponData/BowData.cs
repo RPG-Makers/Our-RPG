@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "NewBow", menuName = "Create new bow")]
+[CreateAssetMenu(fileName = "BowData", menuName = "Weapon/Bow")]
 public class BowData : WeaponData
 {
-    [SerializeField] public GameObject arrow;
+    public GameObject arrow;
 }

@@ -1,23 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Quest
 {
-    private string _name;
-    private string _description;
-    public bool Completed { get; private set; }
-
-    private Task[] _tasks;
-    private int _amountOfCompletedTasks;
+    public QuestData QuestData { get; private set; }
 
     public Quest(string name, string description, Task[] tasks)
     {
-        _name = name;
-        _description = description;
-        _tasks = tasks;
-        _amountOfCompletedTasks = 0;
-        foreach (Task task in _tasks)
+        QuestData = ScriptableObject.CreateInstance<QuestData>(); // Сейчас это не сохраняется! В будущем как-либо изменить!
+        QuestData.Name = name;
+        QuestData.Description = description;
+        QuestData.Tasks = tasks;
+        QuestData.AmountOfCompletedTasks = 0;
+        foreach (Task task in QuestData.Tasks)
         {
             task.Completed += TaskCompleted;
         }
@@ -25,11 +22,11 @@ public class Quest
 
     private void TaskCompleted()
     {
-        _amountOfCompletedTasks++;
-        if (_amountOfCompletedTasks == _tasks.Length)
+        QuestData.AmountOfCompletedTasks++;
+        if (QuestData.AmountOfCompletedTasks == QuestData.Tasks.Length)
         {
-            Completed = true;
-            Debug.Log($"Quest {_name} completed");
+            QuestData.Completed = true;
+            Debug.Log($"Quest {QuestData.Name} completed");
         }
     }
 

@@ -5,15 +5,10 @@ using UnityEngine;
 
 public abstract class WeaponData : ScriptableObject
 {
-    [SerializeField] public string Name;
-    [SerializeField] public int Damage;
-    [SerializeField] public float Reloading;
-    [SerializeField] public int Durability;
-    [SerializeField] public int DefaultPrice;
-    //[SerializeField] public weaponType Type;
-    //public enum weaponType
-    //{
-    //    Sword,
-    //    Bow
-    //}
+    public string Name;
+    public int Damage;
+    public float Cooldown; // Кулдаун сам по себе не должен меняться, должна быть еще одна переменная.
+    public int Durability;
+    public float Distance; // Distance of attacking.
+    public int DefaultPrice;
 }
