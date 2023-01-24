@@ -5,11 +5,11 @@ using UnityEngine;
 
 public abstract class Weapon : MonoBehaviour
 {
-    [SerializeField] protected WeaponData weaponData;
     [SerializeField] protected Animator weaponAnimation;
-    [SerializeField] protected Transform spawnParent;
 
-    public WeaponData WeaponData => weaponData;
     public Animator WeaponAnimation => weaponAnimation;
     public abstract void Attack(LayerMask enemy);
+
+    //[SerializeField] protected WeaponData weaponData; // Удалено, чтобы в Sword можно было ставить только SwordData, а в Bow только BowData.
+    //public WeaponData WeaponData => weaponData;
 }

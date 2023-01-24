@@ -5,11 +5,13 @@ using UnityEngine;
 public class WeaponMechanics : MonoBehaviour
 {
     [SerializeField] private LayerMask enemyLayer;
-    private Weapon weapon;
+
+    [SerializeField] private Weapon weapon;
 
     private void Awake()
     {
-        weapon = transform.GetChild(1).gameObject.GetComponent<Weapon>(); // Attention!
+        //weapon = transform.GetChild(1).gameObject.GetComponent<Weapon>(); // Attention!
+        weapon = GetComponentInChildren<Weapon>();
     }
 
     private void Update()

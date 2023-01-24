@@ -3399,7 +3399,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &766823606
 Transform:
   m_ObjectHideFlags: 0
@@ -3499,9 +3499,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 735288c985b6dad468fc54ffe475b988, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponData: {fileID: 0}
   weaponAnimation: {fileID: 766823608}
-  spawnParent: {fileID: 0}
+  _swordData: {fileID: 0}
 --- !u!1 &817239811
 GameObject:
   m_ObjectHideFlags: 0
@@ -5121,7 +5120,7 @@ GameObject:
   - component: {fileID: 1051940754}
   - component: {fileID: 1051940756}
   - component: {fileID: 1051940753}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BoxWithLoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6363,9 +6362,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d6883f04a0655942b0b083e6719f1f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponData: {fileID: 11400000, guid: b9424ca4b4ec7db41a67cccc8c41bdf9, type: 2}
   weaponAnimation: {fileID: 1454522030}
-  spawnParent: {fileID: 0}
+  _bowData: {fileID: 11400000, guid: b9424ca4b4ec7db41a67cccc8c41bdf9, type: 2}
+  _spawnParent: {fileID: 1646555711}
 --- !u!114 &1458319667
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10924,6 +10923,7 @@ MonoBehaviour:
   enemyLayer:
     serializedVersion: 2
     m_Bits: 64
+  weapon: {fileID: 0}
 --- !u!95 &1877819767
 Animator:
   serializedVersion: 4
