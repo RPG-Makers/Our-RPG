@@ -9,6 +9,7 @@ public abstract class Health : MonoBehaviour, IDamageable
     protected abstract void Death();
     public void GetDamage(int damage)
     {
+        Debug.Log("Я получил дамаг");
         _health -= damage;
         if (_health <= 0)
         {

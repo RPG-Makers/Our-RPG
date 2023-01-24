@@ -9,13 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2baa99cff011cac498012d80fe0305f9, type: 3}
-  m_Name: NewBow
+  m_Script: {fileID: 11500000, guid: 9503ba03a355d364b877820766f2e8ec, type: 3}
+  m_Name: New Enemy
   m_EditorClassIdentifier: 
-  Name: some bow idk
+  EnemyName: Charli
+  Description: Cool boy (ll kil u)
+  EnemyModel: {fileID: 0}
+  Health: 20
+  Speed: 2
   Damage: 1
-  Cooldown: 1
-  Durability: 0
-  Distance: 1
-  DefaultPrice: 0
-  arrow: {fileID: 860411638883191374, guid: 4ec5cc91824dcbd40a179332add3ac94, type: 3}
+  DetectionDistance: 10
+  RunAwayDistance: 2
