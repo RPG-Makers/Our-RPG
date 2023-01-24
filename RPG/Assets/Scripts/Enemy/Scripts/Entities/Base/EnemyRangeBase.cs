@@ -13,7 +13,7 @@ public abstract class EnemyRangeBase : EnemyBase
         if (_target != null)
         {
             float distance = Vector3.Distance(this.transform.position, _target.transform.position);
-            if (distance <= _runAwayDistance)
+            if (distance <= _enemyData.RunAwayDistance)
             {
                 RunAway(); // Or take sword and attack.
             }
@@ -24,7 +24,7 @@ public abstract class EnemyRangeBase : EnemyBase
             }
             else
             {
-                this.transform.position = Vector3.MoveTowards(this.transform.position, _target.transform.position, _someSpeed);
+                this.transform.position = Vector3.MoveTowards(this.transform.position, _target.transform.position, _enemyData.Speed);
             }
         }
     }

@@ -7,13 +7,8 @@ public abstract class WeaponData : ScriptableObject
 {
     public string Name;
     public int Damage;
-    public float Reloading;
+    public float Cooldown;
     public int Durability;
+    public float Distance; // Distance of attacking.
     public int DefaultPrice;
-    //[SerializeField] public weaponType Type;
-    //public enum weaponType
-    //{
-    //    Sword,
-    //    Bow
-    //}
 }

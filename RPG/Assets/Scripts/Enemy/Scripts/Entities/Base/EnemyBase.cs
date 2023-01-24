@@ -10,23 +10,16 @@ using static UnityEngine.GraphicsBuffer;
 [RequireComponent (typeof(EnemyHealth))]
 public abstract class EnemyBase : MonoBehaviour
 {
-    private EnemyData _enemyData;
-    private WeaponData _weaponData;
-
-    private float _detectionDistance; // Дальность обнаружения игрока. Используется только для инициализации радиуса коллайдера. Дальше отрабатывает OnCollisionEnter/Exit.
-    protected float _runAwayDistance;
-    protected float _attackingDistance; // Возможно следует перенести отдельно в меч и лук. В общем подумать от чего зависит дальность, от врага или оружия (от оружия наверное???).
+    protected EnemyData _enemyData;
+    protected WeaponData _weaponData;
 
     private bool _isAttacking;
 
     protected GameObject _target;
 
-    protected float _someSpeed;
-
-
     private void Awake()
     {
-        GetComponent<BoxCollider2D>().edgeRadius = _detectionDistance;
+        GetComponent<BoxCollider2D>().edgeRadius = _enemyData.DetectionDistance;
         Debug.Log("Edge radius changed");
     }
 
