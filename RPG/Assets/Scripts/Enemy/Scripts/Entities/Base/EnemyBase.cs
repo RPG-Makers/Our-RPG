@@ -13,7 +13,7 @@ public abstract class EnemyBase : MonoBehaviour
     protected EnemyData _enemyData;
     protected WeaponData _weaponData;
 
-    private bool _isAttacking;
+    protected bool _isAttacking;
 
     protected GameObject _target;
 
@@ -23,8 +23,14 @@ public abstract class EnemyBase : MonoBehaviour
         Debug.Log("Edge radius changed");
     }
 
+    private void Update()
+    {
+        //_weaponData.Cooldown -= Time.deltaTime; // Оооочень спорный момент. Подумать как лучше реализовать охлаждение перезарядки.
+    }
+
     protected void RunAway() // Not completed.
     {
+        _isAttacking = false;
         // Будет прикольно сделать не просто уход назад по направлению толкания игрока, а выбрать какую-то рандомную точку сзади и пойти к ней (возможно, с увеличенной скоростью).
         Debug.Log("Enemy is running away.");
         //return false;
@@ -50,9 +56,7 @@ public abstract class EnemyBase : MonoBehaviour
         }
     }
 
-
-
-
+    //protected abstract void Attack(); // Instead of MeeleAttack() and RangeAttack().
 
     //protected abstract void DropLoot(); // Probably don't need. Because the death are in the Health script.
     //protected override void DropLoot() // or Death() or somethings like this..... // Already have death in SkeletonHealth.cs!

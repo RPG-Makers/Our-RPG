@@ -7,7 +7,7 @@ public abstract class WeaponData : ScriptableObject
 {
     public string Name;
     public int Damage;
-    public float Cooldown;
+    public float Cooldown; // Кулдаун сам по себе не должен меняться, должна быть еще одна переменная.
     public int Durability;
     public float Distance; // Distance of attacking.
     public int DefaultPrice;

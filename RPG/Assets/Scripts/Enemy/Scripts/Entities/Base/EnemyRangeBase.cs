@@ -31,6 +31,7 @@ public abstract class EnemyRangeBase : EnemyBase
 
     private void RangeAttack()
     {
+        _isAttacking = true;
         Debug.Log("Enemy is range attacking.");
     }
 }
