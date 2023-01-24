@@ -11,8 +11,15 @@ public abstract class EnemyMeeleBase : EnemyBase
         if (_target != null)
         {
             // Здесь проверить, если достаточно близко, то атаковать, иначе двигаться.
-
-            this.transform.position = Vector3.MoveTowards(this.transform.position, _target.transform.position, _someSpeed);
+            if (Vector3.Distance(this.transform.position, _target.transform.position) <= _attackingDistance)
+            {
+                // здесь проверить задержку атаки.
+                MeeleAttack();
+            }
+            else
+            {
+                this.transform.position = Vector3.MoveTowards(this.transform.position, _target.transform.position, _someSpeed);
+            }
         }
     }
 

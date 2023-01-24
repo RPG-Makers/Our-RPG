@@ -15,6 +15,7 @@ public abstract class EnemyBase : MonoBehaviour
 
     private float _detectionDistance; // Дальность обнаружения игрока. Используется только для инициализации радиуса коллайдера. Дальше отрабатывает OnCollisionEnter/Exit.
     protected float _runAwayDistance;
+    protected float _attackingDistance; // Возможно следует перенести отдельно в меч и лук. В общем подумать от чего зависит дальность, от врага или оружия (от оружия наверное???).
 
     private bool _isAttacking;
 

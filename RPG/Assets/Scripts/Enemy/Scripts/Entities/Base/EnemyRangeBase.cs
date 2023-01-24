@@ -6,7 +6,7 @@ using static UnityEngine.GraphicsBuffer;
 public abstract class EnemyRangeBase : EnemyBase
 {
     private BowData BowData { get; set; }
-    private int _distanceBow; // Дальность атаки лука. В будущем перенести в скрипт лука.
+    private int _distanceBow; // Дальность атаки лука. В будущем перенести в скрипт лука. // Также в базовом классе есть _attackingDistance.
 
     private void Update()
     {
@@ -19,6 +19,7 @@ public abstract class EnemyRangeBase : EnemyBase
             }
             else if (distance <= _distanceBow)
             {
+                // здесь проверить задержку атаки.
                 RangeAttack();
             }
             else
