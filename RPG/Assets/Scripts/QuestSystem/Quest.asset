@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b8282633d713b844b889625ee2e8b87, type: 3}
   m_Name: Quest
   m_EditorClassIdentifier: 
-  Name: 
-  Description: 
+  Name: someName
+  Description: hello
   Completed: 0
   AmountOfCompletedTasks: 0
