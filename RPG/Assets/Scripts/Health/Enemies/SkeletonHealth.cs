@@ -6,10 +6,9 @@ using UnityEngine;
 [RequireComponent(typeof(ISkeleton))]
 public class SkeletonHealth : EnemyHealth
 {
-    public static Action Died;
     protected override void Death()
     {
-        Died.Invoke();
+        base.Death();
         Debug.Log("Skeleton did something after death.");
     }
 }

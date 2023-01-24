@@ -18,5 +18,5 @@ MonoBehaviour:
   Health: 20
   Speed: 2
   Damage: 1
-  DetectionDistance: 10
+  DetectionDistance: 1
   RunAwayDistance: 2

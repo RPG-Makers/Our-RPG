@@ -19,7 +19,7 @@ public class KillTask : Task
         {
             case "Skeleton":
                 //Debug.Log("Так. Где-то сдох скелетон.");
-                SkeletonHealth.Died += IncreaseCurrentAmount;
+                ////////////////SkeletonHealth.Died += IncreaseCurrentAmount;
                 break;
             default:
                 Debug.LogWarning("Uknown enemy type");
