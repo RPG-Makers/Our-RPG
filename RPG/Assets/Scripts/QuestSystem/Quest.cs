@@ -5,16 +5,33 @@ using UnityEngine;
 
 public class Quest
 {
-    public QuestData QuestData { get; private set; }
+    public QuestData QuestData => _questData; // Здесь есть косяк, если мы получаем QuestData, то можем лезть дальше и менять все поля этого свойства. Очень желательно добиться того, чтобы дальше нельзя было лезть. То есть при доступе к QuestData нельзя было дальше обращаться к QuestData.Name, QuestData.Description и так далее.
+    [SerializeField] private QuestData _questData; // Здесь подумать, нужен ли атрибут [SerializeField].
 
     public Quest(string name, string description, Task[] tasks)
     {
-        QuestData = ScriptableObject.CreateInstance<QuestData>(); // Сейчас это не сохраняется! В будущем как-либо изменить!
-        QuestData.Name = name;
-        QuestData.Description = description;
-        QuestData.Tasks = tasks;
-        QuestData.AmountOfCompletedTasks = 0;
-        foreach (Task task in QuestData.Tasks)
+        _questData = ScriptableObject.CreateInstance<QuestData>(); // Сейчас это не сохраняется! В будущем как-либо изменить!
+        _questData.Name = name;
+        Debug.Log(QuestData.Name);
+        _questData.Description = description;
+        //QuestData.Tasks = tasks; Пришлось заводить отдельную переменную под каждый тип Task с целью сериализации.
+        foreach (var task in tasks)
+        {
+            if (task is KillTask)
+            {
+                _questData.KillTasks.Add(task as KillTask);
+            }
+            else if (task is GoTask)
+            {
+                _questData.GoTasks.Add(task as GoTask);
+            }
+            else
+            {
+                Debug.LogWarning("Undefined type of task!");
+            }
+        }
+        _questData.AmountOfCompletedTasks = 0;
+        foreach (Task task in _questData.Tasks)
         {
             task.Completed += TaskCompleted;
         }
@@ -22,11 +39,11 @@ public class Quest
 
     private void TaskCompleted()
     {
-        QuestData.AmountOfCompletedTasks++;
-        if (QuestData.AmountOfCompletedTasks == QuestData.Tasks.Length)
+        _questData.AmountOfCompletedTasks++;
+        if (_questData.AmountOfCompletedTasks == _questData.AmountOfTasks)
         {
-            QuestData.Completed = true;
-            Debug.Log($"Quest {QuestData.Name} completed");
+            _questData.Completed = true;
+            Debug.Log($"Quest {_questData.Name} completed");
         }
     }
 

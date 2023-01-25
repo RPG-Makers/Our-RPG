@@ -1,14 +1,12 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Numerics;
 using UnityEngine;
 
+[Serializable]
 public class KillTask : Task
 {
-    private string _typeOfEnemy;
-    private int _currentAmount;
-    private int _requiredAmount;
+    [SerializeField] private string _typeOfEnemy;
+    [SerializeField] private int _currentAmount;
+    [SerializeField] private int _requiredAmount;
 
     public KillTask(string name, string description, string typeOfEnemy, int amount) : base(name, description) // Probably not type, just nameOfEnemy.
     {
