@@ -76,7 +76,7 @@ public class Inventory // Возможно, в этом скрипте имеет смысл использовать не I
             {
                 foreach (CellInventory cell in _cells)
                 {
-                    if (cell.Item == item)
+                    if (cell.ItemType == item.GetType())
                     {
                         if (!cell.IsFull)
                         {
@@ -98,7 +98,7 @@ public class Inventory // Возможно, в этом скрипте имеет смысл использовать не I
     {
         foreach (var cell in _cells)
         {
-            if (cell.Item == null)
+            if (cell.ItemType == null)
             {
                 cell.Add(item);
                 Debug.Log("Added without changing amount.");
@@ -117,7 +117,7 @@ public class Inventory // Возможно, в этом скрипте имеет смысл использовать не I
         {
             foreach (CellInventory cell in _cells)
             {
-                if (cell.Item == item)
+                if (cell.ItemType == item.GetType())
                 {
                     cell.Subtract();
                     if (cell.IsEmpty) _itemsTypes.Remove(item);

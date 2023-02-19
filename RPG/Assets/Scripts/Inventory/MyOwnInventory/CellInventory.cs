@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.Remoting.Messaging;
@@ -6,13 +7,15 @@ using UnityEngine;
 public class CellInventory
 {
     #region API
-    public Item Item => _item;
-    public bool IsFull => _currentAmount == _maxAmount;
-    public bool IsEmpty => _item == null; // or _currentAmount == 0?
+    public Type ItemType => _itemType;
+    public ItemData ItemData => _itemData;
+    public bool IsEmpty => _itemType == null; // or _currentAmount == 0?
     public int CurrentAmount => _currentAmount;
+    public bool IsFull => _currentAmount == _maxAmount;
     #endregion
 
-    private Item _item;
+    private Type _itemType;
+    private ItemData _itemData; // Возможно, плохая практика хранить это. Приходится хранить это, т.к. оригинальный Item (который подобрали) уничтожаем, и соотвественно уничтожаем все его данные.
     private int _currentAmount;
     private int _maxAmount = 1; // If we will set 0 by start, IsFull will not allow Inventory.cs put an item.
 
@@ -29,14 +32,17 @@ public class CellInventory
 
     private void Init(Item item)
     {
-        _item = item; // Так как после поднятия мы уничтожаем предмет, то значение item становится null, соответственно и _item становится null.
-        // Поэтому возникает ошибка. Нужно заменить _item на _itemType.
+        _itemType = item.GetType(); // Так как после поднятия мы уничтожаем предмет, то значение item становится null, соответственно и _item становится null.
+        _itemData = item.ItemData;
+        // Поэтому возникает ошибка. Нужно заменить _item на _itemType. UPD: Заменено.
         _maxAmount = item.ItemData.MaxAmount;
     }
 
     private void DeInit()
     {
-        _item = null;
+        _itemType = null;
+        _itemData = null;
+        //_currentAmount = 0; Нужно ли?
         _maxAmount = 1; // вот тут кстати у нас IsFull не будет проходить (при _maxAmount = 0), потому что
         // в начале current == max и мы никогда не зайдем ни в какую ячейку.
         // Скорее всего, если мы будем проверять, можем ли поместить предмет, в методе ячейки, то такой проблемы не будет. Но опять-таки, столько раз вызывать функцию обосраться дорого.

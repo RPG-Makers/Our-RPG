@@ -44,8 +44,8 @@ public abstract class Item : MonoBehaviour, IUsable
             OnTake.Invoke(this, out added);
             if (added)
             {
-                transform.localScale = new Vector3(1, 1, 1);
-                //Destroy(gameObject);
+                //transform.localScale = new Vector3(1, 1, 1);
+                Destroy(gameObject);
                 return;
             }
             Debug.LogWarning("Не удалось добавить предмет");
