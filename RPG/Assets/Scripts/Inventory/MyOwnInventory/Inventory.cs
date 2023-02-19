@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,12 +7,12 @@ public class Inventory // Возможно, в этом скрипте имеет смысл использовать не I
     public CellInventory[] Cells => _cells;
 
     private CellInventory[] _cells;
-    private List<Item> _itemsTypes; // Item types, that we already have in inventory.
-    //private int _length; // Maybe [SerializeField]?
+    private List<Type> _itemsTypes; // Item types, that we already have in inventory.
+                                    //private int _length; // Maybe [SerializeField]?
 
 
 
-    
+
     private void Init() // !!!!!!!!!!!!!!!!!!!!
     {
         Item.OnTake += TryAdd;
@@ -42,7 +43,7 @@ public class Inventory // Возможно, в этом скрипте имеет смысл использовать не I
                 _cells[i] = new CellInventory();
             }
 
-            _itemsTypes = new List<Item>();
+            _itemsTypes = new List<Type>();
         }
         Init(); // !!!!!!!!!!!!!!!!!!!!
     }
@@ -58,7 +59,7 @@ public class Inventory // Возможно, в этом скрипте имеет смысл использовать не I
             added = false;
             return;
         }
-        _itemsTypes.Add(item);
+        _itemsTypes.Add(item.GetType());
         // Deinit().!!!!!!!!!!!!!!!!!!!!!
         //item.Destroy(); Удаление происходит в самом Item по результатам added = false или true.
         //Debug.Log("Предмет добавлен");
@@ -72,7 +73,7 @@ public class Inventory // Возможно, в этом скрипте имеет смысл использовать не I
     {
         if (item.ItemData.Stackable)
         {
-            if (_itemsTypes.Contains(item))
+            if (_itemsTypes.Contains(item.GetType()))
             {
                 foreach (CellInventory cell in _cells)
                 {
@@ -113,14 +114,14 @@ public class Inventory // Возможно, в этом скрипте имеет смысл использовать не I
     /// </summary>
     public void Remove(Item item)
     {
-        if (_itemsTypes.Contains(item))
+        if (_itemsTypes.Contains(item.GetType()))
         {
             foreach (CellInventory cell in _cells)
             {
                 if (cell.ItemType == item.GetType())
                 {
                     cell.Subtract();
-                    if (cell.IsEmpty) _itemsTypes.Remove(item);
+                    if (cell.IsEmpty) _itemsTypes.Remove(item.GetType());
                     return;
                 }
             }

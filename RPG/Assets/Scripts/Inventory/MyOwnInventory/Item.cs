@@ -33,6 +33,7 @@ public abstract class Item : MonoBehaviour, IUsable
             OnTake.Invoke(this, out added);
             if (added)
             {
+                //transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
                 Destroy(gameObject);
                 return;
             }
