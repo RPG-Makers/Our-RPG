@@ -11,7 +11,7 @@ public class InventoryUI : MonoBehaviour
 
     private void Awake()
     {
-        _inventory = new Inventory(2); // 4!
+        _inventory = new Inventory(9);
         gameObject.SetActive(false);
     }
 
