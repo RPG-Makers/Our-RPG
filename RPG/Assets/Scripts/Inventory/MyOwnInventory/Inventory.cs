@@ -1,7 +1,4 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Inventory // Возможно, в этом скрипте имеет смысл использовать не Item, а ItemData.
@@ -39,6 +36,7 @@ public class Inventory // Возможно, в этом скрипте имеет смысл использовать не I
             _cells = new CellInventory[length];
 
             // Initialize _cells.
+            // Возможно момент инициализации ячейки можно отложить до того момента, когда она понадобится.
             for (int i = 0; i < _cells.Length; i++)
             {
                 _cells[i] = new CellInventory();
@@ -52,7 +50,7 @@ public class Inventory // Возможно, в этом скрипте имеет смысл использовать не I
     /// <summary>
     /// Trying to add item in inventory.
     /// </summary>
-    public void TryAdd(Item item, out bool added)
+    private void TryAdd(Item item, out bool added)
     {
         if (!TryChangeAmount(item) && !TryPut(item))
         {
@@ -83,7 +81,7 @@ public class Inventory // Возможно, в этом скрипте имеет смысл использовать не I
                         if (!cell.IsFull)
                         {
                             cell.Add(item);
-                            //Debug.Log("Changed amount.");
+                            Debug.Log("Changed amount.");
                             return true;
                         }
                     }
@@ -103,7 +101,7 @@ public class Inventory // Возможно, в этом скрипте имеет смысл использовать не I
             if (cell.Item == null)
             {
                 cell.Add(item);
-                //Debug.Log("Added without changing amount.");
+                Debug.Log("Added without changing amount.");
                 return true;
             }
         }

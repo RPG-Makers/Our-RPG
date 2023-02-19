@@ -5,11 +5,12 @@ using UnityEngine;
 
 public class CellInventory
 {
+    #region API
     public Item Item => _item;
-
     public bool IsFull => _currentAmount == _maxAmount;
-    public bool IsEmpty => _currentAmount == 0;
+    public bool IsEmpty => _item == null; // or _currentAmount == 0?
     public int CurrentAmount => _currentAmount;
+    #endregion
 
     private Item _item;
     private int _currentAmount;
@@ -23,12 +24,13 @@ public class CellInventory
             Init(item); // Initializing values if cell is empty.
         }
         _currentAmount++;
-        //Debug.Log("Добавили");
+        Debug.Log("Добавили");
     }
 
     private void Init(Item item)
     {
-        _item = item;
+        _item = item; // Так как после поднятия мы уничтожаем предмет, то значение item становится null, соответственно и _item становится null.
+        // Поэтому возникает ошибка. Нужно заменить _item на _itemType.
         _maxAmount = item.ItemData.MaxAmount;
     }
 
