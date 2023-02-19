@@ -22,6 +22,7 @@ public class InventoryUI : MonoBehaviour
 
     public void InstantiateInventoryUI()
     {
+        Clear();
         // Вообще здесь надо продумать. Будем ли мы пересоздавать UI при каждом открытии, или же будем менять UI при каждом подборе предмета.
         #region Test Area
         //[SerializeField] private GameObject[] _itemsPrefabs;
@@ -39,24 +40,28 @@ public class InventoryUI : MonoBehaviour
 
         foreach (CellInventory cell in _inventory.Cells)
         {
-            if (cell.IsEmpty)
-            {
-                Debug.Log("Пусто");
-                continue;
-            }
-            else
-            {
-                Debug.Log("Не пусто");
-            }
-            //if (cell.IsEmpty) continue;
+            if (cell.IsEmpty) continue;
 
             _cellSample.GetComponentInChildren<Image>().sprite = cell.ItemData.Sprite;
             _cellSample.GetComponentInChildren<TextMeshProUGUI>().text = Convert.ToString(cell.CurrentAmount);
 
             Instantiate(_cellSample, this.transform);
-            Debug.Log("Instantiated");
+            //Debug.Log("Instantiated");
         }
         _cellSample.GetComponentInChildren<TextMeshProUGUI>().text = "8"; // What is it?
+    }
+
+    /// <summary>
+    /// Clears all inventory UI.
+    /// </summary>
+    private void Clear()
+    {
+        Transform[] children = GetComponentsInChildren<Transform>();
+        // Starting from 1 because 1st children is a CellSample.
+        for (int i = 1; i < children.Length; i++)
+        {
+            Destroy(children[i].gameObject);
+        }
     }
 
     //public void GenerateInventoryUI()
