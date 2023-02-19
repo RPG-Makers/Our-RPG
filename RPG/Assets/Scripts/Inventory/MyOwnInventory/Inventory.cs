@@ -81,7 +81,7 @@ public class Inventory // Возможно, в этом скрипте имеет смысл использовать не I
                         if (!cell.IsFull)
                         {
                             cell.Add(item);
-                            Debug.Log("Changed amount.");
+                            //Debug.Log("Changed amount.");
                             return true;
                         }
                     }
@@ -101,7 +101,7 @@ public class Inventory // Возможно, в этом скрипте имеет смысл использовать не I
             if (cell.ItemType == null)
             {
                 cell.Add(item);
-                Debug.Log("Added without changing amount.");
+                //Debug.Log("Added without changing amount.");
                 return true;
             }
         }

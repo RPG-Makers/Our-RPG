@@ -27,7 +27,7 @@ public class CellInventory
             Init(item); // Initializing values if cell is empty.
         }
         _currentAmount++;
-        Debug.Log("Добавили");
+        //Debug.Log("Добавили");
     }
 
     private void Init(Item item)
