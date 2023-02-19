@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3321403436655675718}
   - component: {fileID: 3321403436655675716}
   - component: {fileID: 3321403436655675714}
-  - component: {fileID: 3321403436655675715}
+  - component: {fileID: -1655031930711670391}
   m_Layer: 0
   m_Name: Cyborg
   m_TagString: Untagged
@@ -112,7 +112,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.32, y: 0.32}
   m_EdgeRadius: 0
---- !u!114 &3321403436655675715
+--- !u!114 &-1655031930711670391
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -121,7 +121,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3321403436655675720}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c8b3bf2d127dc742994a25a634d37fe, type: 3}
+  m_Script: {fileID: 11500000, guid: dd327e3ea1ac53548ac15b73e824572c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _itemData: {fileID: 11400000, guid: f829c7b96a585fd43825221e79938f3a, type: 2}
