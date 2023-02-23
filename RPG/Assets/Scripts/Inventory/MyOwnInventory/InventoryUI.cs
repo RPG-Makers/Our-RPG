@@ -47,7 +47,7 @@ public class InventoryUI : MonoBehaviour
             _cellSample.GetComponentInChildren<TextMeshProUGUI>().text = Convert.ToString(cell.CurrentAmount);
 
             Instantiate(_cellSample, this.transform);
-            Debug.Log("Instantiated");
+            //Debug.Log("Instantiated");
         }
         _cellSample.GetComponentInChildren<TextMeshProUGUI>().text = "8"; // What is it?
     }

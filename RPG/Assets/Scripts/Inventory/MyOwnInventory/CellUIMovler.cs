@@ -10,4 +10,9 @@ public class CellUIMovler : MonoBehaviour
     {
         Debug.Log($"На меня нажали, во мне {GetComponentInChildren<TextMeshProUGUI>().text} предметов");
     }
+
+    public void Move()
+    {
+        transform.position = Input.mousePosition;
+    }
 }
