@@ -7,6 +7,8 @@ public class InventoryUI : MonoBehaviour
 {
     [SerializeField] private GameObject _cellSample;
 
+    public static Action InstantiateInventory;
+
     private Inventory _inventory;
 
     private void Awake()
@@ -39,15 +41,17 @@ public class InventoryUI : MonoBehaviour
 
         // ƒл€ каждой €чейки нужно получить следующую информацию: Sprite предмета, количество вещей в €чейке.
 
+        InstantiateInventory?.Invoke();
+
         foreach (CellInventory cell in _inventory.Cells)
         {
-            if (cell.IsEmpty) continue;
-
-            _cellSample.GetComponentInChildren<Image>().sprite = cell.ItemData.Sprite;
-            _cellSample.GetComponentInChildren<TextMeshProUGUI>().text = Convert.ToString(cell.CurrentAmount);
-
-            Instantiate(_cellSample, this.transform);
-            //Debug.Log("Instantiated");
+            if (!cell.IsEmpty)
+            {
+                _cellSample.GetComponentInChildren<Image>().sprite = cell.ItemData.Sprite;
+                _cellSample.GetComponentInChildren<TextMeshProUGUI>().text = Convert.ToString(cell.CurrentAmount);
+                Instantiate(_cellSample, this.transform);
+                //Debug.Log("Instantiated");
+            }
         }
         _cellSample.GetComponentInChildren<TextMeshProUGUI>().text = "8"; // What is it?
     }
