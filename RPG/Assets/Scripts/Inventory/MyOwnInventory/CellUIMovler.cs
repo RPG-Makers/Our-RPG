@@ -12,16 +12,22 @@ public class CellUIMovler : MonoBehaviour
 {
     [SerializeField] private Button _confirmation;
     [SerializeField] private GameObject _container;
-    private Collider2D _collider;
 
-    private void Awake()
-    {
-        _collider = GetComponent<Collider2D>();
-    }
+    private Vector3 _startPosition;
+
+    //private void Awake()
+    //{
+    //    _startPosition = this.transform.position;
+    //}
 
     public void Click()
     {
         //Debug.Log($"На меня нажали, во мне {GetComponentInChildren<TextMeshProUGUI>().text} предметов");
+    }
+
+    public void BeginDrag()
+    {
+        _startPosition = this.transform.position;
     }
 
     public void Drag()
@@ -39,6 +45,8 @@ public class CellUIMovler : MonoBehaviour
         // 2nd (a little bit difficult, but also simple, but not in 1 string) is use OverlapCollider(...).
 
         #region 1st
+        // private Collider2D _collider;
+        // _collider = GetComponent<Collider2D>();
         //List<Collider2D> colliders = new List<Collider2D>();
         //if (_collider.OverlapCollider(new ContactFilter2D().NoFilter(), colliders) > 0)
         //{
@@ -70,16 +78,16 @@ public class CellUIMovler : MonoBehaviour
         Collider2D col = Physics2D.OverlapPoint(Input.mousePosition);
         if (col == null)
         {
-            // Ну тогда вернём на прежнее место.
-            Debug.Log("null");
+            Instantiate(_confirmation, this.transform.parent.parent);
+
+            // Здесь в зависимости от выбора игрока нужно либо:
+            // 1) вернуть в исходную позицию this.transform.position = _startPosition;
+            // 2) удалить из инвентаря.
         }
         else
         {
-            Debug.Log("not null");
             this.transform.position = col.gameObject.transform.position;
             //Debug.Log($"New position is {col.gameObject.transform.position}.");
         }
     }
-
-
 }
