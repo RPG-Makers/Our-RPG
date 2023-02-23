@@ -127,4 +127,11 @@ public class Inventory // Возможно, в этом скрипте имеет смысл использовать не I
             }
         }
     }
+
+    private void SwapValuesOfCells(ref CellInventory firstCell, ref CellInventory secondCell)
+    {
+        CellInventory temp = firstCell;
+        firstCell = secondCell;
+        secondCell = temp;
+    }
 }
