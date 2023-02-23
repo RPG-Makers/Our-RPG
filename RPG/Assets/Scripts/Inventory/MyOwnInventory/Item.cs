@@ -50,10 +50,18 @@ public abstract class Item : MonoBehaviour, IUsable
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        bool added; // Only for test!!!!! Delete after.
         if (collision.gameObject.CompareTag("Player"))
         {
-            _takeable = true;
-            //Debug.Log("Можем подобрать");
+
+            OnTake.Invoke(this, out added); // Only for test!!!!! Delete after.
+            if (added) // Only for test!!!!! Delete after.
+            {
+                Destroy(gameObject); // Only for test!!!!! Delete after.
+            } // Only for test!!!!! Delete after.
+
+            //////_takeable = true; Restore
+            ////////Debug.Log("Можем подобрать"); Restore
         }
     }
 

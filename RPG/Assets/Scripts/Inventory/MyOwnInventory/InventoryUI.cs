@@ -19,6 +19,7 @@ public class InventoryUI : MonoBehaviour
     {
         //Debug.Log("Inventory enabled");
         InstantiateInventoryUI();
+        transform.GetChild(0).gameObject.SetActive(false); // Disable CellTemplate.
     }
 
     public void InstantiateInventoryUI()
@@ -47,7 +48,7 @@ public class InventoryUI : MonoBehaviour
             _cellSample.GetComponentInChildren<TextMeshProUGUI>().text = Convert.ToString(cell.CurrentAmount);
 
             Instantiate(_cellSample, this.transform);
-            //Debug.Log("Instantiated");
+            Debug.Log("Instantiated");
         }
         _cellSample.GetComponentInChildren<TextMeshProUGUI>().text = "8"; // What is it?
     }
@@ -55,11 +56,23 @@ public class InventoryUI : MonoBehaviour
     /// <summary>
     /// Clears all inventory UI.
     /// </summary>
-    private void Clear()
+    /// make private!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    public void Clear()
     {
         Transform[] children = GetComponentsInChildren<Transform>();
         // Starting from 1 because 1st children is a CellSample.
-        for (int i = 1; i < children.Length; i++)
+        // UPD: Starting from 5 to avoid deleting of CellTemplate.
+
+        // Здесь почему-то всё равно первая шаблонная ячейка удаляется.
+        // Так-то вроде нет смысла её хранить, потому что можно брать любую ячейку и на её основе делать новую. Донор всё равно потом перереспавнится.
+        // Но сверху возникнет баг в случае, когда мы подобрали что-то (и шаблонная ячейка удалилась), потом выбросили (инвентарь пуст) и снова подобрали.
+
+        // Т.к. GetComponentsInChildren лезет в глубину, то отрывает куски шаблона (детей). Надо сделать так, чтобы они оставались жить. Баг возникает при включении ещё до того, как что-то подобрали
+        // UPD: Пофикшено. Шаблонная ячейка не пропадает.
+        
+        // Теперь появился новый баг. Подобрали несколько предметов, включи инвентарь - всё ок. Отключили и включили ещё раз - на одну ячейку больше. !!!!!!!!!!!!!!!!!!!!!!!!!!
+        // Очень странная штука. При i = 4 удаляется текст у шаблона, а при i = 5 не удаляется первая обычная ячейка.
+        for (int i = 5; i < children.Length; i++)
         {
             Destroy(children[i].gameObject);
         }
