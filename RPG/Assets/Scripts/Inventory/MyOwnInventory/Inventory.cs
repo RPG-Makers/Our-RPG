@@ -129,9 +129,10 @@ public class Inventory // Возможно, в этом скрипте имеет смысл использовать не I
     }
 
     /// <summary>
-    /// Swaps the values of two CellInventory.
+    /// Swaps the values of two CellInventory by reference.
     /// </summary>
-    private void SwapValuesOfCells(ref CellInventory firstCell, ref CellInventory secondCell)
+    /// PUBLIC!!! Probably BadPractice.
+    public void SwapValuesOfCells(ref CellInventory firstCell, ref CellInventory secondCell)
     {
         CellInventory temp = firstCell;
         firstCell = secondCell;
@@ -139,9 +140,10 @@ public class Inventory // Возможно, в этом скрипте имеет смысл использовать не I
     }
 
     /// <summary>
-    /// Swaps the values of two CellInventory.
+    /// Swaps the values of two CellInventory by index.
     /// </summary>
-    private void SwapValuesOfCells(int firstIndex, int secondIndex)
+    /// PUBLIC!!! Probably BadPractice.
+    public void SwapValuesOfCells(int firstIndex, int secondIndex)
     {
         CellInventory temp = _cells[firstIndex];
         _cells[firstIndex] = _cells[secondIndex];

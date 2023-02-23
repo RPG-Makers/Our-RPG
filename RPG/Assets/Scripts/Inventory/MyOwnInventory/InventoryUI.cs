@@ -10,6 +10,7 @@ public class InventoryUI : MonoBehaviour
     public static Action InstantiateInventory;
 
     private Inventory _inventory;
+    public Inventory Inventory => _inventory; // Probably BadPractice.
 
     private void Awake()
     {
@@ -51,6 +52,10 @@ public class InventoryUI : MonoBehaviour
                 _cellSample.GetComponentInChildren<TextMeshProUGUI>().text = Convert.ToString(cell.CurrentAmount);
                 Instantiate(_cellSample, this.transform);
                 //Debug.Log("Instantiated");
+            }
+            else
+            {
+                Instantiate(new GameObject(String.Empty, typeof(RectTransform)), this.transform);
             }
         }
         _cellSample.GetComponentInChildren<TextMeshProUGUI>().text = "8"; // What is it?

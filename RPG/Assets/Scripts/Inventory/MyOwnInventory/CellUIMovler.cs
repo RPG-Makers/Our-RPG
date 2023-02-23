@@ -14,6 +14,7 @@ public class CellUIMovler : MonoBehaviour
     [SerializeField] private GameObject _container;
 
     private Vector3 _startPosition;
+    private int _startIndex;
 
     //private void Awake()
     //{
@@ -28,6 +29,7 @@ public class CellUIMovler : MonoBehaviour
     public void BeginDrag()
     {
         _startPosition = this.transform.position;
+        _startIndex = this.transform.GetSiblingIndex();
     }
 
     public void Drag()
@@ -35,6 +37,7 @@ public class CellUIMovler : MonoBehaviour
         transform.position = Input.mousePosition;
     }
 
+    //!!! А что, если мы перетащим на непустую ячейку???
     public void Drop()
     {
         // If collide with underlayer - set on the cell;
@@ -87,6 +90,9 @@ public class CellUIMovler : MonoBehaviour
         else
         {
             this.transform.position = col.gameObject.transform.position;
+
+            GetComponentInParent<InventoryUI>().Inventory.SwapValuesOfCells(_startIndex, col.transform.GetSiblingIndex()); // Probably BadPractice.
+
             //Debug.Log($"New position is {col.gameObject.transform.position}.");
         }
     }
