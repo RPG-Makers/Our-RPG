@@ -55,7 +55,9 @@ public class InventoryUI : MonoBehaviour
             }
             else
             {
-                Instantiate(new GameObject(String.Empty, typeof(RectTransform)), this.transform);
+                GameObject empty = new GameObject(string.Empty, typeof(RectTransform)); //Other way: Instantiate(new GameObject(string.Empty, typeof(RectTransform)), this.transform) Creates 2 GO instead of 1. It can be fixed by an Prefab, but I don't want to keep 1 more link in properties.
+                empty.transform.SetParent(this.transform);
+                //Debug.Log("Empty Instantiated");
             }
         }
         _cellSample.GetComponentInChildren<TextMeshProUGUI>().text = "8"; // What is it?
