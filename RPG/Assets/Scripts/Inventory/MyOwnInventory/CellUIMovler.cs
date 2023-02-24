@@ -77,8 +77,22 @@ public class CellUIMovler : MonoBehaviour
         //}
         //else Debug.Log("Nothing overlaped.");
         #endregion
+        //Collider2D col = Physics2D.OverlapPoint(Input.mousePosition);
+        List<Collider2D> results = new List<Collider2D>();
+        Collider2D col;
+        Physics2D.OverlapPoint(Input.mousePosition, new ContactFilter2D().NoFilter(), results);
+        Debug.Log($"Found {results.Count} colliders");
 
-        Collider2D col = Physics2D.OverlapPoint(Input.mousePosition);
+        if (results.Count > 2)
+        {
+            col = results[1];
+        }
+        else
+        {
+            col = results[1];
+        }
+
+
         if (col == null)
         {
             Instantiate(_confirmation, this.transform.parent.parent);
@@ -92,6 +106,14 @@ public class CellUIMovler : MonoBehaviour
             this.transform.position = col.gameObject.transform.position;
 
             GetComponentInParent<InventoryUI>().Inventory.SwapValuesOfCells(_startIndex, col.transform.GetSiblingIndex()); // Probably BadPractice.
+
+            // Также тут надо поменять местами GameObject'ы ячеек.
+
+            int temp = this.transform.GetSiblingIndex();
+            this.transform.SetSiblingIndex(col.transform.GetSiblingIndex());
+            //Debug.Log("temp is " + temp);
+            col.transform.SetSiblingIndex(temp);
+            //Debug.Log(col.transform.GetSiblingIndex());
 
             //Debug.Log($"New position is {col.gameObject.transform.position}.");
         }
