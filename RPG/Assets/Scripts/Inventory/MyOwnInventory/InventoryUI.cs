@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class InventoryUI : MonoBehaviour
 {
     [SerializeField] private GameObject _cellSample;
+    [SerializeField] private GameObject _emptyCell;
 
     public static Action InstantiateInventory;
 
@@ -55,8 +56,9 @@ public class InventoryUI : MonoBehaviour
             }
             else
             {
-                GameObject empty = new GameObject(string.Empty, typeof(RectTransform)); //Other way: Instantiate(new GameObject(string.Empty, typeof(RectTransform)), this.transform) Creates 2 GO instead of 1. It can be fixed by an Prefab, but I don't want to keep 1 more link in properties.
-                empty.transform.SetParent(this.transform);
+                Instantiate(_emptyCell, this.transform);
+                //GameObject empty = new GameObject(string.Empty, typeof(RectTransform)); //Other way: Instantiate(new GameObject(string.Empty, typeof(RectTransform)), this.transform) Creates 2 GO instead of 1. It can be fixed by an Prefab, but I don't want to keep 1 more link in properties.
+                //empty.transform.SetParent(this.transform);
                 //Debug.Log("Empty Instantiated");
             }
         }
