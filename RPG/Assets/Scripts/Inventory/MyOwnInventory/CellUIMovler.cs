@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Experimental.Playables;
 using UnityEngine.UI;
 
 /// <summary>
@@ -82,7 +81,11 @@ public class CellUIMovler : MonoBehaviour
         Collider2D collider = new Collider2D();
         bool foundCollider = false;
         Physics2D.OverlapPoint(Input.mousePosition, new ContactFilter2D().NoFilter(), results);
+        results.Remove(this.GetComponent<Collider2D>());
         Debug.Log($"Found {results.Count} colliders");
+
+
+
 
         foreach (Collider2D col in results)
         {
@@ -90,6 +93,7 @@ public class CellUIMovler : MonoBehaviour
             {
                 collider = col;
                 foundCollider = true;
+                Debug.Log("Found Item");
                 break;
             }
         }
@@ -100,8 +104,8 @@ public class CellUIMovler : MonoBehaviour
             {
                 if (col.gameObject.name.StartsWith("EmptyCell"))
                 {
-                    collider = col;
                     foundCollider = true;
+                    Debug.Log("Found Empty");
                     break;
                 }
             }
@@ -116,10 +120,16 @@ public class CellUIMovler : MonoBehaviour
             int temp = this.transform.GetSiblingIndex();
             this.transform.SetSiblingIndex(collider.transform.GetSiblingIndex());
             collider.transform.SetSiblingIndex(temp);
+
+            Debug.Log("Moved and swaped");
         }
         else
         {
+            // Также нужно учесть возврат на ячейку, с которой начиналос движение.
+            
+
             Instantiate(_confirmation, this.transform.parent.parent);
+            Debug.Log("conf");
 
             // Здесь в зависимости от выбора игрока нужно либо:
             // 1) вернуть в исходную позицию this.transform.position = _startPosition;
