@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,7 +11,9 @@ using UnityEngine.UI;
 public class CellUIMovler : MonoBehaviour
 {
     [SerializeField] private Button _confirmation;
-    //[SerializeField] private GameObject _container;
+    [SerializeField] private GameObject _emptyCell;
+
+    private GameObject _replacement;
 
     private Vector3 _startPosition;
     private int _startIndex;
@@ -29,6 +32,18 @@ public class CellUIMovler : MonoBehaviour
     {
         _startPosition = this.transform.position;
         _startIndex = this.transform.GetSiblingIndex();
+
+        int temp = this.transform.GetSiblingIndex();
+        _replacement = Instantiate(_emptyCell, this.transform.parent);
+        _replacement.transform.SetSiblingIndex(temp);
+        _replacement.name = "repla";
+        // “еперь на месте €чейки спавнитс€ пустышка, котора€ избавит от бага при возврате на ту же €чейку.
+
+        // ќригинал теперь "всплывает", благодар€ этому будем отобратьс€ поверх всех остальных €чеек.
+
+        // ќсталось продумать обратную логику по возврату €чейку при дропе.
+
+        this.transform.SetParent(this.transform.parent.parent);
     }
 
     public void Drag()
@@ -80,12 +95,10 @@ public class CellUIMovler : MonoBehaviour
         List<Collider2D> results = new List<Collider2D>();
         Collider2D collider = new Collider2D();
         bool foundCollider = false;
+        int indexCollider = -1;
         Physics2D.OverlapPoint(Input.mousePosition, new ContactFilter2D().NoFilter(), results);
         results.Remove(this.GetComponent<Collider2D>());
-        Debug.Log($"Found {results.Count} colliders");
-
-
-
+        //Debug.Log($"Found {results.Count} colliders");
 
         foreach (Collider2D col in results)
         {
@@ -93,7 +106,8 @@ public class CellUIMovler : MonoBehaviour
             {
                 collider = col;
                 foundCollider = true;
-                Debug.Log("Found Item");
+                indexCollider = collider.transform.GetSiblingIndex();
+                //Debug.Log("Found Item");
                 break;
             }
         }
@@ -104,8 +118,10 @@ public class CellUIMovler : MonoBehaviour
             {
                 if (col.gameObject.name.StartsWith("EmptyCell"))
                 {
+                    collider = col;
                     foundCollider = true;
-                    Debug.Log("Found Empty");
+                    indexCollider = collider.transform.GetSiblingIndex();
+                    //Debug.Log("Found Empty");
                     break;
                 }
             }
@@ -114,8 +130,11 @@ public class CellUIMovler : MonoBehaviour
         if (foundCollider)
         {
             this.transform.position = collider.gameObject.transform.position;
+            Destroy(_replacement);
+            this.transform.SetParent(collider.transform.parent);
+            this.transform.SetSiblingIndex(_startIndex);
 
-            GetComponentInParent<InventoryUI>().Inventory.SwapValuesOfCells(_startIndex, collider.transform.GetSiblingIndex()); // Probably BadPractice.
+            GetComponentInParent<InventoryUI>().Inventory.SwapValuesOfCells(_startIndex, indexCollider); // Probably BadPractice.
 
             int temp = this.transform.GetSiblingIndex();
             this.transform.SetSiblingIndex(collider.transform.GetSiblingIndex());
@@ -125,8 +144,7 @@ public class CellUIMovler : MonoBehaviour
         }
         else
         {
-            // “акже нужно учесть возврат на €чейку, с которой начиналос движение.
-            
+            // “акже нужно учесть возврат на €чейку, с которой начиналось движение.
 
             Instantiate(_confirmation, this.transform.parent.parent);
             Debug.Log("conf");
