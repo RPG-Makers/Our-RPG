@@ -15,6 +15,7 @@ public class CellUIMovler : MonoBehaviour
 
     private Vector3 _startPosition;
     private int _startIndex;
+    private Transform _startParent;
 
     //private void Awake()
     //{
@@ -30,6 +31,7 @@ public class CellUIMovler : MonoBehaviour
     {
         _startPosition = this.transform.position;
         _startIndex = this.transform.GetSiblingIndex();
+        _startParent = this.transform.parent;
 
         int temp = this.transform.GetSiblingIndex();
         _replacement = Instantiate(_emptyCell, this.transform.parent);
@@ -146,11 +148,19 @@ public class CellUIMovler : MonoBehaviour
 
             GameObject confirmation = Instantiate(_confirmation, this.transform.parent.parent);
 
-            confirmation.GetComponent<ConfirmationWindow>().InitializeValues(_startIndex);
+            confirmation.GetComponent<ConfirmationWindow>().InitializeValues(_startIndex, this);
 
             // «десь в зависимости от выбора игрока нужно либо:
             // 1) вернуть в исходную позицию this.transform.position = _startPosition;
             // 2) удалить из инвентар€.
         }
+    }
+
+    public void ReturnToStart()
+    {
+        this.transform.position = _startPosition;
+        Destroy(_replacement);
+        this.transform.SetParent(_startParent);
+        this.transform.SetSiblingIndex(_startIndex);
     }
 }

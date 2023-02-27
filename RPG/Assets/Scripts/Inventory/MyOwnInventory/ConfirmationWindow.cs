@@ -23,6 +23,8 @@ public class ConfirmationWindow : MonoBehaviour
 
     private Inventory _inventory;
 
+    private CellUIMovler _cell;
+
     private void Awake()
     {
         _inventory = this.transform.parent.GetComponentInChildren<InventoryUI>().Inventory;
@@ -38,14 +40,17 @@ public class ConfirmationWindow : MonoBehaviour
         // Возможно, OnDisable() вызван кнопкой закрытия окна. В таком случае нужно вернуть ячейку на прежнее место.
     }
 
-    public void InitializeValues(int indexOfCell)
+    public void InitializeValues(int indexOfCell, CellUIMovler inputCell)
     {
+        _cell = inputCell;
+
         CellInventory cell = _inventory.GetCell(indexOfCell);
 
         _howMany.text = $"How many {cell.ItemType} do you want to drop?";
 
         _maxValue.text = cell.CurrentAmount.ToString();
         _slider.maxValue = Convert.ToInt32(_maxValue.text);
+        _currentValue.text = _slider.value.ToString();
     }
 
     public void Drop()
@@ -58,5 +63,17 @@ public class ConfirmationWindow : MonoBehaviour
         {
             // Выбрасываем.
         }
+    }
+
+    public void ChangeCurrentValue()
+    {
+        _currentValue.text = _slider.value.ToString();
+    }
+
+    public void Close()
+    {
+        _cell.ReturnToStart();
+
+        Destroy(this.gameObject);
     }
 }
