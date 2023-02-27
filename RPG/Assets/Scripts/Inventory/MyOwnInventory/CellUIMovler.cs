@@ -1,6 +1,4 @@
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,8 +8,8 @@ using UnityEngine.UI;
 //[RequireComponent(typeof)]
 public class CellUIMovler : MonoBehaviour
 {
-    [SerializeField] private Button _confirmation;
     [SerializeField] private GameObject _emptyCell;
+    [SerializeField] private GameObject _confirmation;
 
     private GameObject _replacement;
 
@@ -146,8 +144,9 @@ public class CellUIMovler : MonoBehaviour
         {
             // Также нужно учесть возврат на ячейку, с которой начиналось движение.
 
-            Instantiate(_confirmation, this.transform.parent.parent);
-            Debug.Log("conf");
+            GameObject confirmation = Instantiate(_confirmation, this.transform.parent.parent);
+
+            confirmation.GetComponent<ConfirmationWindow>().InitializeValues(_startIndex);
 
             // Здесь в зависимости от выбора игрока нужно либо:
             // 1) вернуть в исходную позицию this.transform.position = _startPosition;

@@ -149,4 +149,12 @@ public class Inventory // Возможно, в этом скрипте имеет смысл использовать не I
         _cells[firstIndex] = _cells[secondIndex];
         _cells[secondIndex] = temp;
     }
+
+    /// <summary>
+    /// Returns CellInventory by index.
+    /// </summary>
+    public CellInventory GetCell(int index)
+    {
+        return _cells[index];
+    }
 }
