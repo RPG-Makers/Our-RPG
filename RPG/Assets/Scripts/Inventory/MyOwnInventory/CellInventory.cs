@@ -48,23 +48,48 @@ public class CellInventory
         // Скорее всего, если мы будем проверять, можем ли поместить предмет, в методе ячейки, то такой проблемы не будет. Но опять-таки, столько раз вызывать функцию обосраться дорого.
     }
 
-    public void Subtract()
+    public bool DecreaseAmount(int amount)
     {
-        if (_currentAmount == 0)
+        bool success = false;
+        int difference = _currentAmount - amount;
+        if (difference == 0)
         {
-            Debug.LogWarning("Cell is empty! We can't remove something!");
+            _currentAmount -= amount;
+            success = true;
+            DeInit();
+            return success;
         }
-        else if (_currentAmount < 0)
+        else if (difference < 0)
         {
-            Debug.LogWarning("How?????? Negative index");
+            Debug.LogWarning("Difference is negative!");
+            success = false;
+            return success;
         }
-        else // _currentAmount > 0.
+        else
         {
-            _currentAmount--;
-            if (_currentAmount == 0) // Deinitializing values if cell is empty.
-            {
-                DeInit();
-            }
+            _currentAmount -= amount;
+            success = true;
+            return success;
         }
     }
+
+    //public void Subtract() Work not guaranteed.
+    //{
+    //    if (_currentAmount == 0)
+    //    {
+    //        Debug.LogWarning("Cell is empty! We can't remove something!");
+    //    }
+    //    else if (_currentAmount < 0)
+    //    {
+    //        Debug.LogWarning("How?????? Negative index");
+    //    }
+    //    else // _currentAmount > 0.
+    //    {
+    //        _currentAmount--;
+    //        if (_currentAmount == 0) // Deinitializing values if cell is empty.
+    //        {
+    //            DeInit();
+    //        }
+    //    }
+    //}
 }

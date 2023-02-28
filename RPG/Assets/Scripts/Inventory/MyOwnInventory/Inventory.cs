@@ -112,21 +112,21 @@ public class Inventory // Возможно, в этом скрипте имеет смысл использовать не I
     /// <summary>
     /// Removes item from inventory.
     /// </summary>
-    public void Remove(Item item)
-    {
-        if (_itemsTypes.Contains(item.GetType()))
-        {
-            foreach (CellInventory cell in _cells)
-            {
-                if (cell.ItemType == item.GetType())
-                {
-                    cell.Subtract();
-                    if (cell.IsEmpty) _itemsTypes.Remove(item.GetType());
-                    return;
-                }
-            }
-        }
-    }
+    //public void Remove(Item item) // Work not guaranteed!
+    //{
+    //    if (_itemsTypes.Contains(item.GetType()))
+    //    {
+    //        foreach (CellInventory cell in _cells)
+    //        {
+    //            if (cell.ItemType == item.GetType())
+    //            {
+    //                cell.Subtract();
+    //                if (cell.IsEmpty) _itemsTypes.Remove(item.GetType());
+    //                return;
+    //            }
+    //        }
+    //    }
+    //}
 
     /// <summary>
     /// Swaps the values of two CellInventory by reference.
@@ -156,5 +156,10 @@ public class Inventory // Возможно, в этом скрипте имеет смысл использовать не I
     public CellInventory GetCell(int index)
     {
         return _cells[index];
+    }
+
+    public bool DecreaseAmount(int indexOfCell, int amount)
+    {
+        return _cells[indexOfCell].DecreaseAmount(amount);
     }
 }

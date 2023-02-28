@@ -58,6 +58,8 @@ public class ConfirmationWindow : MonoBehaviour
         if (_toggle.isOn)
         {
             // Дополнительное окно подтверждения.
+
+
         }
         else
         {
