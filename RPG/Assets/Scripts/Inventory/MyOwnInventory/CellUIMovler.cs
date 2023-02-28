@@ -9,7 +9,7 @@ using UnityEngine.UI;
 public class CellUIMovler : MonoBehaviour
 {
     [SerializeField] private GameObject _emptyCell;
-    [SerializeField] private GameObject _confirmation;
+    [SerializeField] private GameObject _dropWindow;
 
     private GameObject _replacement;
 
@@ -146,9 +146,9 @@ public class CellUIMovler : MonoBehaviour
         {
             // Также нужно учесть возврат на ячейку, с которой начиналось движение.
 
-            GameObject confirmation = Instantiate(_confirmation, this.transform.parent.parent);
+            GameObject dropWindow = Instantiate(_dropWindow, this.transform.parent.parent);
 
-            confirmation.GetComponent<ConfirmationWindow>().InitializeValues(_startIndex, this);
+            dropWindow.GetComponent<DropWindow>().InitializeValues(_startIndex, this);
 
             // Здесь в зависимости от выбора игрока нужно либо:
             // 1) вернуть в исходную позицию this.transform.position = _startPosition;

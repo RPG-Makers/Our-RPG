@@ -320,7 +320,7 @@ GameObject:
   - component: {fileID: 2326431371139938200}
   - component: {fileID: 1104279115882750387}
   m_Layer: 5
-  m_Name: Confirmation
+  m_Name: DropWindow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

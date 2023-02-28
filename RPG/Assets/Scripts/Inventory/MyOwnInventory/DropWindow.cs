@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ConfirmationWindow : MonoBehaviour
+public class DropWindow : MonoBehaviour
 {
     //[Header("Inventory")]
     //[SerializeField] private GameObject _inventoryGO;

@@ -208,7 +208,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _emptyCell: {fileID: 8644710298528374306, guid: 7477e9dc38bbb3a468668e56a479d1ac, type: 3}
-  _confirmation: {fileID: 2326431371139938202, guid: 9678324823600cb44ae4f513a9a2f168, type: 3}
+  _dropWindow: {fileID: 2326431371139938202, guid: 9678324823600cb44ae4f513a9a2f168, type: 3}
 --- !u!61 &8227859253255461626
 BoxCollider2D:
   m_ObjectHideFlags: 0
