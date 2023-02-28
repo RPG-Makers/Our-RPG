@@ -21,13 +21,16 @@ public class ConfirmationWindow : MonoBehaviour
 
     [SerializeField] private Toggle _toggle;
 
+    private InventoryUI _inventoryUI;
     private Inventory _inventory;
 
-    private CellUIMovler _cell;
+    private CellUIMovler _UIcell;
+    private int _indexOfCell;
 
     private void Awake()
     {
-        _inventory = this.transform.parent.GetComponentInChildren<InventoryUI>().Inventory;
+        _inventoryUI = this.transform.parent.GetComponentInChildren<InventoryUI>();
+        _inventory = _inventoryUI.Inventory;
     }
 
     private void OnEnable()
@@ -42,7 +45,8 @@ public class ConfirmationWindow : MonoBehaviour
 
     public void InitializeValues(int indexOfCell, CellUIMovler inputCell)
     {
-        _cell = inputCell;
+        _UIcell = inputCell;
+        _indexOfCell = indexOfCell;
 
         CellInventory cell = _inventory.GetCell(indexOfCell);
 
@@ -60,6 +64,19 @@ public class ConfirmationWindow : MonoBehaviour
             // Дополнительное окно подтверждения.
 
 
+            // Пока что выбрасываем здесь. Потом перенесем в else.
+
+            if (_inventory.DecreaseAmount(_indexOfCell, Convert.ToInt32(_currentValue.text)))
+            {
+                Debug.Log("Успешно выбросили");
+                _inventoryUI.InstantiateInventoryUI();
+                Destroy(_UIcell.gameObject);
+                Destroy(this.gameObject);
+            }
+            else
+            {
+                Debug.LogWarning("Возникла ошибка при выбрасывании предмета!");
+            }
         }
         else
         {
@@ -74,7 +91,7 @@ public class ConfirmationWindow : MonoBehaviour
 
     public void Close()
     {
-        _cell.ReturnToStart();
+        _UIcell.ReturnToStart();
 
         Destroy(this.gameObject);
     }
