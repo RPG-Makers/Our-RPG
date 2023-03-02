@@ -6,6 +6,6 @@ public class Cyborg : Item
 {
     public override void Use()
     {
-        throw new System.NotImplementedException();
+        Debug.Log($"Used {this.GetType()}");
     }
 }

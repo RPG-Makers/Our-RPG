@@ -51,7 +51,9 @@ public class InventoryUI : MonoBehaviour
             {
                 _cellSample.GetComponentInChildren<Image>().sprite = cell.ItemData.Sprite;
                 _cellSample.GetComponentInChildren<TextMeshProUGUI>().text = Convert.ToString(cell.CurrentAmount);
-                Instantiate(_cellSample, this.transform).AddComponent(cell.ItemType);
+                GameObject temp = Instantiate(_cellSample, this.transform);
+                temp.AddComponent(cell.ItemType);
+                temp.GetComponent<Item>().SetItemData(cell.ItemData);
                 //Debug.Log("Instantiated");
             }
             else

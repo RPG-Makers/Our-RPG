@@ -1,5 +1,7 @@
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 /// <summary>
@@ -11,24 +13,37 @@ public class CellUIMovler : MonoBehaviour
     [SerializeField] private GameObject _emptyCell;
     [SerializeField] private GameObject _dropWindow;
 
+    private bool _allowClick;
+
     private GameObject _replacement;
 
     private Vector3 _startPosition;
     private int _startIndex;
     private Transform _startParent;
 
-    //private void Awake()
-    //{
-    //    _startPosition = this.transform.position;
-    //}
+    private void Awake()
+    {
+        _allowClick = true;
+    }
 
     public void Click()
     {
-        //Debug.Log($"На меня нажали, во мне {GetComponentInChildren<TextMeshProUGUI>().text} предметов");
+        if (_allowClick)
+        {
+            Debug.Log($"На меня нажали, во мне {GetComponentInChildren<TextMeshProUGUI>().text} предметов");
+            GetComponent<Item>().Use();
+        }
+    }
+
+    public void EnableClicking()
+    {
+        _allowClick = true;
     }
 
     public void BeginDrag()
     {
+        _allowClick = false;
+
         _startPosition = this.transform.position;
         _startIndex = this.transform.GetSiblingIndex();
         _startParent = this.transform.parent;

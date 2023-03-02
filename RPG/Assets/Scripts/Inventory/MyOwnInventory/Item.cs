@@ -57,6 +57,7 @@ public abstract class Item : MonoBehaviour, IUsable
             OnTake.Invoke(this, out added); // Only for test!!!!! Delete after.
             if (added) // Only for test!!!!! Delete after.
             {
+                //transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
                 Destroy(gameObject); // Only for test!!!!! Delete after.
             } // Only for test!!!!! Delete after.
 
@@ -72,5 +73,10 @@ public abstract class Item : MonoBehaviour, IUsable
             _takeable = false;
             //Debug.Log("Не можем подобрать");
         }
+    }
+
+    public void SetItemData(ItemData data)
+    {
+        _itemData = data;
     }
 }
