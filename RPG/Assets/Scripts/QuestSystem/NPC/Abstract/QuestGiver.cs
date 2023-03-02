@@ -7,6 +7,9 @@ public abstract class QuestGiver : MonoBehaviour
     [SerializeField] protected GameObject _placeManager;
     [SerializeField] private QuestGiverData _data;
 
+    protected Quest _quest;
+    protected bool givedQuest;
+
     private QuestGiverUI _UI;
 
     private void Awake()
