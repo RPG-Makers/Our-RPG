@@ -407,6 +407,7 @@ MonoBehaviour:
   _maxValue: {fileID: 2326431370898314481}
   _drop: {fileID: 2326431372562835515}
   _toggle: {fileID: 2326431372338623396}
+  _confirmationWindow: {fileID: 7351840686146404069, guid: 951d97b7c5cce6240ba7ee7117355ca4, type: 3}
 --- !u!1 &2326431371261612096
 GameObject:
   m_ObjectHideFlags: 0

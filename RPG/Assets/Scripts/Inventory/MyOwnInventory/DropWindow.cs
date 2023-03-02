@@ -21,6 +21,8 @@ public class DropWindow : MonoBehaviour
 
     [SerializeField] private Toggle _toggle;
 
+    [SerializeField] private GameObject _confirmationWindow;
+
     private InventoryUI _inventoryUI;
     private Inventory _inventory;
 
@@ -61,26 +63,24 @@ public class DropWindow : MonoBehaviour
     {
         if (_toggle.isOn)
         {
-            // Дополнительное окно подтверждения.
-
-
-            // Пока что выбрасываем здесь. Потом перенесем в else.
-
+            Instantiate(_confirmationWindow, this.transform.parent).
+                GetComponent<ConfirmationWindow>().
+                InitializeValues(this.gameObject, _inventoryUI, _inventory, _UIcell, _indexOfCell, Convert.ToInt32(_currentValue));
+            this.gameObject.SetActive(false);
+        }
+        else
+        {
             if (_inventory.DecreaseAmount(_indexOfCell, Convert.ToInt32(_currentValue.text)))
             {
-                Debug.Log("Успешно выбросили");
+                Debug.Log("DropedOut successfully");
                 _inventoryUI.InstantiateInventoryUI();
                 Destroy(_UIcell.gameObject);
                 Destroy(this.gameObject);
             }
             else
             {
-                Debug.LogWarning("Возникла ошибка при выбрасывании предмета!");
+                Debug.LogWarning("An error occured while dropping an item!");
             }
-        }
-        else
-        {
-            // Выбрасываем.
         }
     }
 
