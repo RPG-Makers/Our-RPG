@@ -11,13 +11,14 @@ public class DropWindow : MonoBehaviour
     //[SerializeField] private GameObject _inventoryGO;
 
     [Header("UI")]
-    [SerializeField] private TextMeshProUGUI _howMany;
+    [SerializeField] private TextMeshProUGUI _mainText;
 
     [SerializeField] private Slider _slider;
     [SerializeField] private TextMeshProUGUI _currentValue;
     [SerializeField] private TextMeshProUGUI _maxValue;
 
     [SerializeField] private Button _drop;
+    [SerializeField] private TextMeshProUGUI _dropText;
 
     [SerializeField] private Toggle _toggle;
 
@@ -52,7 +53,7 @@ public class DropWindow : MonoBehaviour
 
         CellInventory cell = _inventory.GetCell(indexOfCell);
 
-        _howMany.text = $"How many {cell.ItemType} do you want to drop?";
+        _mainText.text = $"How many {cell.ItemType} do you want to drop?";
 
         _maxValue.text = cell.CurrentAmount.ToString();
         _slider.maxValue = Convert.ToInt32(_maxValue.text);
@@ -87,6 +88,7 @@ public class DropWindow : MonoBehaviour
     public void ChangeCurrentValue()
     {
         _currentValue.text = _slider.value.ToString();
+        _dropText.text = $"Drop {_currentValue.text} items";
     }
 
     public void Close()

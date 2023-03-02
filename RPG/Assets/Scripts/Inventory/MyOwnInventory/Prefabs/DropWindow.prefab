@@ -401,11 +401,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 345025d6feee8f142b937c8f1b9ca844, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _howMany: {fileID: 2326431371638750484}
+  _mainText: {fileID: 2326431371638750484}
   _slider: {fileID: 2326431371431763161}
   _currentValue: {fileID: 2326431371837084562}
   _maxValue: {fileID: 2326431370898314481}
   _drop: {fileID: 2326431372562835515}
+  _dropText: {fileID: 2326431371807205607}
   _toggle: {fileID: 2326431372338623396}
   _confirmationWindow: {fileID: 7351840686146404069, guid: 951d97b7c5cce6240ba7ee7117355ca4, type: 3}
 --- !u!1 &2326431371261612096
@@ -603,7 +604,7 @@ GameObject:
   - component: {fileID: 2326431371638750483}
   - component: {fileID: 2326431371638750484}
   m_Layer: 5
-  m_Name: HowMany
+  m_Name: MainText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -657,7 +658,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: How many items do you want to drop?
+  m_text: How many {cell.ItemType} do you want to drop?
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -684,7 +685,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 22.05
+  m_fontSize: 18
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -792,7 +793,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Drop N items
+  m_text: Drop 1 items?
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1003,7 +1004,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: N
+  m_text: 1
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

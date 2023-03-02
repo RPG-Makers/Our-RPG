@@ -1,10 +1,14 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class ConfirmationWindow : MonoBehaviour
 {
+    [SerializeField] private TextMeshProUGUI _mainText;
+    [SerializeField] private TextMeshProUGUI _buttonText;
+
     private GameObject _dropWindow;
 
     private InventoryUI _inventoryUI;
@@ -23,6 +27,9 @@ public class ConfirmationWindow : MonoBehaviour
         _UIcell = cell;
         _indexOfCell = indexOfCell;
         _amountToDrop = amountToDrop;
+
+        _mainText.text = $"Sure to drop {amountToDrop} {_inventory.GetCell(indexOfCell).ItemType}?";
+        _buttonText.text = $"Drop {amountToDrop} items";
     }
 
     public void Drop()

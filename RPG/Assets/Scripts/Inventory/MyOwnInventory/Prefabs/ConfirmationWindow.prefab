@@ -550,7 +550,7 @@ GameObject:
   - component: {fileID: 7351840685571568748}
   - component: {fileID: 7351840685571568747}
   m_Layer: 5
-  m_Name: Sure
+  m_Name: MainText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -765,3 +765,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d71e79b0ea03f643809e1c2dfde31e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _mainText: {fileID: 7351840685571568747}
+  _buttonText: {fileID: 7351840685206495640}
