@@ -1,7 +1,5 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Inventory // Возможно, в этом скрипте имеет смысл использовать не Item, а ItemData.
@@ -9,12 +7,12 @@ public class Inventory // Возможно, в этом скрипте имеет смысл использовать не I
     public CellInventory[] Cells => _cells;
 
     private CellInventory[] _cells;
-    private List<Item> _itemsTypes; // Item types, that we already have in inventory.
-    //private int _length; // Maybe [SerializeField]?
+    private List<Type> _itemsTypes; // Item types, that we already have in inventory.
+                                    //private int _length; // Maybe [SerializeField]?
 
 
 
-    
+
     private void Init() // !!!!!!!!!!!!!!!!!!!!
     {
         Item.OnTake += TryAdd;
@@ -39,12 +37,13 @@ public class Inventory // Возможно, в этом скрипте имеет смысл использовать не I
             _cells = new CellInventory[length];
 
             // Initialize _cells.
+            // Возможно момент инициализации ячейки можно отложить до того момента, когда она понадобится.
             for (int i = 0; i < _cells.Length; i++)
             {
                 _cells[i] = new CellInventory();
             }
 
-            _itemsTypes = new List<Item>();
+            _itemsTypes = new List<Type>();
         }
         Init(); // !!!!!!!!!!!!!!!!!!!!
     }
@@ -52,7 +51,7 @@ public class Inventory // Возможно, в этом скрипте имеет смысл использовать не I
     /// <summary>
     /// Trying to add item in inventory.
     /// </summary>
-    public void TryAdd(Item item, out bool added)
+    private void TryAdd(Item item, out bool added)
     {
         if (!TryChangeAmount(item) && !TryPut(item))
         {
@@ -60,7 +59,7 @@ public class Inventory // Возможно, в этом скрипте имеет смысл использовать не I
             added = false;
             return;
         }
-        _itemsTypes.Add(item);
+        _itemsTypes.Add(item.GetType());
         // Deinit().!!!!!!!!!!!!!!!!!!!!!
         //item.Destroy(); Удаление происходит в самом Item по результатам added = false или true.
         //Debug.Log("Предмет добавлен");
@@ -74,11 +73,11 @@ public class Inventory // Возможно, в этом скрипте имеет смысл использовать не I
     {
         if (item.ItemData.Stackable)
         {
-            if (_itemsTypes.Contains(item))
+            if (_itemsTypes.Contains(item.GetType()))
             {
                 foreach (CellInventory cell in _cells)
                 {
-                    if (cell.Item == item)
+                    if (cell.ItemType == item.GetType())
                     {
                         if (!cell.IsFull)
                         {
@@ -100,7 +99,7 @@ public class Inventory // Возможно, в этом скрипте имеет смысл использовать не I
     {
         foreach (var cell in _cells)
         {
-            if (cell.Item == null)
+            if (cell.ItemType == null)
             {
                 cell.Add(item);
                 //Debug.Log("Added without changing amount.");
@@ -113,19 +112,54 @@ public class Inventory // Возможно, в этом скрипте имеет смысл использовать не I
     /// <summary>
     /// Removes item from inventory.
     /// </summary>
-    public void Remove(Item item)
+    //public void Remove(Item item) // Work not guaranteed!
+    //{
+    //    if (_itemsTypes.Contains(item.GetType()))
+    //    {
+    //        foreach (CellInventory cell in _cells)
+    //        {
+    //            if (cell.ItemType == item.GetType())
+    //            {
+    //                cell.Subtract();
+    //                if (cell.IsEmpty) _itemsTypes.Remove(item.GetType());
+    //                return;
+    //            }
+    //        }
+    //    }
+    //}
+
+    /// <summary>
+    /// Swaps the values of two CellInventory by reference.
+    /// </summary>
+    /// PUBLIC!!! Probably BadPractice.
+    public void SwapValuesOfCells(ref CellInventory firstCell, ref CellInventory secondCell)
     {
-        if (_itemsTypes.Contains(item))
-        {
-            foreach (CellInventory cell in _cells)
-            {
-                if (cell.Item == item)
-                {
-                    cell.Subtract();
-                    if (cell.IsEmpty) _itemsTypes.Remove(item);
-                    return;
-                }
-            }
-        }
+        CellInventory temp = firstCell;
+        firstCell = secondCell;
+        secondCell = temp;
+    }
+
+    /// <summary>
+    /// Swaps the values of two CellInventory by index.
+    /// </summary>
+    /// PUBLIC!!! Probably BadPractice.
+    public void SwapValuesOfCells(int firstIndex, int secondIndex)
+    {
+        CellInventory temp = _cells[firstIndex];
+        _cells[firstIndex] = _cells[secondIndex];
+        _cells[secondIndex] = temp;
+    }
+
+    /// <summary>
+    /// Returns CellInventory by index.
+    /// </summary>
+    public CellInventory GetCell(int index)
+    {
+        return _cells[index];
+    }
+
+    public bool DecreaseAmount(int indexOfCell, int amount)
+    {
+        return _cells[indexOfCell].DecreaseAmount(amount);
     }
 }

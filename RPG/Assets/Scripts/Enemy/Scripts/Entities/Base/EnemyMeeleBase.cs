@@ -13,12 +13,10 @@ public abstract class EnemyMeeleBase : EnemyBase
             // Здесь проверить, если достаточно близко, то атаковать, иначе двигаться.
             if (Vector3.Distance(this.transform.position, _target.transform.position) <= _weaponData.Distance)
             {
-                // здесь проверить задержку атаки.
-                if (_weaponData.Cooldown <= 0)
+                if (_delayAttack <= 0)
                 {
-
+                    MeeleAttack();
                 }
-                MeeleAttack();
             }
             else
             {
@@ -29,6 +27,7 @@ public abstract class EnemyMeeleBase : EnemyBase
 
     private void MeeleAttack()
     {
+        _delayAttack = _weaponData.Cooldown;
         _isAttacking = true;
         Debug.Log("Enemy is melee attacking.");
     }

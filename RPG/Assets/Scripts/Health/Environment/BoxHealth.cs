@@ -5,10 +5,9 @@ using UnityEngine;
 
 public class BoxHealth : Health
 {
-    public static Action Died;
     protected override void Death()
     {
-        Died.Invoke();
+        base.Death();
         Debug.Log("Box did something after death.");
     }
 }

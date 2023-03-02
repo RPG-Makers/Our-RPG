@@ -10,22 +10,24 @@ using static UnityEngine.GraphicsBuffer;
 [RequireComponent (typeof(EnemyHealth))]
 public abstract class EnemyBase : MonoBehaviour
 {
-    protected EnemyData _enemyData;
-    protected WeaponData _weaponData;
+    [SerializeField] protected EnemyData _enemyData;
+    [SerializeField] protected WeaponData _weaponData;
 
     protected bool _isAttacking;
+    protected float _delayAttack;
 
     protected GameObject _target;
 
     private void Awake()
     {
         GetComponent<BoxCollider2D>().edgeRadius = _enemyData.DetectionDistance;
-        Debug.Log("Edge radius changed");
+        //Debug.Log("Edge radius changed");
+        _delayAttack = _weaponData.Cooldown;
     }
 
     private void Update()
     {
-        //_weaponData.Cooldown -= Time.deltaTime; // Оооочень спорный момент. Подумать как лучше реализовать охлаждение перезарядки.
+        _delayAttack -= Time.deltaTime; // Оооочень спорный момент. Подумать как лучше реализовать охлаждение перезарядки.
     }
 
     protected void RunAway() // Not completed.

@@ -1,37 +1,33 @@
 using UnityEngine;
 
+[RequireComponent(typeof(QuestGiverUI))]
+[RequireComponent(typeof(SpriteRenderer), typeof(BoxCollider2D))]
 public abstract class QuestGiver : MonoBehaviour
 {
     [SerializeField] protected GameObject _placeManager;
+    [SerializeField] private QuestGiverData _data;
 
-    // QuestSystem settings
     protected Quest _quest;
     protected bool givedQuest;
 
-    protected virtual void GiveQuest(GameObject player) // Target is to whom we give the quest. But we are planning to give a quests only to player.
+    private QuestGiverUI _UI;
+
+    private void Awake()
     {
-        player.GetComponent<PlayerQuest>().ReceiveQuest(_quest);
-        //_quest = null;
-        givedQuest = true;
+        _UI = GetComponent<QuestGiverUI>();
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    protected virtual void GiveQuest(GameObject player) // Target is to whom we give the quest. But we are planning to give a quests only to player.
     {
-        if (collision.CompareTag("Player"))
+        Quest quest;
+        if (_data.RemainingQuests.TryDequeue(out quest))
         {
-            // Допустим, выдаём квест сразу как игрок зайдет в триггер.
-            if (!givedQuest)
-            {
-                GiveQuest(collision.gameObject);
-            }
-            else if (givedQuest && _quest.QuestData.Completed)
-            {
-                Debug.Log("Thank you!");
-            }
-            else
-            {
-                Debug.Log("You didn't complete my quest!");
-            }
+            _data.CurrentQuest = quest;
+            player.GetComponent<PlayerQuest>().ReceiveQuest(_data.CurrentQuest);
+        }
+        else
+        {
+            Debug.LogFormat("Пока что квестов нет");
         }
     }
 }

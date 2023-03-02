@@ -19,8 +19,10 @@ public abstract class EnemyRangeBase : EnemyBase
             }
             else if (distance <= _distanceBow)
             {
-                // здесь проверить задержку атаки.
-                RangeAttack();
+                if (_delayAttack <= 0)
+                {
+                    RangeAttack();
+                }
             }
             else
             {
@@ -31,6 +33,7 @@ public abstract class EnemyRangeBase : EnemyBase
 
     private void RangeAttack()
     {
+        _delayAttack = _weaponData.Cooldown;
         _isAttacking = true;
         Debug.Log("Enemy is range attacking.");
     }

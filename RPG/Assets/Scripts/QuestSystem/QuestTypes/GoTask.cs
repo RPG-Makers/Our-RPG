@@ -1,11 +1,10 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+[Serializable]
 public class GoTask : Task
 {
-    private PlaceForTask _place;
+    [SerializeField] private PlaceForTask _place;
 
     public GoTask(string name, string description, PlaceForTask place) : base(name, description)
     {

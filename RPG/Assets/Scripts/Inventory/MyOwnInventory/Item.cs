@@ -8,59 +8,61 @@ public abstract class Item : MonoBehaviour, IUsable
 {
     [SerializeField] private ItemData _itemData;
     public ItemData ItemData => _itemData;
-    //[SerializeField] public int MaxAmount { get; private set; }
 
-    //[SerializeField] private string _name;
-    //[SerializeField] private int _price;
-    //[SerializeField] private Sprite _sprite;
-    //[SerializeField] private bool _stackable;
-    //public string Name => _name;
-    //public Sprite Sprite => _sprite;
-    //public bool Stackable => _stackable;
+    private bool _takeable;
 
     //public Action OnCellInventoryClicked; ???
 
     public abstract void Use();
-
-
 
     public delegate void ItemHandler(Item item, out bool added);
     public static event ItemHandler OnTake;
 
     private void OnMouseDown()
     {
-        //OldInventory.Instance.Add(this);
-
-        Debug.Log("На меня нажали");
+        //Debug.Log("На меня нажали");
         if (_takeable)
         {
-            Debug.Log("Ща будем инвокать");
-            // На сцене нет инвентаря, поэтому ошибка
+            //Debug.Log("Ща будем инвокать");
+            // Если на сцене нет инвентаря, то возникает ошибка.
             bool added;
+            //if (OnTake == null)
+            //{
+            //    Debug.Log("Никто не пришел на фан встречу");
+            //}
             OnTake.Invoke(this, out added);
             if (added)
             {
+                //transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
                 Destroy(gameObject);
+                return;
             }
-            // Здесь нужно организовать общение "Предмет - Инвентарь".
+            //Debug.LogWarning("Не удалось добавить предмет");
+
+            // Здесь нужно организовать общение "Предмет - Инвентарь". UPD: Организовано.
             // Инвентарь узнаёт о том, что игрок попытался поднять какой-то предмет, и пытается добавить его (инвентарь пытается добавить предмет).
             // Далее инвентарь сообщает предмету о том, смог ли он добавить предмет. Если смог - уничтожаем Item, не смог - оставляем лежать дальше.
 
             // Так в событии мы можем передать самого отправителя))))))))))))))))))))
         }
-        Debug.Log("Как я тут");
-
-        //Destroy(gameObject);
     }
 
 
-    private bool _takeable;
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        bool added; // Only for test!!!!! Delete after.
         if (collision.gameObject.CompareTag("Player"))
         {
-            _takeable = true;
-            Debug.Log("Можем подобрать");
+
+            OnTake.Invoke(this, out added); // Only for test!!!!! Delete after.
+            if (added) // Only for test!!!!! Delete after.
+            {
+                //transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+                Destroy(gameObject); // Only for test!!!!! Delete after.
+            } // Only for test!!!!! Delete after.
+
+            //////_takeable = true; Restore
+            ////////Debug.Log("Можем подобрать"); Restore
         }
     }
 
@@ -69,7 +71,12 @@ public abstract class Item : MonoBehaviour, IUsable
         if (collision.gameObject.CompareTag("Player"))
         {
             _takeable = false;
-            Debug.Log("Не можем подобрать");
+            //Debug.Log("Не можем подобрать");
         }
+    }
+
+    public void SetItemData(ItemData data)
+    {
+        _itemData = data;
     }
 }
