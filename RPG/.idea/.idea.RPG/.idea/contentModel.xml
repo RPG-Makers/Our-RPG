@@ -12,14 +12,79 @@
             <e p="EventDelegateExample.cs" t="Include" />
           </e>
           <e p="Enemy" t="Include">
-            <e p="AIChase.cs" t="Include" />
+            <e p="Old" t="Include">
+              <e p="from videos" t="Include">
+                <e p="EnemyController.cs" t="Include" />
+                <e p="what.cs" t="Include" />
+              </e>
+            </e>
+            <e p="Scripts" t="Include">
+              <e p="Behaviour" t="Include">
+                <e p="AIChase.cs" t="Include" />
+              </e>
+              <e p="Data" t="Include">
+                <e p="EnemyData.cs" t="Include" />
+              </e>
+              <e p="Entities" t="Include">
+                <e p="ArcherSkeleton.cs" t="Include" />
+                <e p="Base" t="Include">
+                  <e p="EnemyBase.cs" t="Include" />
+                  <e p="EnemyMeeleBase.cs" t="Include" />
+                  <e p="EnemyRangeBase.cs" t="Include" />
+                </e>
+                <e p="Interfaces" t="Include">
+                  <e p="IOgre.cs" t="Include" />
+                  <e p="ISkeleton.cs" t="Include" />
+                </e>
+              </e>
+            </e>
+          </e>
+          <e p="Health" t="Include">
+            <e p="Abstract and Interface" t="Include">
+              <e p="Health.cs" t="Include" />
+              <e p="IDamageable.cs" t="Include" />
+            </e>
+            <e p="Enemies" t="Include">
+              <e p="EnemyHealth.cs" t="Include" />
+              <e p="SkeletonHealth.cs" t="Include" />
+            </e>
+            <e p="Environment" t="Include">
+              <e p="BoxHealth.cs" t="Include" />
+            </e>
           </e>
           <e p="Inventory" t="Include">
-            <e p="InventoryItemController.cs" t="Include" />
-            <e p="InventoryManager.cs" t="Include" />
-            <e p="Item.cs" t="Include" />
-            <e p="ItemController.cs" t="Include" />
-            <e p="ItemPickup.cs" t="Include" />
+            <e p="MyOwnInventory" t="Include">
+              <e p="CellInventory.cs" t="Include" />
+              <e p="Data" t="Include">
+                <e p="InventoryData.cs" t="Include" />
+              </e>
+              <e p="Interfaces" t="Include">
+                <e p="IUsable.cs" t="Include" />
+              </e>
+              <e p="Inventory.cs" t="Include" />
+              <e p="InventoryUI.cs" t="Include" />
+              <e p="Item.cs" t="Include" />
+              <e p="ItemData.cs" t="Include" />
+              <e p="Items" t="Include">
+                <e p="Ingredients" t="Include">
+                  <e p="Ingredient.cs" t="Include" />
+                </e>
+                <e p="Potions" t="Include">
+                  <e p="HealthPotion.cs" t="Include" />
+                  <e p="ManaPotion.cs" t="Include" />
+                </e>
+              </e>
+              <e p="Test.cs" t="Include" />
+            </e>
+            <e p="Old" t="Include">
+              <e p="ItemControllerOld.cs" t="Include" />
+              <e p="ItemOld.cs" t="Include" />
+              <e p="ItemPickupOld.cs" t="Include" />
+            </e>
+            <e p="Oldddd" t="Include">
+              <e p="CellInventory.cs" t="Include" />
+              <e p="OldInventory.cs" t="Include" />
+            </e>
           </e>
           <e p="Minimap" t="Include">
             <e p="Minimap.cs" t="Include" />
@@ -29,23 +94,48 @@
             <e p="HorseRiding.cs" t="Include" />
             <e p="PlayerHealth.cs" t="Include" />
             <e p="PlayerMovement.cs" t="Include" />
+            <e p="PlayerPotion.cs" t="Include" />
+            <e p="Statistics" t="Include">
+              <e p="PlayerStatisticsData.cs" t="Include" />
+            </e>
           </e>
           <e p="Quests" t="Include">
             <e p="Quest1.cs" t="Include" />
             <e p="Quest1_Glasses.cs" t="Include" />
+          </e>
+          <e p="QuestSystem" t="Include">
+            <e p="NPC" t="Include">
+              <e p="Abstract" t="Include">
+                <e p="QuestGiver.cs" t="Include" />
+              </e>
+              <e p="Alex.cs" t="Include" />
+              <e p="BrewMaster.cs" t="Include" />
+              <e p="VillageHeadman.cs" t="Include" />
+              <e p="WagonMan.cs" t="Include" />
+              <e p="Warrior.cs" t="Include" />
+            </e>
+            <e p="Player" t="Include">
+              <e p="PlayerQuest.cs" t="Include" />
+            </e>
+            <e p="Quest.cs" t="Include" />
+            <e p="QuestData.cs" t="Include" />
+            <e p="QuestObjects" t="Include">
+              <e p="PlaceForTask.cs" t="Include" />
+              <e p="PlacesLinks.cs" t="Include" />
+            </e>
+            <e p="QuestTypes" t="Include">
+              <e p="Abstract" t="Include">
+                <e p="Task.cs" t="Include" />
+              </e>
+              <e p="GoTask.cs" t="Include" />
+              <e p="KillTask.cs" t="Include" />
+            </e>
           </e>
           <e p="WeaponSystem" t="Include">
             <e p="Scripts" t="Include">
               <e p="Arrows" t="Include">
                 <e p="Arrow.cs" t="Include" />
                 <e p="WoodenArrow.cs" t="Include" />
-              </e>
-              <e p="Health" t="Include">
-                <e p="BoxHealth.cs" t="Include" />
-                <e p="EnemyHealth.cs" t="Include" />
-                <e p="Health.cs" t="Include" />
-                <e p="HealthOld.cs" t="Include" />
-                <e p="IDamageable.cs" t="Include" />
               </e>
               <e p="Weapon" t="Include">
                 <e p="Weapon.cs" t="Include" />
@@ -54,6 +144,7 @@
               </e>
               <e p="WeaponData" t="Include">
                 <e p="BowData.cs" t="Include" />
+                <e p="SwordData.cs" t="Include" />
                 <e p="WeaponData.cs" t="Include" />
               </e>
             </e>
@@ -90,6 +181,27 @@
           <e p="Sprites" t="Include">
             <e p="EmojiOne Attribution.txt" t="Include" />
             <e p="EmojiOne.json" t="Include" />
+          </e>
+        </e>
+        <e p="Textures" t="Include">
+          <e p="dungeon16X16" t="Include">
+            <e p="README.txt" t="Include" />
+            <e p="Tiles" t="Include">
+              <e p="wall" t="Include">
+                <e p="obs.txt" t="Include" />
+              </e>
+            </e>
+          </e>
+          <e p="Houses_Pack" t="Include">
+            <e p="public-license.txt" t="Include" />
+          </e>
+          <e p="VFX" t="Include">
+            <e p="Smoke_Fire" t="Include">
+              <e p="smoke_animated" t="Include">
+                <e p="LICENSE.txt" t="Include" />
+                <e p="README.txt" t="Include" />
+              </e>
+            </e>
           </e>
         </e>
       </e>
@@ -1868,6 +1980,134 @@
               <e p="PrimitiveVectorDrawer.cs" t="Include" />
               <e p="QuaternionDrawer.cs" t="Include" />
               <e p="Unity.Mathematics.Editor.asmdef" t="Include" />
+            </e>
+          </e>
+          <e p="com.unity.postprocessing@3.2.2" t="Include">
+            <e p="PostProcessing" t="Include">
+              <e p="Editor" t="Include">
+                <e p="Attributes" t="Include">
+                  <e p="DecoratorAttribute.cs" t="Include" />
+                  <e p="PostProcessEditorAttribute.cs" t="Include" />
+                </e>
+                <e p="BaseEditor.cs" t="Include" />
+                <e p="Decorators" t="Include">
+                  <e p="AttributeDecorator.cs" t="Include" />
+                  <e p="Decorators.cs" t="Include" />
+                  <e p="TrackballDecorator.cs" t="Include" />
+                </e>
+                <e p="EffectListEditor.cs" t="Include" />
+                <e p="Effects" t="Include">
+                  <e p="AmbientOcclusionEditor.cs" t="Include" />
+                  <e p="AutoExposureEditor.cs" t="Include" />
+                  <e p="BloomEditor.cs" t="Include" />
+                  <e p="ChromaticAberrationEditor.cs" t="Include" />
+                  <e p="ColorGradingEditor.cs" t="Include" />
+                  <e p="DefaultPostProcessEffectEditor.cs" t="Include" />
+                  <e p="DepthOfFieldEditor.cs" t="Include" />
+                  <e p="LensDistortionEditor.cs" t="Include" />
+                  <e p="MotionBlurEditor.cs" t="Include" />
+                  <e p="ScreenSpaceReflectionsEditor.cs" t="Include" />
+                  <e p="VignetteEditor.cs" t="Include" />
+                </e>
+                <e p="PostProcessDebugEditor.cs" t="Include" />
+                <e p="PostProcessEffectBaseEditor.cs" t="Include" />
+                <e p="PostProcessEffectEditor.cs" t="Include" />
+                <e p="PostProcessLayerEditor.cs" t="Include" />
+                <e p="PostProcessProfileEditor.cs" t="Include" />
+                <e p="PostProcessVolumeEditor.cs" t="Include" />
+                <e p="Tools" t="Include">
+                  <e p="CubeLutAssetFactory.cs" t="Include" />
+                  <e p="CubeLutAssetImporter.cs" t="Include" />
+                  <e p="DefineSetter.cs" t="Include" />
+                  <e p="ProfileFactory.cs" t="Include" />
+                  <e p="ResourceAssetFactory.cs" t="Include" />
+                  <e p="VolumeFactory.cs" t="Include" />
+                </e>
+                <e p="Unity.Postprocessing.Editor.asmdef" t="Include" />
+                <e p="Utils" t="Include">
+                  <e p="CurveEditor.cs" t="Include" />
+                  <e p="EditorUtilities.cs" t="Include" />
+                  <e p="GlobalSettings.cs" t="Include" />
+                  <e p="SerializedParameterOverride.cs" t="Include" />
+                  <e p="Styling.cs" t="Include" />
+                </e>
+              </e>
+              <e p="Runtime" t="Include">
+                <e p="Attributes" t="Include">
+                  <e p="DisplayNameAttribute.cs" t="Include" />
+                  <e p="MaxAttribute.cs" t="Include" />
+                  <e p="MinAttribute.cs" t="Include" />
+                  <e p="MinMaxAttribute.cs" t="Include" />
+                  <e p="PostProcessAttribute.cs" t="Include" />
+                  <e p="TrackballAttribute.cs" t="Include" />
+                </e>
+                <e p="Effects" t="Include">
+                  <e p="AmbientOcclusion.cs" t="Include" />
+                  <e p="AutoExposure.cs" t="Include" />
+                  <e p="Bloom.cs" t="Include" />
+                  <e p="ChromaticAberration.cs" t="Include" />
+                  <e p="ColorGrading.cs" t="Include" />
+                  <e p="DepthOfField.cs" t="Include" />
+                  <e p="Dithering.cs" t="Include" />
+                  <e p="FastApproximateAntialiasing.cs" t="Include" />
+                  <e p="Fog.cs" t="Include" />
+                  <e p="Grain.cs" t="Include" />
+                  <e p="LensDistortion.cs" t="Include" />
+                  <e p="MotionBlur.cs" t="Include" />
+                  <e p="MultiScaleVO.cs" t="Include" />
+                  <e p="ScalableAO.cs" t="Include" />
+                  <e p="ScreenSpaceReflections.cs" t="Include" />
+                  <e p="SubpixelMorphologicalAntialiasing.cs" t="Include" />
+                  <e p="TemporalAntialiasing.cs" t="Include" />
+                  <e p="Vignette.cs" t="Include" />
+                </e>
+                <e p="Monitors" t="Include">
+                  <e p="HistogramMonitor.cs" t="Include" />
+                  <e p="LightMeterMonitor.cs" t="Include" />
+                  <e p="Monitor.cs" t="Include" />
+                  <e p="VectorscopeMonitor.cs" t="Include" />
+                  <e p="WaveformMonitor.cs" t="Include" />
+                </e>
+                <e p="ParameterOverride.cs" t="Include" />
+                <e p="PostProcessBundle.cs" t="Include" />
+                <e p="PostProcessDebug.cs" t="Include" />
+                <e p="PostProcessDebugLayer.cs" t="Include" />
+                <e p="PostProcessEffectRenderer.cs" t="Include" />
+                <e p="PostProcessEffectSettings.cs" t="Include" />
+                <e p="PostProcessEvent.cs" t="Include" />
+                <e p="PostProcessLayer.cs" t="Include" />
+                <e p="PostProcessManager.cs" t="Include" />
+                <e p="PostProcessProfile.cs" t="Include" />
+                <e p="PostProcessRenderContext.cs" t="Include" />
+                <e p="PostProcessResources.cs" t="Include" />
+                <e p="PostProcessVolume.cs" t="Include" />
+                <e p="Unity.Postprocessing.Runtime.asmdef" t="Include" />
+                <e p="Utils" t="Include">
+                  <e p="ColorUtilities.cs" t="Include" />
+                  <e p="HableCurve.cs" t="Include" />
+                  <e p="HaltonSeq.cs" t="Include" />
+                  <e p="LogHistogram.cs" t="Include" />
+                  <e p="MeshUtilities.cs" t="Include" />
+                  <e p="PostProcessEffectRendererExtensions.cs" t="Include" />
+                  <e p="PropertySheet.cs" t="Include" />
+                  <e p="PropertySheetFactory.cs" t="Include" />
+                  <e p="RuntimeUtilities.cs" t="Include" />
+                  <e p="ShaderIDs.cs" t="Include" />
+                  <e p="Spline.cs" t="Include" />
+                  <e p="TargetPool.cs" t="Include" />
+                  <e p="TextureFormatUtilities.cs" t="Include" />
+                  <e p="TextureLerper.cs" t="Include" />
+                  <e p="XRSettings.cs" t="Include" />
+                </e>
+              </e>
+            </e>
+            <e p="Tests" t="Include">
+              <e p="Editor" t="Include">
+                <e p="Unity.Postprocessing.Editor.Tests.asmdef" t="Include" />
+              </e>
+              <e p="Runtime" t="Include">
+                <e p="Unity.Postprocessing.Runtime.Tests.asmdef" t="Include" />
+              </e>
             </e>
           </e>
           <e p="com.unity.recorder@3.0.3" t="Include">
@@ -5598,6 +5838,11 @@
       <e p="Unity.Mathematics.Player.csproj" t="IncludeRecursive" />
       <e p="Unity.Mathematics.Tests.csproj" t="IncludeRecursive" />
       <e p="Unity.PlasticSCM.Editor.csproj" t="IncludeRecursive" />
+      <e p="Unity.Postprocessing.Editor.csproj" t="IncludeRecursive" />
+      <e p="Unity.Postprocessing.Editor.Tests.csproj" t="IncludeRecursive" />
+      <e p="Unity.Postprocessing.Runtime.csproj" t="IncludeRecursive" />
+      <e p="Unity.Postprocessing.Runtime.Player.csproj" t="IncludeRecursive" />
+      <e p="Unity.Postprocessing.Runtime.Tests.csproj" t="IncludeRecursive" />
       <e p="Unity.Recorder.Base.csproj" t="IncludeRecursive" />
       <e p="Unity.Recorder.Base.Player.csproj" t="IncludeRecursive" />
       <e p="Unity.Recorder.csproj" t="IncludeRecursive" />

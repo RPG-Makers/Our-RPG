@@ -29,13 +29,11 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/QuestSystem/NPC/VillageHeadman.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/QuestSystem/NPC/WagonMan.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/WeaponSystem/WeaponMechanics.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Delegates/EventDelegateExample.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Quests/Quest1_Glasses.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Inventory/InventoryManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Inventory/ItemPickup.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Inventory/ItemController.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Inventory/Item.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Delegates/EventDelegateExample.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -62,6 +60,13 @@
         <option value="$PROJECT_DIR$/Assets/HealthBar.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Player/HorseRiding.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Quests/Quest1.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/QuestSystem/Player/PlayerQuest.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/QuestSystem/NPC/Steve.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/QuestSystem/NPC/Village Headman.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/QuestSystem/NPC/VillageHeadman.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/QuestSystem/QuestObjects/PlacesLinks.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/QuestSystem/NPC/WagonMan.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/QuestSystem/NPC/BrewMaster.cs" />
       </list>
     </option>
   </component>
@@ -121,6 +126,10 @@
       <workItem from="1670503058470" duration="993000" />
       <workItem from="1670677536141" duration="4812000" />
       <workItem from="1670987248803" duration="83000" />
+      <workItem from="1674623587631" duration="2100000" />
+      <workItem from="1676646469125" duration="2464000" />
+      <workItem from="1676704985143" duration="1227000" />
+      <workItem from="1677416327364" duration="1195000" />
     </task>
     <servers />
   </component>

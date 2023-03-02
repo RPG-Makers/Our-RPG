@@ -9,7 +9,7 @@ public class Quest
 
     public Quest(string name, string description, Task[] tasks)
     {
-        QuestData = ScriptableObject.CreateInstance<QuestData>(); // Сейчас это не сохраняется! В будущем как-либо изменить!
+        QuestData = ScriptableObject.CreateInstance<QuestData>(); // РЎРµР№С‡Р°СЃ СЌС‚Рѕ РЅРµ СЃРѕС…СЂР°РЅСЏРµС‚СЃСЏ! Р’ Р±СѓРґСѓС‰РµРј РєР°Рє-Р»РёР±Рѕ РёР·РјРµРЅРёС‚СЊ!
         QuestData.Name = name;
         QuestData.Description = description;
         QuestData.Tasks = tasks;
