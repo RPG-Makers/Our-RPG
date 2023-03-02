@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[RequireComponent(typeof(QuestGiverUI))]
+//[RequireComponent(typeof(QuestGiverUI))]
 [RequireComponent(typeof(SpriteRenderer), typeof(BoxCollider2D))]
 public abstract class QuestGiver : MonoBehaviour
 {
@@ -19,15 +19,42 @@ public abstract class QuestGiver : MonoBehaviour
 
     protected virtual void GiveQuest(GameObject player) // Target is to whom we give the quest. But we are planning to give a quests only to player.
     {
-        Quest quest;
-        if (_data.RemainingQuests.TryDequeue(out quest))
+        player.GetComponent<PlayerQuest>().ReceiveQuest(_quest);
+
+
+
+
+
+
+        // new system
+        //Quest quest;
+        //if (_data.RemainingQuests.TryDequeue(out quest))
+        //{
+        //    _data.CurrentQuest = quest;
+        //    player.GetComponent<PlayerQuest>().ReceiveQuest(_data.CurrentQuest);
+        //}
+        //else
+        //{
+        //    Debug.LogFormat("Пока что квестов нет");
+        //}
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision) // Temp!!!! Move to UI component!
+    {
+        if (collision.CompareTag("Player"))
         {
-            _data.CurrentQuest = quest;
-            player.GetComponent<PlayerQuest>().ReceiveQuest(_data.CurrentQuest);
-        }
-        else
-        {
-            Debug.LogFormat("Пока что квестов нет");
+            if (!givedQuest)
+            {
+                GiveQuest(collision.gameObject);
+            }
+            else if (givedQuest && _quest.QuestData.Completed)
+            {
+                Debug.Log("Thank you!");
+            }
+            else
+            {
+                Debug.Log("You didn't complete my quest!");
+            }
         }
     }
 }
