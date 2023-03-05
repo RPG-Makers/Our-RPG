@@ -1,8 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
+[Serializable]
 public class Quest
 {
     public QuestData QuestData => _questData; // «десь есть кос€к, если мы получаем QuestData, то можем лезть дальше и мен€ть все пол€ этого свойства. ќчень желательно добитьс€ того, чтобы дальше нельз€ было лезть. “о есть при доступе к QuestData нельз€ было дальше обращатьс€ к QuestData.Name, QuestData.Description и так далее.
