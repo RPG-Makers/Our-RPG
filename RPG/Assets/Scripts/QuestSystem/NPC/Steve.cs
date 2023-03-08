@@ -2,28 +2,28 @@ using UnityEngine;
 
 public class Steve : QuestGiver
 {
-    private void Awake()
-    {
-        _data.RemainingQuests.Enqueue(
-            new Quest("Revenge",
-            "Find OldCastle and kill Wizard!",
-            new Task[2]
-            {
-                new GoTask("Find OldCastle", "Find it on the top of mountain", _places.Castle),
-                new KillTask("Kill Wizard", "He is strong but ok!", "Wizard", 1)
-            }
-            ));
+    //private void Awake()
+    //{
+    //    _data.RemainingQuests.Enqueue(
+    //        new Quest("Revenge",
+    //        "Find OldCastle and kill Wizard!",
+    //        new Task[2]
+    //        {
+    //            new GoTask("Find OldCastle", "Find it on the top of mountain", _places.Castle),
+    //            new KillTask("Kill Wizard", "He is strong but ok!", "Wizard", 1)
+    //        }
+    //        ));
 
-        _data.RemainingQuests.Enqueue(
-            new Quest("Adventure",
-            "Walk around and found new spots!",
-            new Task[2]
-            {
-                new GoTask("Mountain", "Find the mountain.", _places.Money1),
-                new GoTask("River", "Find the river.", _places.Money2)
-            }
-            ));
-    }
+    //    _data.RemainingQuests.Enqueue(
+    //        new Quest("Adventure",
+    //        "Walk around and found new spots!",
+    //        new Task[2]
+    //        {
+    //            new GoTask("Mountain", "Find the mountain.", _places.Money1),
+    //            new GoTask("River", "Find the river.", _places.Money2)
+    //        }
+    //        ));
+    //}
     protected override void GiveQuest(PlayerQuest player)
     {
         //if (givedQuest) { return; }
