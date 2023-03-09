@@ -268,7 +268,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3932120}
   m_Layer: 5
-  m_Name: AdaptivePanels (1)
+  m_Name: AdaptivePanels
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -820,7 +820,7 @@ GameObject:
   - component: {fileID: 537203134}
   - component: {fileID: 537203133}
   m_Layer: 5
-  m_Name: Panel1
+  m_Name: BluePanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2284,12 +2284,12 @@ GameObject:
   m_Component:
   - component: {fileID: 1928108907}
   m_Layer: 5
-  m_Name: AdaptivePanels
+  m_Name: NotWorkAdaptivePanels
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1928108907
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2485,7 +2485,7 @@ GameObject:
   - component: {fileID: 2112825334}
   - component: {fileID: 2112825333}
   m_Layer: 5
-  m_Name: Panel2
+  m_Name: RedPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
