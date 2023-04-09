@@ -1,18 +1,21 @@
 using UnityEngine;
 
-//[RequireComponent(typeof(QuestGiverUI))]
+[RequireComponent(typeof(NPCDialogue))]
 [RequireComponent(typeof(SpriteRenderer), typeof(BoxCollider2D))]
 public abstract class QuestGiver : MonoBehaviour
 {
+    [SerializeField] protected PlayerQuest _playerQuest; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     [SerializeField] protected PlacesLinks _places;
     [SerializeField] protected QuestGiverData _data;
 
-    //private QuestGiverUI _UI;
+    private NPCDialogue _dialogue;
 
-    //private void Awake()
-    //{
-    //    _UI = GetComponent<QuestGiverUI>();
-    //}
+    private void Awake()
+    {
+        _dialogue = GetComponent<NPCDialogue>();
+    }
+
+    protected abstract void InitializeQuests();
 
     protected virtual void GiveQuest(PlayerQuest player) // Target is to whom we give the quest. But we are planning to give a quests only to player.
     {
@@ -26,6 +29,20 @@ public abstract class QuestGiver : MonoBehaviour
         {
             Debug.LogFormat("Пока что квестов нет");
         }
+    }
+
+    private void OnMouseDown()
+    {
+        _dialogue.EnableDialogueUI(_data.Greeting);
+        //if (!_data.GivedQuest)
+        //{
+        //    Debug.Log("Try to give a Quest");
+        //    GiveQuest(_playerQuest);
+        //}
+        //else
+        //{
+        //    Debug.Log("Will not give a Quest");
+        //}
     }
 
     private void OnTriggerEnter2D(Collider2D collision) // Temp!!!! Move to UI component!
