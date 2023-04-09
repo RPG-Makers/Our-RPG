@@ -4,7 +4,6 @@ using UnityEngine;
 [RequireComponent(typeof(SpriteRenderer), typeof(BoxCollider2D))]
 public abstract class QuestGiver : MonoBehaviour
 {
-    [SerializeField] protected PlayerQuest _playerQuest; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     [SerializeField] protected PlacesLinks _places;
     [SerializeField] protected QuestGiverData _data;
 

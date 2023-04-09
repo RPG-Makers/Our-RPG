@@ -13,25 +13,25 @@ public class Steve : QuestGiver
         {
             Debug.Log("null");
         }
-        _data.RemainingQuests.Add(
-            new Quest("Revenge",
-            "Find OldCastle and kill Wizard!",
-            new Task[2]
-            {
-                new GoTask("Find OldCastle", "Find it on the top of mountain", _places.Castle),
-                new KillTask("Kill Wizard", "He is strong but ok!", "Wizard", 1)
-            }
-            ));
+        //_data.RemainingQuests.Add(
+        //    new Quest("Revenge",
+        //    "Find OldCastle and kill Wizard!",
+        //    new Task[2]
+        //    {
+        //        new GoTask("Find OldCastle", "Find it on the top of mountain", _places.Castle),
+        //        new KillTask("Kill Wizard", "He is strong but ok!", "Wizard", 1)
+        //    }
+        //    ));
 
-        _data.RemainingQuests.Add(
-            new Quest("Adventure",
-            "Walk around and found new spots!",
-            new Task[2]
-            {
-                new GoTask("Mountain", "Find the mountain.", _places.Money1),
-                new GoTask("River", "Find the river.", _places.Money2)
-            }
-            ));
+        //_data.RemainingQuests.Add(
+        //    new Quest("Adventure",
+        //    "Walk around and found new spots!",
+        //    new Task[2]
+        //    {
+        //        new GoTask("Mountain", "Find the mountain.", _places.Money1),
+        //        new GoTask("River", "Find the river.", _places.Money2)
+        //    }
+        //    ));
     }
 
     //protected override void GiveQuest(PlayerQuest player)

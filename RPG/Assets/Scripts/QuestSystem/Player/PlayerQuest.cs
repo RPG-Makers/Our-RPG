@@ -14,7 +14,7 @@ public class PlayerQuest : MonoBehaviour
     public void ReceiveQuest(Quest quest)
     {
         _quests.Add(quest);
-        Debug.Log(quest.QuestData.name);
+        Debug.Log(quest.QuestData.Name);
         Debug.Log("Player has received some quest");
     }
 
