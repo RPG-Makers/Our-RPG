@@ -17,8 +17,22 @@ public class DialogueSystemManager : MonoBehaviour
     [SerializeField] private GameObject _answerButtonsParent;
     [SerializeField] private GameObject _answerButton;
 
+    #region API
+    public void Disable()
+    {
+        DisableDialogueUI();
+        DisableAnswersUI();
+    }
+
+    public void InstantiateDialogueElement(string text)
+    {
+        _dialogueElement.GetComponentInChildren<TextMeshProUGUI>().text = text;
+        Instantiate(_dialogueElement, _dialoguesParent.transform);
+    }
+    #endregion
+
     #region Dialogue
-    public void EnableDialogueUI()
+    private void EnableDialogueUI()
     {
         _dialogueUI.SetActive(true);
     }
@@ -33,7 +47,7 @@ public class DialogueSystemManager : MonoBehaviour
         }
     }
 
-    public void DisableDialogueUI()
+    private void DisableDialogueUI()
     {
         for (int i = 0; i < _dialoguesParent.transform.childCount; i++)
         {
@@ -41,17 +55,21 @@ public class DialogueSystemManager : MonoBehaviour
         }
         _dialogueUI.SetActive(false);
     }
-
-    public void InstantiateDialogueElement(string text)
-    {
-        _dialogueElement.GetComponentInChildren<TextMeshProUGUI>().text = text;
-        Instantiate(_dialogueElement, _dialoguesParent.transform);
-    }
     #endregion
+
+    #region Answers
+    private void DisableAnswersUI()
+    {
+        for (int i = 0; i < _answerButtonsParent.transform.childCount; i++)
+        {
+            Destroy(_answerButtonsParent.transform.GetChild(i).gameObject);
+        }
+    }
 
     public void InstantiateAnswerButton(string text)
     {
         _answerButton.GetComponentInChildren<TextMeshProUGUI>().text = text;
         Instantiate(_answerButton, _answerButtonsParent.transform);
     }
+    #endregion
 }

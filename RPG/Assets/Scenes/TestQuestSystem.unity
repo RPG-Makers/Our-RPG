@@ -308,7 +308,6 @@ GameObject:
   - component: {fileID: 224165216}
   - component: {fileID: 224165215}
   - component: {fileID: 224165214}
-  - component: {fileID: 224165217}
   m_Layer: 0
   m_Name: NPC
   m_TagString: Untagged
@@ -424,25 +423,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &224165217
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 224165212}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61e0d8b0eca2bac4f9a4fb187deec73c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _UI: {fileID: 1747614620}
-  _text: {fileID: 0}
-  _talkButton: {fileID: 0}
-  _exitButton: {fileID: 0}
-  _receiveRewardButton: {fileID: 0}
-  _receiveQuestButton: {fileID: 0}
-  _questGiver: {fileID: 0}
 --- !u!1 &302259831
 GameObject:
   m_ObjectHideFlags: 0
@@ -2110,7 +2090,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2017349379}
         m_TargetAssemblyTypeName: DialogueSystemManager, Assembly-CSharp
-        m_MethodName: DisableDialogueUI
+        m_MethodName: Disable
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
