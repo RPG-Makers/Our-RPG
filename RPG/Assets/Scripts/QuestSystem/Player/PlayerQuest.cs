@@ -4,13 +4,11 @@ using UnityEngine;
 [RequireComponent(typeof(PlayerQuestUI))]
 public class PlayerQuest : MonoBehaviour
 {
-    private List<Quest> _quests;
-    private PlayerQuestUI _UI;
+    public List<Quest> _quests; // !!!!!!!!!!!!!!!!!!!!!! public
 
     private void Awake()
     {
         _quests = new List<Quest>();
-        _UI = GetComponent<PlayerQuestUI>();
     }
 
     public void ReceiveQuest(Quest quest)
@@ -23,12 +21,6 @@ public class PlayerQuest : MonoBehaviour
     {
         _quests.Remove(quest);
         Debug.Log("Player has finished some quest");
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        //if (collision.GetComponent<NPC>())
-        _UI.gameObject.SetActive(true);
     }
     //public List<Task> GetAllTasks() // From whole quests.
     //{
