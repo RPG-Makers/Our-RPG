@@ -13,7 +13,6 @@ public class DialogueSystemManager : MonoBehaviour
     public void EnableDialogueUI()
     {
         _dialogueUI.SetActive(true);
-        
     }
 
     public void EnableDialogueUI(string greeting, List<string> dialogues)
