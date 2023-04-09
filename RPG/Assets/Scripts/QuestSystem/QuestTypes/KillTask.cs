@@ -20,7 +20,7 @@ public class KillTask : Task
                 ////////////////SkeletonHealth.Died += IncreaseCurrentAmount;
                 break;
             default:
-                Debug.LogWarning("Uknown enemy type");
+                //Debug.LogWarning("Uknown enemy type");
                 break;
         }
     }

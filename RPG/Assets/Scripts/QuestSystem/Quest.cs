@@ -14,7 +14,7 @@ public class Quest
     {
         _questData = ScriptableObject.CreateInstance<QuestData>(); // Сейчас это не сохраняется! В будущем как-либо изменить!
         _questData.Name = name;
-        Debug.Log(QuestData.Name);
+        //Debug.Log(QuestData.Name);
         _questData.Description = description;
         //QuestData.Tasks = tasks; Пришлось заводить отдельную переменную под каждый тип Task с целью сериализации.
         foreach (var task in tasks)
