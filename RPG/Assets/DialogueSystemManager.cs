@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DialogueSystemManager : MonoBehaviour
 {
@@ -78,7 +79,8 @@ public class DialogueSystemManager : MonoBehaviour
     private void InstantiateAnswerButton(string text)
     {
         _answerButton.GetComponentInChildren<TextMeshProUGUI>().text = text;
-        Instantiate(_answerButton, _answerButtonsParent.transform);
+        GameObject button = Instantiate(_answerButton, _answerButtonsParent.transform);
+        button.GetComponent<Button>().onClick.AddListener(() => Test(text));
     }
     private void DisableAnswersUI()
     {
@@ -88,4 +90,9 @@ public class DialogueSystemManager : MonoBehaviour
         }
     }
     #endregion
+
+    public void Test(string text)
+    {
+        Debug.Log(text);
+    }
 }
