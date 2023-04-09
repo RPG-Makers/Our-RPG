@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class DialogueSystemManager : MonoBehaviour
 {
-    // Скорее всего в будущем будет один метод, который будет вызываться извне и генерировать все необходимые диалоги и ответы.
     [Header("UI")]
     [SerializeField] private GameObject _dialogueUI;
 
@@ -17,6 +16,11 @@ public class DialogueSystemManager : MonoBehaviour
     [SerializeField] private GameObject _answerButtonsParent;
     [SerializeField] private GameObject _answerButton;
 
+    private void EnableDialogueSystemUI()
+    {
+        _dialogueUI.SetActive(true);
+    }
+
     #region API
     public void Disable()
     {
@@ -24,29 +28,28 @@ public class DialogueSystemManager : MonoBehaviour
         DisableAnswersUI();
     }
 
-    public void InstantiateDialogueElement(string text)
+    public void InitializeDialogueSystem(string greeting, List<string> dialogues, List<string> answers)
     {
-        _dialogueElement.GetComponentInChildren<TextMeshProUGUI>().text = text;
-        Instantiate(_dialogueElement, _dialoguesParent.transform);
+        EnableDialogueSystemUI();
+        InitializeDialogues(greeting, dialogues);
+        InitializeAnswers(answers);
     }
     #endregion
 
     #region Dialogue
-    private void EnableDialogueUI()
+    private void InitializeDialogues(string greeting, List<string> dialogues)
     {
-        _dialogueUI.SetActive(true);
-    }
-
-    public void EnableDialogueUI(string greeting, List<string> dialogues)
-    {
-        EnableDialogueUI();
         InstantiateDialogueElement(greeting);
         foreach (var dialogue in dialogues)
         {
             InstantiateDialogueElement(dialogue);
         }
     }
-
+    private void InstantiateDialogueElement(string text)
+    {
+        _dialogueElement.GetComponentInChildren<TextMeshProUGUI>().text = text;
+        Instantiate(_dialogueElement, _dialoguesParent.transform);
+    }
     private void DisableDialogueUI()
     {
         for (int i = 0; i < _dialoguesParent.transform.childCount; i++)
@@ -58,18 +61,24 @@ public class DialogueSystemManager : MonoBehaviour
     #endregion
 
     #region Answers
+    private void InitializeAnswers(List<string> answers)
+    {
+        foreach (var answer in answers)
+        {
+            InstantiateAnswerButton(answer);
+        }
+    }
+    private void InstantiateAnswerButton(string text)
+    {
+        _answerButton.GetComponentInChildren<TextMeshProUGUI>().text = text;
+        Instantiate(_answerButton, _answerButtonsParent.transform);
+    }
     private void DisableAnswersUI()
     {
         for (int i = 0; i < _answerButtonsParent.transform.childCount; i++)
         {
             Destroy(_answerButtonsParent.transform.GetChild(i).gameObject);
         }
-    }
-
-    public void InstantiateAnswerButton(string text)
-    {
-        _answerButton.GetComponentInChildren<TextMeshProUGUI>().text = text;
-        Instantiate(_answerButton, _answerButtonsParent.transform);
     }
     #endregion
 }
