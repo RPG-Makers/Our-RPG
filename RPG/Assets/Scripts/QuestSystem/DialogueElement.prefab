@@ -163,7 +163,7 @@ GameObject:
   - component: {fileID: 120974500881942454}
   - component: {fileID: 3516803935666380321}
   m_Layer: 5
-  m_Name: AdaptiveDialogueElement
+  m_Name: DialogueElement
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
