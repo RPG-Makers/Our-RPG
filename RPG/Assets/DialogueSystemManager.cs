@@ -29,18 +29,18 @@ public class DialogueSystemManager : MonoBehaviour
         DisableAnswersUI();
     }
 
-    public void InitializeDialogueSystem(string greeting, List<string> dialogues, List<string> answers)
-    {
-        EnableDialogueSystemUI();
-        InitializeDialogues(greeting, dialogues);
-        InitializeAnswers(answers);
-    }
+    //public void InitializeDialogueSystem(string greeting, List<string> dialogues, List<string> answers)
+    //{
+    //    EnableDialogueSystemUI();
+    //    InitializeDialogues(greeting, dialogues);
+    //    InitializeAnswers(answers);
+    //}
 
-    public void InitializeDialogueSystem(QuestGiverData data)
+    public void InitializeDialogueSystem(QuestGiverData data, QuestGiver questGiver)
     {
         EnableDialogueSystemUI();
         InitializeDialogues(data.Greeting, data.Dialogues);
-        InitializeAnswers(data.QuestNames);
+        InitializeAnswers(data.QuestNames, questGiver);
     }
     #endregion
 
@@ -69,18 +69,22 @@ public class DialogueSystemManager : MonoBehaviour
     #endregion
 
     #region Answers
-    private void InitializeAnswers(IEnumerable<string> answers)
+    private void InitializeAnswers(string[] answers, QuestGiver questGiver)
     {
-        foreach (var answer in answers)
+        for (int i = 0; i < answers.Length; i++)
         {
-            InstantiateAnswerButton(answer);
+            InstantiateAnswerButton(answers[i], i, questGiver);
         }
+        //foreach (var answer in answers)
+        //{
+        //    InstantiateAnswerButton(answer);
+        //}
     }
-    private void InstantiateAnswerButton(string text)
+    private void InstantiateAnswerButton(string text, int indexOfQuest, QuestGiver questGiver)
     {
         _answerButton.GetComponentInChildren<TextMeshProUGUI>().text = text;
         GameObject button = Instantiate(_answerButton, _answerButtonsParent.transform);
-        button.GetComponent<Button>().onClick.AddListener(() => Test(text));
+        button.GetComponent<Button>().onClick.AddListener(() => questGiver.GiveQuest(indexOfQuest));
     }
     private void DisableAnswersUI()
     {

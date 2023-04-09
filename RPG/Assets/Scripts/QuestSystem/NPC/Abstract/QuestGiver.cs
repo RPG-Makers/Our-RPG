@@ -10,24 +10,35 @@ public abstract class QuestGiver : MonoBehaviour
 
     protected abstract void InitializeQuests();
 
-    protected virtual void GiveQuest(PlayerQuest player) // Target is to whom we give the quest. But we are planning to give a quests only to player.
+    // Using Queue.
+    //protected virtual void GiveQuest(PlayerQuest player) // Target is to whom we give the quest. But we are planning to give a quests only to player.
+    //{
+    //    Quest quest;
+    //    if (_data.RemainingQuests.TryDequeue(out quest))
+    //    {
+    //        _data.CurrentQuest = quest;
+    //        player.ReceiveQuest(_data.CurrentQuest);
+    //    }
+    //    else
+    //    {
+    //        Debug.LogFormat("Пока что квестов нет");
+    //    }
+    //}
+
+    public void GiveQuest(int index)
     {
-        Quest quest;
-        if (_data.RemainingQuests.TryDequeue(out quest))
+        if (index < 0 || index > _data.RemainingQuests.Count)
         {
-            _data.CurrentQuest = quest;
-            player.ReceiveQuest(_data.CurrentQuest);
+            Debug.LogWarning("Incorrect index");
+            return;
         }
-        else
-        {
-            Debug.LogFormat("Пока что квестов нет");
-        }
+        ScriptStorage.Instance.PlayerQuest.ReceiveQuest(_data.RemainingQuests[index]);
     }
 
     private void OnMouseDown()
     {
         //ScriptStorage.Instance.DialogueSystemManager.InitializeDialogueSystem(_data.Greeting, _data.Dialogues, new List<string>() { "answer TEST" });
-        ScriptStorage.Instance.DialogueSystemManager.InitializeDialogueSystem(_data);
+        ScriptStorage.Instance.DialogueSystemManager.InitializeDialogueSystem(_data, this);
 
         // Old
         //if (!_data.GivedQuest)

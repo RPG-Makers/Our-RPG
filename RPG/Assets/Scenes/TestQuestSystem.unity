@@ -3491,6 +3491,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DialogueSystemManager: {fileID: 2017349379}
+  PlayerQuest: {fileID: 1695976599}
 --- !u!4 &2017349378
 Transform:
   m_ObjectHideFlags: 0

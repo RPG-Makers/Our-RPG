@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b787194e155de774494c15c7ef79da44, type: 3}
   m_Name: SteveData
   m_EditorClassIdentifier: 
+  RemainingQuests: []
   CurrentQuest:
     _questData: {fileID: 0}
   AmountOfCompletedQuests: 0

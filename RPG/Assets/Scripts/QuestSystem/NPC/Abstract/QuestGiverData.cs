@@ -6,7 +6,8 @@ using UnityEngine;
 public class QuestGiverData : ScriptableObject
 {
     [Header("QuestSystem")]
-    public Queue<Quest> RemainingQuests = new Queue<Quest>();
+    //public Queue<Quest> RemainingQuests = new Queue<Quest>();
+    public List<Quest> RemainingQuests = new List<Quest>();
     public Quest CurrentQuest;
     public bool GivedQuest => CurrentQuest != null;
     public int AmountOfCompletedQuests;

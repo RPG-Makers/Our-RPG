@@ -13,7 +13,7 @@ public class Steve : QuestGiver
         {
             Debug.Log("null");
         }
-        _data.RemainingQuests.Enqueue(
+        _data.RemainingQuests.Add(
             new Quest("Revenge",
             "Find OldCastle and kill Wizard!",
             new Task[2]
@@ -23,7 +23,7 @@ public class Steve : QuestGiver
             }
             ));
 
-        _data.RemainingQuests.Enqueue(
+        _data.RemainingQuests.Add(
             new Quest("Adventure",
             "Walk around and found new spots!",
             new Task[2]
@@ -34,12 +34,12 @@ public class Steve : QuestGiver
             ));
     }
 
-    protected override void GiveQuest(PlayerQuest player)
-    {
-        //if (givedQuest) { return; }
+    //protected override void GiveQuest(PlayerQuest player)
+    //{
+    //    //if (givedQuest) { return; }
 
-        //Task[] tasks = new Task[1] { new GoTask("Go to Petya", "Find Petya and talk him something", _placeManager.GetComponent<PlacesLinks>().Petya) };
-        //_quest = new Quest("Petya", "Talk", tasks);
-        //base.GiveQuest(player);
-    }
+    //    //Task[] tasks = new Task[1] { new GoTask("Go to Petya", "Find Petya and talk him something", _placeManager.GetComponent<PlacesLinks>().Petya) };
+    //    //_quest = new Quest("Petya", "Talk", tasks);
+    //    //base.GiveQuest(player);
+    //}
 }
