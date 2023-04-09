@@ -15,10 +15,10 @@ public class PlayerQuestUI : MonoBehaviour
     public void ActiveUI()
     {
         _UI.SetActive(true);
-        string result = "Quests: ";
+        string result = "Quests:\n";
         foreach (var item in _playerQuest._quests)
         {
-            result += item.QuestData.name + " - ";
+            result += "- " + item.QuestData.name + "\n";
         }
         _UI.GetComponentInChildren<TextMeshProUGUI>().text = result;
     }
