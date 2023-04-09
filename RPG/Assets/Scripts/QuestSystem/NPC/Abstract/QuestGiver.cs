@@ -4,25 +4,7 @@ using UnityEngine;
 [RequireComponent(typeof(SpriteRenderer), typeof(BoxCollider2D))]
 public abstract class QuestGiver : MonoBehaviour
 {
-    [SerializeField] protected PlacesLinks _places;
     [SerializeField] protected QuestGiverData _data;
-
-    protected abstract void InitializeQuests();
-
-    // Using Queue.
-    //protected virtual void GiveQuest(PlayerQuest player) // Target is to whom we give the quest. But we are planning to give a quests only to player.
-    //{
-    //    Quest quest;
-    //    if (_data.RemainingQuests.TryDequeue(out quest))
-    //    {
-    //        _data.CurrentQuest = quest;
-    //        player.ReceiveQuest(_data.CurrentQuest);
-    //    }
-    //    else
-    //    {
-    //        Debug.LogFormat("Пока что квестов нет");
-    //    }
-    //}
 
     public void GiveQuest(int index)
     {
@@ -69,4 +51,42 @@ public abstract class QuestGiver : MonoBehaviour
         //    }
         //}
     }
+    #region GiveQuest by Queue
+    // Using Queue.
+    //protected virtual void GiveQuest(PlayerQuest player) // Target is to whom we give the quest. But we are planning to give a quests only to player.
+    //{
+    //    Quest quest;
+    //    if (_data.RemainingQuests.TryDequeue(out quest))
+    //    {
+    //        _data.CurrentQuest = quest;
+    //        player.ReceiveQuest(_data.CurrentQuest);
+    //    }
+    //    else
+    //    {
+    //        Debug.LogFormat("Пока что квестов нет");
+    //    }
+    //}
+    #endregion
+    #region CreatingQuestsFromScript
+    // Note: Quest._questData would be null!
+    //_data.RemainingQuests.Add(
+    //    new Quest("Revenge",
+    //    "Find OldCastle and kill Wizard!",
+    //    new Task[2]
+    //    {
+    //        new GoTask("Find OldCastle", "Find it on the top of mountain", _places.Castle),
+    //        new KillTask("Kill Wizard", "He is strong but ok!", "Wizard", 1)
+    //    }
+    //    ));
+
+    //_data.RemainingQuests.Add(
+    //    new Quest("Adventure",
+    //    "Walk around and found new spots!",
+    //    new Task[2]
+    //    {
+    //        new GoTask("Mountain", "Find the mountain.", _places.Money1),
+    //        new GoTask("River", "Find the river.", _places.Money2)
+    //    }
+    //    ));
+    #endregion
 }
