@@ -14,7 +14,7 @@ public class QuestGiverData : ScriptableObject
     [Header("DialogueSystem")]
     public string Greeting;
     public List<string> Dialogues = new List<string>();
-
+    
     private void Reset()
     {
         Debug.Log("Reseted");

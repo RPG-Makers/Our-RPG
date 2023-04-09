@@ -1,19 +1,11 @@
 using UnityEngine;
 
-[RequireComponent(typeof(NPCDialogue))]
 [RequireComponent(typeof(SpriteRenderer), typeof(BoxCollider2D))]
 public abstract class QuestGiver : MonoBehaviour
 {
     [SerializeField] protected PlayerQuest _playerQuest; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     [SerializeField] protected PlacesLinks _places;
     [SerializeField] protected QuestGiverData _data;
-
-    private NPCDialogue _dialogue;
-
-    private void Awake()
-    {
-        _dialogue = GetComponent<NPCDialogue>();
-    }
 
     protected abstract void InitializeQuests();
 
@@ -33,7 +25,7 @@ public abstract class QuestGiver : MonoBehaviour
 
     private void OnMouseDown()
     {
-        _dialogue.EnableDialogueUI(_data.Greeting);
+        ScriptStorage.Instance.DialogueSystemManager.EnableDialogueUI(_data.Greeting, _data.Dialogues);
         //if (!_data.GivedQuest)
         //{
         //    Debug.Log("Try to give a Quest");

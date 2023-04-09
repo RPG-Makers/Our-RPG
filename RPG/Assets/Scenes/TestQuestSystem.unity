@@ -411,7 +411,6 @@ GameObject:
   - component: {fileID: 224165215}
   - component: {fileID: 224165214}
   - component: {fileID: 224165217}
-  - component: {fileID: 224165218}
   m_Layer: 0
   m_Name: NPC
   m_TagString: Untagged
@@ -545,22 +544,6 @@ MonoBehaviour:
   _exitButton: {fileID: 0}
   _receiveRewardButton: {fileID: 0}
   _receiveQuestButton: {fileID: 0}
---- !u!114 &224165218
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 224165212}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a215263c5972af5429b8d5584506d291, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _data: {fileID: 11400000, guid: a0f607e70b1b6b043bcba00dba0eb76f, type: 2}
-  _dialogueUI: {fileID: 2089011595}
-  _contentUI: {fileID: 701717273743105009}
-  _dialogueElement: {fileID: 120974500881942453, guid: bdfdd53df60f3124da681ad7607ede25, type: 3}
 --- !u!1 &302259831
 GameObject:
   m_ObjectHideFlags: 0
@@ -2331,10 +2314,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2089011595}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 2017349379}
+        m_TargetAssemblyTypeName: DialogueSystemManager, Assembly-CSharp
+        m_MethodName: DisableDialogueUI
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3149,6 +3132,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 469d54384a0d6814c91f74ab13d7c478, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _dialogueUI: {fileID: 2089011595}
+  _contentUI: {fileID: 701717273743105009}
+  _dialogueElement: {fileID: 120974500881942453, guid: bdfdd53df60f3124da681ad7607ede25, type: 3}
 --- !u!1 &2060294095
 GameObject:
   m_ObjectHideFlags: 0

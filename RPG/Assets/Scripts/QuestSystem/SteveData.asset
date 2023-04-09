@@ -16,3 +16,6 @@ MonoBehaviour:
     _questData: {fileID: 0}
   AmountOfCompletedQuests: 0
   Greeting: Hello, I'm Steve
+  Dialogues:
+  - How are you?
+  - Are you okay?
