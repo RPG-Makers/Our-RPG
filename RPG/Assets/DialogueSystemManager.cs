@@ -34,6 +34,13 @@ public class DialogueSystemManager : MonoBehaviour
         InitializeDialogues(greeting, dialogues);
         InitializeAnswers(answers);
     }
+
+    public void InitializeDialogueSystem(QuestGiverData data)
+    {
+        EnableDialogueSystemUI();
+        InitializeDialogues(data.Greeting, data.Dialogues);
+        InitializeAnswers(data.QuestNames);
+    }
     #endregion
 
     #region Dialogue
@@ -61,7 +68,7 @@ public class DialogueSystemManager : MonoBehaviour
     #endregion
 
     #region Answers
-    private void InitializeAnswers(List<string> answers)
+    private void InitializeAnswers(IEnumerable<string> answers)
     {
         foreach (var answer in answers)
         {

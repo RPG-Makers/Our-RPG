@@ -14,10 +14,17 @@ public class QuestGiverData : ScriptableObject
     [Header("DialogueSystem")]
     public string Greeting;
     public List<string> Dialogues = new List<string>();
-    
-    private void Reset()
+    public string[] QuestNames
     {
-        Debug.Log("Reseted");
-        Greeting = "reseted";
+        get
+        {
+            string[] names = new string[RemainingQuests.Count];
+            Quest[] temp = RemainingQuests.ToArray();
+            for (int i = 0; i < names.Length; i++)
+            {
+                names[i] = temp[i].QuestData.Name;
+            }
+            return names;
+        }
     }
 }

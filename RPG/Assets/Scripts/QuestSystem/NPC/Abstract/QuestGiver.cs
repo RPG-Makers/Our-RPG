@@ -26,7 +26,10 @@ public abstract class QuestGiver : MonoBehaviour
 
     private void OnMouseDown()
     {
-        ScriptStorage.Instance.DialogueSystemManager.InitializeDialogueSystem(_data.Greeting, _data.Dialogues, new List<string>() { "answer TEST" });
+        //ScriptStorage.Instance.DialogueSystemManager.InitializeDialogueSystem(_data.Greeting, _data.Dialogues, new List<string>() { "answer TEST" });
+        ScriptStorage.Instance.DialogueSystemManager.InitializeDialogueSystem(_data);
+
+        // Old
         //if (!_data.GivedQuest)
         //{
         //    Debug.Log("Try to give a Quest");
