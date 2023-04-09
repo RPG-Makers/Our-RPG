@@ -9,6 +9,7 @@ public class ScriptStorage : MonoBehaviour
     [Header("Scripts")]
     public DialogueSystemManager DialogueSystemManager;
     public PlayerQuest PlayerQuest;
+    public PlacesLinks PlacesLinks;
 
     private void Awake()
     {
