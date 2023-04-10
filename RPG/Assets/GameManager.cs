@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ScriptStorage : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
-    public static ScriptStorage Instance = null;
+    public static GameManager Instance = null;
 
     [Header("Scripts")]
     public DialogueSystemManager DialogueSystemManager;

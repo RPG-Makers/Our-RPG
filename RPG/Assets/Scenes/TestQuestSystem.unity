@@ -3450,7 +3450,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2017349378}
-  - component: {fileID: 2017349377}
+  - component: {fileID: 2017349381}
   - component: {fileID: 2017349379}
   - component: {fileID: 2017349380}
   m_Layer: 0
@@ -3460,21 +3460,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2017349377
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2017349376}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b083beb8d70da9141bd131784fdff6bf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DialogueSystemManager: {fileID: 2017349379}
-  PlayerQuest: {fileID: 1695976599}
-  PlacesLinks: {fileID: 2017349380}
 --- !u!4 &2017349378
 Transform:
   m_ObjectHideFlags: 0
@@ -3530,6 +3515,21 @@ MonoBehaviour:
   Apple: {fileID: 0}
   Hat: {fileID: 0}
   Bow: {fileID: 0}
+--- !u!114 &2017349381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2017349376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b083beb8d70da9141bd131784fdff6bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DialogueSystemManager: {fileID: 2017349379}
+  PlayerQuest: {fileID: 1695976599}
+  PlacesLinks: {fileID: 2017349380}
 --- !u!1 &2060294095
 GameObject:
   m_ObjectHideFlags: 0

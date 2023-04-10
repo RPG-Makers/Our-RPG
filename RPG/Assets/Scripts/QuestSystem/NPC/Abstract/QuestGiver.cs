@@ -13,13 +13,13 @@ public abstract class QuestGiver : MonoBehaviour
             Debug.LogWarning("Incorrect index");
             return;
         }
-        ScriptStorage.Instance.PlayerQuest.ReceiveQuest(_data.RemainingQuests[index]);
+        GameManager.Instance.PlayerQuest.ReceiveQuest(_data.RemainingQuests[index]);
     }
 
     private void OnMouseDown()
     {
         //ScriptStorage.Instance.DialogueSystemManager.InitializeDialogueSystem(_data.Greeting, _data.Dialogues, new List<string>() { "answer TEST" });
-        ScriptStorage.Instance.DialogueSystemManager.InitializeDialogueSystem(_data, this);
+        GameManager.Instance.DialogueSystemManager.InitializeDialogueSystem(_data, this);
 
         // Old
         //if (!_data.GivedQuest)
