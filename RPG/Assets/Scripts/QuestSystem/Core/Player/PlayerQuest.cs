@@ -4,23 +4,21 @@ using UnityEngine;
 [RequireComponent(typeof(PlayerQuestUI))]
 public class PlayerQuest : MonoBehaviour
 {
-    public List<Quest> _quests; // !!!!!!!!!!!!!!!!!!!!!! public
-
-    private void Awake()
-    {
-        _quests = new List<Quest>();
-    }
+    [SerializeField] private PlayerQuestData _data;
+    public PlayerQuestData Data => _data;
 
     public void ReceiveQuest(Quest quest)
     {
-        _quests.Add(quest);
+        _data.Quests.Add(quest);
         Debug.Log(quest.QuestData.Name);
         Debug.Log("Player has received some quest");
     }
 
     public void CloseQuest(Quest quest)
     {
-        _quests.Remove(quest);
+        _data.Quests.Remove(quest);
+        _data.CompletedQuests.Add(quest);
+        _data.NumberOfCompletedQuests++;
         Debug.Log("Player has finished some quest");
     }
     //public List<Task> GetAllTasks() // From whole quests.

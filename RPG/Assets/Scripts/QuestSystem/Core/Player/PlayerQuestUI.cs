@@ -16,7 +16,7 @@ public class PlayerQuestUI : MonoBehaviour
     {
         _UI.SetActive(true);
         string result = "Quests:\n";
-        foreach (var item in _playerQuest._quests)
+        foreach (var item in _playerQuest.Data.Quests)
         {
             result += "- " + item.QuestData.name + "\n";
         }
