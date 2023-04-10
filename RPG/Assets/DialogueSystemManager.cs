@@ -85,6 +85,7 @@ public class DialogueSystemManager : MonoBehaviour
         _answerButton.GetComponentInChildren<TextMeshProUGUI>().text = text;
         GameObject button = Instantiate(_answerButton, _answerButtonsParent.transform);
         button.GetComponent<Button>().onClick.AddListener(() => questGiver.GiveQuest(indexOfQuest));
+        button.GetComponent<Button>().onClick.AddListener(() => Destroy(button));
     }
     private void DisableAnswersUI()
     {

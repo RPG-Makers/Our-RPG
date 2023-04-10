@@ -14,6 +14,7 @@ public abstract class QuestGiver : MonoBehaviour
             return;
         }
         GameManager.Instance.PlayerQuest.ReceiveQuest(_data.RemainingQuests[index]);
+        _data.RemainingQuests.Remove(_data.RemainingQuests[index]);
     }
 
     private void OnMouseDown()
