@@ -17,6 +17,8 @@ public class DialogueSystemManager : MonoBehaviour
     [SerializeField] private GameObject _answerButtonsParent;
     [SerializeField] private GameObject _answerButton;
 
+    private QuestGiverData tempData;
+    private QuestGiver tempQuestGiver;
     private void EnableDialogueSystemUI()
     {
         _dialogueUI.SetActive(true);
@@ -25,8 +27,9 @@ public class DialogueSystemManager : MonoBehaviour
     #region API
     public void Disable()
     {
-        DisableDialogueUI();
-        DisableAnswersUI();
+        ClearDialogueUI();
+        ClearAnswersUI();
+        _dialogueUI.SetActive(false);
     }
 
     //public void InitializeDialogueSystem(string greeting, List<string> dialogues, List<string> answers)
@@ -38,7 +41,10 @@ public class DialogueSystemManager : MonoBehaviour
 
     public void InitializeDialogueSystem(QuestGiverData data, QuestGiver questGiver)
     {
+        tempData = data; tempQuestGiver = questGiver;
         EnableDialogueSystemUI();
+        ClearDialogueUI();
+        ClearAnswersUI();
         InitializeDialogues(data.Greeting, data.Dialogues);
         InitializeAnswers(data.QuestNames, questGiver);
     }
@@ -58,13 +64,12 @@ public class DialogueSystemManager : MonoBehaviour
         _dialogueElement.GetComponentInChildren<TextMeshProUGUI>().text = text;
         Instantiate(_dialogueElement, _dialoguesParent.transform);
     }
-    private void DisableDialogueUI()
+    private void ClearDialogueUI()
     {
         for (int i = 0; i < _dialoguesParent.transform.childCount; i++)
         {
             Destroy(_dialoguesParent.transform.GetChild(i).gameObject);
         }
-        _dialogueUI.SetActive(false);
     }
     #endregion
 
@@ -73,29 +78,39 @@ public class DialogueSystemManager : MonoBehaviour
     {
         for (int i = 0; i < answers.Length; i++)
         {
-            InstantiateAnswerButton(answers[i], i, questGiver);
+            InstantiateQuestButton(answers[i], i, questGiver);
         }
         //foreach (var answer in answers)
         //{
         //    InstantiateAnswerButton(answer);
         //}
     }
-
-
-
     // При нажатии на кнопку квеста:
     // 1) Спавним диалог (текст = описание квеста)
     // 2) Спавним две кнопки:
     //          а. Да (взятие квеста)
     //          б. Нет (возврат к предыдущему состоянию)
-    private void InstantiateAnswerButton(string text, int indexOfQuest, QuestGiver questGiver)
+    private void InstantiateQuestButton(string text, int indexOfQuest, QuestGiver questGiver)
     {
         GameObject button = Instantiate(_answerButton, _answerButtonsParent.transform);
         button.GetComponentInChildren<TextMeshProUGUI>().text = text;
-        button.GetComponent<Button>().onClick.AddListener(() => questGiver.GiveQuest(indexOfQuest));
+        button.GetComponent<Button>().onClick.AddListener(() => InstantiateAnswersButtons(text, indexOfQuest, questGiver));
         button.GetComponent<Button>().onClick.AddListener(() => Destroy(button));
     }
-    private void DisableAnswersUI()
+    private void InstantiateAnswersButtons(string text, int indexOfQuest, QuestGiver questGiver)
+    {
+        ClearAnswersUI();
+        // а еще надо переименовать параметр "text".
+        GameObject acceptButton = Instantiate(_answerButton, _answerButtonsParent.transform);
+        acceptButton.GetComponentInChildren<TextMeshProUGUI>().text = $"Accept {text} quest";
+        acceptButton.GetComponent<Button>().onClick.AddListener(() => questGiver.GiveQuest(indexOfQuest));
+        acceptButton.GetComponent<Button>().onClick.AddListener(() => InitializeDialogueSystem(tempData, tempQuestGiver));
+
+        GameObject declineButton = Instantiate(_answerButton, _answerButtonsParent.transform);
+        declineButton.GetComponentInChildren<TextMeshProUGUI>().text = $"Decline {text} quest";
+        declineButton.GetComponent<Button>().onClick.AddListener(() => InitializeDialogueSystem(tempData, tempQuestGiver));
+    }
+    private void ClearAnswersUI()
     {
         for (int i = 0; i < _answerButtonsParent.transform.childCount; i++)
         {
