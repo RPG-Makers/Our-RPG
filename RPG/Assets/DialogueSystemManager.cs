@@ -90,8 +90,8 @@ public class DialogueSystemManager : MonoBehaviour
     //          б. Нет (возврат к предыдущему состоянию)
     private void InstantiateAnswerButton(string text, int indexOfQuest, QuestGiver questGiver)
     {
-        _answerButton.GetComponentInChildren<TextMeshProUGUI>().text = text;
         GameObject button = Instantiate(_answerButton, _answerButtonsParent.transform);
+        button.GetComponentInChildren<TextMeshProUGUI>().text = text;
         button.GetComponent<Button>().onClick.AddListener(() => questGiver.GiveQuest(indexOfQuest));
         button.GetComponent<Button>().onClick.AddListener(() => Destroy(button));
     }
