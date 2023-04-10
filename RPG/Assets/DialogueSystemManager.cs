@@ -80,6 +80,14 @@ public class DialogueSystemManager : MonoBehaviour
         //    InstantiateAnswerButton(answer);
         //}
     }
+
+
+
+    // При нажатии на кнопку квеста:
+    // 1) Спавним диалог (текст = описание квеста)
+    // 2) Спавним две кнопки:
+    //          а. Да (взятие квеста)
+    //          б. Нет (возврат к предыдущему состоянию)
     private void InstantiateAnswerButton(string text, int indexOfQuest, QuestGiver questGiver)
     {
         _answerButton.GetComponentInChildren<TextMeshProUGUI>().text = text;
