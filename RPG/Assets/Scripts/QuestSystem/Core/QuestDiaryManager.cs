@@ -17,12 +17,23 @@ public class QuestDiaryManager : MonoBehaviour
     [SerializeField] private Transform _questButtonsParent;
     [SerializeField] private GameObject _questButtonPrefab;
 
+    #region API
     public void EnableQuestDiaryUI()
     {
         _content.SetActive(true);
         InstantiateQuestButtons(GameManager.Instance.PlayerQuest.Data.Quests);
     }
 
+    public void Disable()
+    {
+        _questName.text = "";
+        _questDescription.text = "";
+        ClearQuestButtons();
+        _content.SetActive(false);
+    }
+    #endregion
+
+    #region Core
     private void InstantiateQuestButtons(IEnumerable<Quest> quests)
     {
         foreach (var quest in quests)
@@ -46,12 +57,5 @@ public class QuestDiaryManager : MonoBehaviour
             Destroy(_questButtonsParent.GetChild(i).gameObject);
         }
     }
-
-    public void Disable()
-    {
-        _questName.text = "";
-        _questDescription.text = "";
-        ClearQuestButtons();
-        _content.SetActive(false);
-    }
+    #endregion
 }
