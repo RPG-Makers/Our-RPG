@@ -19,10 +19,10 @@ public class QuestDiaryManager : MonoBehaviour
     public void EnableQuestDiaryUI()
     {
         _content.SetActive(true);
-        InitializeQuestButtons(GameManager.Instance.PlayerQuest.Data.Quests); // здесь нужно запросить текущие квесты и отобразить.
+        InstantiateQuestButtons(GameManager.Instance.PlayerQuest.Data.Quests);
     }
 
-    private void InitializeQuestButtons(IEnumerable<Quest> quests)
+    private void InstantiateQuestButtons(IEnumerable<Quest> quests)
     {
         foreach (var quest in quests)
         {
@@ -37,10 +37,19 @@ public class QuestDiaryManager : MonoBehaviour
         _questDescription.text = questDescription;
     }
 
+    private void ClearQuestButtons()
+    {
+        for (int i = 0; i < _questButtonsParent.childCount; i++)
+        {
+            Destroy(_questButtonsParent.GetChild(i).gameObject);
+        }
+    }
+
     public void Disable()
     {
         _questName.text = "";
         _questDescription.text = "";
+        ClearQuestButtons();
         _content.SetActive(false);
     }
 }
