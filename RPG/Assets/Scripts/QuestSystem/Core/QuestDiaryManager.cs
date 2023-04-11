@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class QuestDiaryManager : MonoBehaviour
 {
@@ -28,10 +29,11 @@ public class QuestDiaryManager : MonoBehaviour
         {
             GameObject questButton = Instantiate(_questButtonPrefab, _questButtonsParent);
             questButton.GetComponentInChildren<TextMeshProUGUI>().text = quest.QuestData.Name;
+            questButton.GetComponent<Button>().onClick.AddListener(() => InitializeDetails(quest.QuestData.Name, quest.QuestData.Description));
         }
     }
 
-    private void InitializeDetails(string questName, string questDescription) // А эту штучку будем привязывать к кнопкам квестов.
+    private void InitializeDetails(string questName, string questDescription)
     {
         _questName.text = questName;
         _questDescription.text = questDescription;
