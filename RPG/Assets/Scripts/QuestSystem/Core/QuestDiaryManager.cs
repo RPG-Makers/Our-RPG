@@ -21,22 +21,14 @@ public class QuestDiaryManager : MonoBehaviour
     public void EnableQuestDiaryUI()
     {
         _content.SetActive(true);
-        InstantiateQuestButtons(GameManager.Instance.PlayerQuest.Data.Quests);
+        InstantiateQuestButtons();
     }
 
-    public void Disable()
+    public void InstantiateQuestButtons()
     {
-        _questName.text = "";
-        _questDescription.text = "";
+        ClearDetails();
         ClearQuestButtons();
-        _content.SetActive(false);
-    }
-    #endregion
-
-    #region Core
-    private void InstantiateQuestButtons(IEnumerable<Quest> quests)
-    {
-        foreach (var quest in quests)
+        foreach (var quest in GameManager.Instance.PlayerQuest.Data.Quests)
         {
             GameObject questButton = Instantiate(_questButtonPrefab, _questButtonsParent);
             questButton.GetComponentInChildren<TextMeshProUGUI>().text = quest.QuestData.Name;
@@ -44,10 +36,37 @@ public class QuestDiaryManager : MonoBehaviour
         }
     }
 
+    public void InstantiateCompletedQuestButtons()
+    {
+        ClearDetails();
+        ClearQuestButtons();
+        foreach (var quest in GameManager.Instance.PlayerQuest.Data.CompletedQuests)
+        {
+            GameObject questButton = Instantiate(_questButtonPrefab, _questButtonsParent);
+            questButton.GetComponentInChildren<TextMeshProUGUI>().text = quest.QuestData.Name;
+            questButton.GetComponent<Button>().onClick.AddListener(() => InitializeDetails(quest.QuestData.Name, quest.QuestData.Description));
+        }
+    }
+
+    public void Disable()
+    {
+        ClearDetails();
+        ClearQuestButtons();
+        _content.SetActive(false);
+    }
+    #endregion
+
+    #region Core
     private void InitializeDetails(string questName, string questDescription)
     {
         _questName.text = questName;
         _questDescription.text = questDescription;
+    }
+
+    private void ClearDetails()
+    {
+        _questName.text = "";
+        _questDescription.text = "";
     }
 
     private void ClearQuestButtons()
