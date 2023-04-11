@@ -43,13 +43,13 @@ public class DialogueSystemManager : MonoBehaviour
     {
         tempData = data; tempQuestGiver = questGiver;
         EnableDialogueSystemUI();
-        InitializeDialogues(data.Greeting, data.Dialogues);
-        InitializeAnswers(data.QuestNames, questGiver);
+        InstantiateDialogues(data.Greeting, data.Dialogues);
+        InstantiateAnswers(data.QuestNames, questGiver);
     }
     #endregion
 
     #region Dialogue
-    private void InitializeDialogues(string greeting, List<string> dialogues)
+    private void InstantiateDialogues(string greeting, List<string> dialogues)
     {
         InstantiateDialogueElement(greeting);
         foreach (var dialogue in dialogues)
@@ -72,7 +72,7 @@ public class DialogueSystemManager : MonoBehaviour
     #endregion
 
     #region Answers
-    private void InitializeAnswers(string[] answers, QuestGiver questGiver)
+    private void InstantiateAnswers(string[] answers, QuestGiver questGiver)
     {
         for (int i = 0; i < answers.Length; i++)
         {
