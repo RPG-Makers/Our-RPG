@@ -43,8 +43,6 @@ public class DialogueSystemManager : MonoBehaviour
     {
         tempData = data; tempQuestGiver = questGiver;
         EnableDialogueSystemUI();
-        ClearDialogueUI();
-        ClearAnswersUI();
         InitializeDialogues(data.Greeting, data.Dialogues);
         InitializeAnswers(data.QuestNames, questGiver);
     }
@@ -80,16 +78,7 @@ public class DialogueSystemManager : MonoBehaviour
         {
             InstantiateQuestButton(answers[i], i, questGiver);
         }
-        //foreach (var answer in answers)
-        //{
-        //    InstantiateAnswerButton(answer);
-        //}
     }
-    // При нажатии на кнопку квеста:
-    // 1) Спавним диалог (текст = описание квеста)
-    // 2) Спавним две кнопки:
-    //          а. Да (взятие квеста)
-    //          б. Нет (возврат к предыдущему состоянию)
     private void InstantiateQuestButton(string text, int indexOfQuest, QuestGiver questGiver)
     {
         GameObject button = Instantiate(_answerButton, _answerButtonsParent);
@@ -97,17 +86,16 @@ public class DialogueSystemManager : MonoBehaviour
         button.GetComponent<Button>().onClick.AddListener(() => InstantiateAnswersButtons(text, indexOfQuest, questGiver));
         button.GetComponent<Button>().onClick.AddListener(() => Destroy(button));
     }
-    private void InstantiateAnswersButtons(string text, int indexOfQuest, QuestGiver questGiver)
+    private void InstantiateAnswersButtons(string questName, int indexOfQuest, QuestGiver questGiver)
     {
         ClearAnswersUI();
-        // а еще надо переименовать параметр "text".
         GameObject acceptButton = Instantiate(_answerButton, _answerButtonsParent);
-        acceptButton.GetComponentInChildren<TextMeshProUGUI>().text = $"Accept {text} quest";
+        acceptButton.GetComponentInChildren<TextMeshProUGUI>().text = $"Accept {questName} quest";
         acceptButton.GetComponent<Button>().onClick.AddListener(() => questGiver.GiveQuest(indexOfQuest));
         acceptButton.GetComponent<Button>().onClick.AddListener(() => InitializeDialogueSystem(tempData, tempQuestGiver));
 
         GameObject declineButton = Instantiate(_answerButton, _answerButtonsParent);
-        declineButton.GetComponentInChildren<TextMeshProUGUI>().text = $"Decline {text} quest";
+        declineButton.GetComponentInChildren<TextMeshProUGUI>().text = $"Decline {questName} quest";
         declineButton.GetComponent<Button>().onClick.AddListener(() => InitializeDialogueSystem(tempData, tempQuestGiver));
     }
     private void ClearAnswersUI()
@@ -118,9 +106,4 @@ public class DialogueSystemManager : MonoBehaviour
         }
     }
     #endregion
-
-    public void Test(string text)
-    {
-        Debug.Log(text);
-    }
 }
