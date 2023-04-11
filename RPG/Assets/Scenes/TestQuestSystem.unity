@@ -5309,9 +5309,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _dialogueUI: {fileID: 2089011595}
-  _dialoguesParent: {fileID: 701717273743105009}
+  _dialoguesParent: {fileID: 701717273743105014}
   _dialogueElement: {fileID: 120974500881942453, guid: bdfdd53df60f3124da681ad7607ede25, type: 3}
-  _answerButtonsParent: {fileID: 1003083619}
+  _answerButtonsParent: {fileID: 1003083620}
   _answerButton: {fileID: 4440434686371721914, guid: 7042c7be04b635d4784c84547ce11a34, type: 3}
 --- !u!114 &2017349380
 MonoBehaviour:

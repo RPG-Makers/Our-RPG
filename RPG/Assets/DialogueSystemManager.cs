@@ -10,11 +10,11 @@ public class DialogueSystemManager : MonoBehaviour
     [SerializeField] private GameObject _dialogueUI;
 
     [Header("Dialogues")]
-    [SerializeField] private GameObject _dialoguesParent;
+    [SerializeField] private Transform _dialoguesParent;
     [SerializeField] private GameObject _dialogueElement;
 
     [Header("Answers")]
-    [SerializeField] private GameObject _answerButtonsParent;
+    [SerializeField] private Transform _answerButtonsParent;
     [SerializeField] private GameObject _answerButton;
 
     private QuestGiverData tempData;
@@ -62,13 +62,13 @@ public class DialogueSystemManager : MonoBehaviour
     private void InstantiateDialogueElement(string text)
     {
         _dialogueElement.GetComponentInChildren<TextMeshProUGUI>().text = text;
-        Instantiate(_dialogueElement, _dialoguesParent.transform);
+        Instantiate(_dialogueElement, _dialoguesParent);
     }
     private void ClearDialogueUI()
     {
-        for (int i = 0; i < _dialoguesParent.transform.childCount; i++)
+        for (int i = 0; i < _dialoguesParent.childCount; i++)
         {
-            Destroy(_dialoguesParent.transform.GetChild(i).gameObject);
+            Destroy(_dialoguesParent.GetChild(i).gameObject);
         }
     }
     #endregion
@@ -92,7 +92,7 @@ public class DialogueSystemManager : MonoBehaviour
     //          б. Нет (возврат к предыдущему состоянию)
     private void InstantiateQuestButton(string text, int indexOfQuest, QuestGiver questGiver)
     {
-        GameObject button = Instantiate(_answerButton, _answerButtonsParent.transform);
+        GameObject button = Instantiate(_answerButton, _answerButtonsParent);
         button.GetComponentInChildren<TextMeshProUGUI>().text = text;
         button.GetComponent<Button>().onClick.AddListener(() => InstantiateAnswersButtons(text, indexOfQuest, questGiver));
         button.GetComponent<Button>().onClick.AddListener(() => Destroy(button));
@@ -101,20 +101,20 @@ public class DialogueSystemManager : MonoBehaviour
     {
         ClearAnswersUI();
         // а еще надо переименовать параметр "text".
-        GameObject acceptButton = Instantiate(_answerButton, _answerButtonsParent.transform);
+        GameObject acceptButton = Instantiate(_answerButton, _answerButtonsParent);
         acceptButton.GetComponentInChildren<TextMeshProUGUI>().text = $"Accept {text} quest";
         acceptButton.GetComponent<Button>().onClick.AddListener(() => questGiver.GiveQuest(indexOfQuest));
         acceptButton.GetComponent<Button>().onClick.AddListener(() => InitializeDialogueSystem(tempData, tempQuestGiver));
 
-        GameObject declineButton = Instantiate(_answerButton, _answerButtonsParent.transform);
+        GameObject declineButton = Instantiate(_answerButton, _answerButtonsParent);
         declineButton.GetComponentInChildren<TextMeshProUGUI>().text = $"Decline {text} quest";
         declineButton.GetComponent<Button>().onClick.AddListener(() => InitializeDialogueSystem(tempData, tempQuestGiver));
     }
     private void ClearAnswersUI()
     {
-        for (int i = 0; i < _answerButtonsParent.transform.childCount; i++)
+        for (int i = 0; i < _answerButtonsParent.childCount; i++)
         {
-            Destroy(_answerButtonsParent.transform.GetChild(i).gameObject);
+            Destroy(_answerButtonsParent.GetChild(i).gameObject);
         }
     }
     #endregion
