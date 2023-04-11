@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public DialogueSystemManager DialogueSystemManager;
     public PlayerQuest PlayerQuest;
     public PlacesLinks PlacesLinks;
+    public QuestDiaryManager QuestDiaryManager;
 
     private void Awake()
     {
