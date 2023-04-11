@@ -6,7 +6,7 @@ using UnityEngine;
 public class QuestDiaryManager : MonoBehaviour
 {
     [Header("UI")]
-    [SerializeField] private GameObject _questDiaryUI;
+    [SerializeField] private GameObject _content;
 
     [Header("Parameters")]
     [SerializeField] private TextMeshProUGUI _questName;
@@ -25,13 +25,13 @@ public class QuestDiaryManager : MonoBehaviour
 
     public void EnableQuestDiaryUI()
     {
-        _questDiaryUI.SetActive(true);
+        _content.SetActive(true);
     }
 
     public void Disable()
     {
         _questName.text = "";
         _questDescription.text = "";
-        _questDiaryUI.SetActive(false);
+        _content.SetActive(false);
     }
 }
