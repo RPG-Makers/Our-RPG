@@ -27,8 +27,6 @@ public class DialogueSystemManager : MonoBehaviour
     #region API
     public void Disable()
     {
-        ClearDialogueUI();
-        ClearAnswersUI();
         _dialogueUI.SetActive(false);
     }
 
@@ -43,6 +41,8 @@ public class DialogueSystemManager : MonoBehaviour
     {
         tempData = data; tempQuestGiver = questGiver;
         EnableDialogueSystemUI();
+        ClearDialogueUI();
+        ClearAnswersUI();
         InstantiateDialogues(data.Greeting, data.Dialogues);
         InstantiateAnswers(data.QuestNames, questGiver);
     }
