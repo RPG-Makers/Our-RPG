@@ -5367,6 +5367,8 @@ MonoBehaviour:
   _content: {fileID: 918678247}
   _questName: {fileID: 825096755}
   _questDescription: {fileID: 522293776}
+  _questButtonsParent: {fileID: 451980799}
+  _questButtonPrefab: {fileID: 3418635003324027033, guid: 4b2dacf7894fd5347832e7120cbce1d2, type: 3}
 --- !u!1 &2060294095
 GameObject:
   m_ObjectHideFlags: 0
