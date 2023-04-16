@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b8282633d713b844b889625ee2e8b87, type: 3}
+  m_Name: AdventureQuest
+  m_EditorClassIdentifier: 
+  Name: Adventure
+  Description: Walk around and found new spots!
+  Completed: 0
+  AmountOfCompletedTasks: 0
+  KillTasks: []
+  GoTasks:
+  - Name: Mountain
+    Description: Find the mountain.
+    _place: {fileID: 2610918203879831589, guid: 90df8fe0c1285c742ad7de0a3493f111, type: 3}
+  - Name: River
+    Description: Find the river.
+    _place: {fileID: 474456991955112519, guid: 13128b8543ccdfe489a7f797faebb0bc, type: 3}
