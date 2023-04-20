@@ -29,8 +29,6 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/QuestSystem/NPC/VillageHeadman.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/QuestSystem/NPC/WagonMan.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/WeaponSystem/WeaponMechanics.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Quests/Quest1_Glasses.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Delegates/EventDelegateExample.cs" root0="FORCE_HIGHLIGHTING" />
@@ -130,6 +128,7 @@
       <workItem from="1676646469125" duration="2464000" />
       <workItem from="1676704985143" duration="1227000" />
       <workItem from="1677416327364" duration="1195000" />
+      <workItem from="1681983638701" duration="1170000" />
     </task>
     <servers />
   </component>
