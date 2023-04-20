@@ -10,12 +10,9 @@ public abstract class QuestGiver : MonoBehaviour
     protected Quest _quest;
     protected bool givedQuest;
 
-    private QuestGiverUI _UI;
 
-    private void Awake()
-    {
-        _UI = GetComponent<QuestGiverUI>();
-    }
+
+
 
     protected virtual void GiveQuest(GameObject player) // Target is to whom we give the quest. But we are planning to give a quests only to player.
     {

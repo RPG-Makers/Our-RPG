@@ -31,6 +31,8 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/QuestSystem/NPC/VillageHeadman.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/QuestSystem/NPC/WagonMan.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Inventory/MyOwnInventory/Items/Economy/Money.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/QuestSystem/NPC/Marry.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/WeaponSystem/WeaponMechanics.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Quests/Quest1_Glasses.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Delegates/EventDelegateExample.cs" root0="FORCE_HIGHLIGHTING" />
@@ -54,7 +56,6 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/HorseRiding.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Delegates/EventDelegateExample.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Quests/Quest1_Glasses.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerMovement.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemy/AIChase.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerHealth.cs" />
         <option value="$PROJECT_DIR$/Assets/HealthBar.cs" />
@@ -66,7 +67,12 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/QuestSystem/NPC/VillageHeadman.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/QuestSystem/QuestObjects/PlacesLinks.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/QuestSystem/NPC/WagonMan.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Inventory/MyOwnInventory/Items/Economy/Money.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/QuestSystem/NPC/BrewMaster.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/QuestSystem/NPC/Marry.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Inventory/MyOwnInventory/CellInventory.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerMovement.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/QuestSystem/NPC/Abstract/QuestGiver.cs" />
       </list>
     </option>
   </component>
@@ -130,6 +136,9 @@
       <workItem from="1676646469125" duration="2464000" />
       <workItem from="1676704985143" duration="1227000" />
       <workItem from="1677416327364" duration="1195000" />
+      <workItem from="1677757407421" duration="3164000" />
+      <workItem from="1678095557984" duration="1309000" />
+      <workItem from="1678261144244" duration="2103000" />
     </task>
     <servers />
   </component>
