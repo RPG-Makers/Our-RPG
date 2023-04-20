@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(SpriteRenderer), typeof(BoxCollider2D))]
-public abstract class QuestGiver : MonoBehaviour
+public class QuestGiver : MonoBehaviour
 {
     [SerializeField] protected QuestGiverData _data;
 
