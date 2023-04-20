@@ -31,7 +31,6 @@
     <explicitExcludes>
       <Path>.idea</Path>
       <Path>.vscode</Path>
-      <Path>BUILDS</Path>
       <Path>Logs</Path>
       <Path>Temp</Path>
       <Path>UserSettings</Path>

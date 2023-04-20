@@ -11,7 +11,7 @@ public class BrewMaster : QuestGiver
             ("Хорошо тебя отдубасили, иди и помоги несчастной женщине!",
                 "Квест №5 найти реликвию пострадавшей у таверны", _placeManager.GetComponent<PlacesLinks>().Money1), 
             new GoTask
-            ("Находим женщину Marry и говорим с ней",
+            ("Находим женщину и говорим с ней",
                 "узнаём точное место преступления", _placeManager.GetComponent<PlacesLinks>().Money2), 
             new GoTask
             ("Пришли на место",

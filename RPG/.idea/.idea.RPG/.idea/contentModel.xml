@@ -4,33 +4,9 @@
     <e p="C:\Users\Vadim\AppData\Local\JetBrains\Rider2020.2\extResources" t="IncludeRecursive" />
     <e p="C:\Users\Vadim\AppData\Local\JetBrains\Rider2020.2\resharper-host\Local\Transient\Rider\v202\SolutionCaches\_RPG.-59724835.00" t="ExcludeRecursive" />
     <e p="E:\Vadim\GameDev\Our-RPG\RPG" t="IncludeRecursive">
-      <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.Player.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
-        <e p="Joystick Pack" t="Include">
-          <e p="Examples" t="Include">
-            <e p="JoystickPlayerExample.cs" t="Include" />
-            <e p="JoystickSetterExample.cs" t="Include" />
-          </e>
-          <e p="Scripts" t="Include">
-            <e p="Base" t="Include">
-              <e p="Joystick.cs" t="Include" />
-            </e>
-            <e p="Editor" t="Include">
-              <e p="DynamicJoystickEditor.cs" t="Include" />
-              <e p="FloatingJoystickEditor.cs" t="Include" />
-              <e p="JoystickEditor.cs" t="Include" />
-              <e p="VariableJoystickEditor.cs" t="Include" />
-            </e>
-            <e p="Joysticks" t="Include">
-              <e p="DynamicJoystick.cs" t="Include" />
-              <e p="FixedJoystick.cs" t="Include" />
-              <e p="FloatingJoystick.cs" t="Include" />
-              <e p="VariableJoystick.cs" t="Include" />
-            </e>
-          </e>
-        </e>
         <e p="Scripts" t="Include">
           <e p="Delegates" t="Include">
             <e p="EventDelegateExample.cs" t="Include" />
@@ -79,31 +55,17 @@
           <e p="Inventory" t="Include">
             <e p="MyOwnInventory" t="Include">
               <e p="CellInventory.cs" t="Include" />
-              <e p="CellUIMovler.cs" t="Include" />
-              <e p="ConfirmationWindow.cs" t="Include" />
               <e p="Data" t="Include">
-                <e p="Inventory" t="Include">
-                  <e p="InventoryData.cs" t="Include" />
-                </e>
-                <e p="Item" t="Include">
-                  <e p="ItemData.cs" t="Include" />
-                </e>
+                <e p="InventoryData.cs" t="Include" />
               </e>
-              <e p="DropWindow.cs" t="Include" />
               <e p="Interfaces" t="Include">
                 <e p="IUsable.cs" t="Include" />
               </e>
               <e p="Inventory.cs" t="Include" />
               <e p="InventoryUI.cs" t="Include" />
               <e p="Item.cs" t="Include" />
+              <e p="ItemData.cs" t="Include" />
               <e p="Items" t="Include">
-                <e p="Books" t="Include">
-                  <e p="IntelligenceBook.cs" t="Include" />
-                  <e p="StrenghtBook.cs" t="Include" />
-                </e>
-                <e p="Economy" t="Include">
-                  <e p="Money.cs" t="Include" />
-                </e>
                 <e p="Ingredients" t="Include">
                   <e p="Ingredient.cs" t="Include" />
                 </e>
@@ -111,23 +73,17 @@
                   <e p="HealthPotion.cs" t="Include" />
                   <e p="ManaPotion.cs" t="Include" />
                 </e>
-                <e p="TestItems" t="Include">
-                  <e p="Boomerang.cs" t="Include" />
-                  <e p="BowArrow.cs" t="Include" />
-                  <e p="Cyborg.cs" t="Include" />
-                  <e p="Hat.cs" t="Include" />
-                  <e p="Kusarigama.cs" t="Include" />
-                  <e p="Orrery.cs" t="Include" />
-                  <e p="Sablya.cs" t="Include" />
-                  <e p="Shuriken.cs" t="Include" />
-                  <e p="Sword.cs" t="Include" />
-                </e>
               </e>
-              <e p="Legacy" t="Include">
-                <e p="SomeCellUIMovler.cs" t="Include" />
-                <e p="Test.cs" t="Include" />
-                <e p="testOverlap.cs" t="Include" />
-              </e>
+              <e p="Test.cs" t="Include" />
+            </e>
+            <e p="Old" t="Include">
+              <e p="ItemControllerOld.cs" t="Include" />
+              <e p="ItemOld.cs" t="Include" />
+              <e p="ItemPickupOld.cs" t="Include" />
+            </e>
+            <e p="Oldddd" t="Include">
+              <e p="CellInventory.cs" t="Include" />
+              <e p="OldInventory.cs" t="Include" />
             </e>
           </e>
           <e p="Minimap" t="Include">
@@ -140,10 +96,7 @@
             <e p="PlayerMovement.cs" t="Include" />
             <e p="PlayerPotion.cs" t="Include" />
             <e p="Statistics" t="Include">
-              <e p="Old" t="Include">
-                <e p="PlayerStatisticsData.cs" t="Include" />
-              </e>
-              <e p="StatsLogic.cs" t="Include" />
+              <e p="PlayerStatisticsData.cs" t="Include" />
             </e>
           </e>
           <e p="Quests" t="Include">
@@ -154,12 +107,9 @@
             <e p="NPC" t="Include">
               <e p="Abstract" t="Include">
                 <e p="QuestGiver.cs" t="Include" />
-                <e p="QuestGiverData.cs" t="Include" />
               </e>
               <e p="Alex.cs" t="Include" />
               <e p="BrewMaster.cs" t="Include" />
-              <e p="Marry.cs" t="Include" />
-              <e p="Steve.cs" t="Include" />
               <e p="VillageHeadman.cs" t="Include" />
               <e p="WagonMan.cs" t="Include" />
               <e p="Warrior.cs" t="Include" />

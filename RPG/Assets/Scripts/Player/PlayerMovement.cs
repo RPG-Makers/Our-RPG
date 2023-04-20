@@ -8,7 +8,6 @@ public class PlayerMovement : MonoBehaviour
 {
     public static PlayerMovement Instance;
     [SerializeField] private float movementSpeed;
-    [SerializeField] private FixedJoystick _joystick;
     private Rigidbody2D rb;
     public Animator animator;
     Vector2 movement;
@@ -23,31 +22,18 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         movement = movement.normalized;
-        /*movement.x = Input.GetAxisRaw("Horizontal");
-        movement.y = Input.GetAxisRaw("Vertical");*/
-        
-        movement.x = _joystick.Horizontal;
-        movement.y = _joystick.Vertical;
-        
+        movement.x = Input.GetAxisRaw("Horizontal");
+        movement.y = Input.GetAxisRaw("Vertical");
 
         animator.SetFloat("Horizontal", movement.x); //run walk animation
         animator.SetFloat("Vertical", movement.y);
         animator.SetFloat("Speed", Mathf.Abs(movement.sqrMagnitude));
         
-        /*if(Input.GetKeyDown(KeyCode.A))
+        if(Input.GetKeyDown(KeyCode.A)) // flip the sprite. When we'll have left right mirror animatin, should turn this feature off and adjust the animator
         {
             
             spriteRenderer.flipX = true;
         }else if (Input.GetKeyDown(KeyCode.D))
-        {
-            spriteRenderer.flipX = false;
-        }*/
-
-        if (_joystick.Vertical < 0)
-        {
-            spriteRenderer.flipX = true;
-        }
-        else
         {
             spriteRenderer.flipX = false;
         }
