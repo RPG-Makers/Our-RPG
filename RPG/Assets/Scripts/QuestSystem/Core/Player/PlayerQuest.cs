@@ -1,7 +1,5 @@
-using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(PlayerQuestUI))]
 public class PlayerQuest : MonoBehaviour
 {
     [SerializeField] private PlayerQuestData _data;
