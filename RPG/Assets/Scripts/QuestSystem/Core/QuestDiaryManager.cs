@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class QuestDiaryManager : MonoBehaviour
 {
     [Header("UI")]
-    [SerializeField] private GameObject _questDiaryUI;
+    [SerializeField] private GameObject _content;
 
     [Header("Parameters")]
     [SerializeField] private TextMeshProUGUI _questName;
@@ -20,7 +20,7 @@ public class QuestDiaryManager : MonoBehaviour
     #region API
     public void EnableQuestDiaryUI()
     {
-        _questDiaryUI.SetActive(true);
+        _content.SetActive(true);
         InstantiateQuestButtons();
     }
 
@@ -52,7 +52,7 @@ public class QuestDiaryManager : MonoBehaviour
     {
         ClearDetails();
         ClearQuestButtons();
-        _questDiaryUI.SetActive(false);
+        _content.SetActive(false);
     }
     #endregion
 
