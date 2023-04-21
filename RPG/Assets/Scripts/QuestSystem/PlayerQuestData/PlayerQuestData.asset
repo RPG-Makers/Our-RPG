@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3119ad1cbc3ebf6409a7b22e034f2c63, type: 3}
   m_Name: PlayerQuestData
   m_EditorClassIdentifier: 
-  Quests: []
-  CompletedQuests: []
+  Quests:
+  - _questData: {fileID: 11400000, guid: 5ccd57aeba1bb394e8dfd1c3b1caac9f, type: 2}
+  - _questData: {fileID: 11400000, guid: 117cb64e09562194d99883d73a6f18ea, type: 2}
+  CompletedQuests:
+  - _questData: {fileID: 11400000, guid: 3a242b2e6156aaa47aef13b56234860d, type: 2}
   NumberOfCompletedQuests: 0

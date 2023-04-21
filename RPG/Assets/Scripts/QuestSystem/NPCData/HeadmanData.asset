@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: HeadmanData
   m_EditorClassIdentifier: 
   RemainingQuests:
-  - _questData: {fileID: 0}
+  - _questData: {fileID: 11400000, guid: 3a242b2e6156aaa47aef13b56234860d, type: 2}
   CurrentQuest:
     _questData: {fileID: 0}
   AmountOfCompletedQuests: 0
