@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Quest", menuName = "QuestSystem/Quest")]
+[CreateAssetMenu(fileName = "QuestData", menuName = "QuestSystem/QuestData")]
 public class QuestData : ScriptableObject
 {
     public string Name;
