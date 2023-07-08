@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlaceForTask : MonoBehaviour
@@ -9,9 +7,9 @@ public class PlaceForTask : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.GetComponent<PlayerQuest>() is not null)
         {
-            if (PlayerSpotted != null)
+            if (PlayerSpotted is not null)
             {
                 PlayerSpotted?.Invoke();
             }
