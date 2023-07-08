@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -43,15 +42,14 @@ public class DialogueSystemManager : MonoBehaviour
         EnableDialogueSystemUI();
         ClearDialogueUI();
         ClearAnswersUI();
-        InstantiateDialogues(data.Greeting, data.Dialogues);
+        InstantiateDialogues(data.FirstPhrases);
         InstantiateAnswers(data.QuestNames, questGiver);
     }
     #endregion
 
     #region Dialogue
-    private void InstantiateDialogues(string greeting, List<string> dialogues)
+    private void InstantiateDialogues(List<string> dialogues)
     {
-        InstantiateDialogueElement(greeting);
         foreach (var dialogue in dialogues)
         {
             InstantiateDialogueElement(dialogue);

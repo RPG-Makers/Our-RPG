@@ -20,7 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7245512c-04a6-4c81-9f22-b0537d1d78e0" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/QuestSystem/Core/Player/PlayerQuestData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/QuestSystem/Core/Player/PlayerQuestData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.RPG/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.RPG/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/QuestSystem/Core/NPC/Abstract/QuestGiverData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/QuestSystem/Core/NPC/Abstract/QuestGiverData.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -171,18 +172,8 @@
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
-  <component name="WindowStateProjectService">
-    <state x="461" y="165" key="SettingsEditor" timestamp="1670067076530">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="461" y="165" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1670067076530" />
-    <state width="498" height="446" key="SwitcherDM" timestamp="1668483643836">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="498" height="446" key="SwitcherDM/0.0.1920.1040@0.0.1920.1040" timestamp="1668483643836" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1668484032726">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1668484032726" />
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

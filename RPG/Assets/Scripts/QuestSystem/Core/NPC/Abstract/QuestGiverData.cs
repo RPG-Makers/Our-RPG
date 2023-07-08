@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,15 +5,18 @@ using UnityEngine;
 public class QuestGiverData : ScriptableObject
 {
     [Header("QuestSystem")]
-    //public Queue<Quest> RemainingQuests = new Queue<Quest>();
     public List<Quest> RemainingQuests = new List<Quest>();
-    public Quest CurrentQuest;
-    public bool GivedQuest => CurrentQuest != null;
-    public int AmountOfCompletedQuests;
 
-    [Header("DialogueSystem")]
-    public string Greeting;
-    public List<string> Dialogues = new List<string>();
+    [Header("DialogueSystem"), Tooltip("First phrases in dialogue")]
+    public List<string> FirstPhrases = new List<string>();
+    
+    #region Unnecessary
+    //public Queue<Quest> RemainingQuests = new Queue<Quest>();
+    // public Quest CurrentQuest;
+    // public bool GivedQuest => CurrentQuest != null;
+    // public int AmountOfCompletedQuests;
+    #endregion
+    
     public string[] QuestNames
     {
         get
