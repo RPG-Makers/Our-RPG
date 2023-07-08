@@ -5728,10 +5728,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b083beb8d70da9141bd131784fdff6bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DialogueSystemManager: {fileID: 2017349379}
-  PlayerQuest: {fileID: 1695976599}
-  PlacesLinks: {fileID: 2017349380}
-  QuestDiaryManager: {fileID: 2017349382}
+  playerQuest: {fileID: 1695976599}
 --- !u!114 &2017349382
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,20 +1,33 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(DialogueSystemManager), typeof(QuestDiaryManager))]
+[RequireComponent(typeof(PlacesLinks))]
 public class GameManager : MonoBehaviour
 {
+    #region Public
+    
     public static GameManager Instance = null;
+    public DialogueSystemManager DialogueSystemManager => dialogueSystemManager;
+    public QuestDiaryManager QuestDiaryManager => questDiaryManager;
+    public PlacesLinks PlacesLinks => placesLinks;
+    public PlayerQuest PlayerQuest => playerQuest;
+    
+    #endregion
+    
+    [Header("Links")]
+    [SerializeField] private PlayerQuest playerQuest;
 
-    [Header("Scripts")]
-    public DialogueSystemManager DialogueSystemManager;
-    public PlayerQuest PlayerQuest;
-    public PlacesLinks PlacesLinks;
-    public QuestDiaryManager QuestDiaryManager;
+    private DialogueSystemManager dialogueSystemManager;
+    private QuestDiaryManager questDiaryManager;
+    private PlacesLinks placesLinks;
 
     private void Awake()
     {
         if (Instance == null) Instance = this;
         else Destroy(this);
+
+        dialogueSystemManager = GetComponent<DialogueSystemManager>();
+        questDiaryManager = GetComponent<QuestDiaryManager>();
+        placesLinks = GetComponent<PlacesLinks>();
     }
 }
