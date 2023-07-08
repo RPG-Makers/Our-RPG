@@ -2,20 +2,21 @@ using UnityEngine;
 
 public class PlayerQuest : MonoBehaviour
 {
-    [SerializeField] private PlayerQuestData _data;
-    public PlayerQuestData Data => _data;
+    public PlayerQuestData Data => data;
+
+    
+    [SerializeField] private PlayerQuestData data;
 
     public void ReceiveQuest(Quest quest)
     {
-        _data.Quests.Add(quest);
-        Debug.Log(quest.QuestData.Name);
-        Debug.Log("Player has received some quest");
+        data.Quests.Add(quest);
+        Debug.Log($"Player has received {quest.QuestData.Name} quest");
     }
 
-    public void CloseQuest(Quest quest)
+    public void CompleteQuest(Quest quest)
     {
-        _data.Quests.Remove(quest);
-        _data.CompletedQuests.Add(quest);
+        data.Quests.Remove(quest);
+        data.CompletedQuests.Add(quest);
         Debug.Log("Player has finished some quest");
     }
     //public List<Task> GetAllTasks() // From whole quests.
