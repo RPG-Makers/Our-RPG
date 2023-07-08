@@ -16,7 +16,6 @@ public class PlayerQuest : MonoBehaviour
     {
         _data.Quests.Remove(quest);
         _data.CompletedQuests.Add(quest);
-        _data.NumberOfCompletedQuests++;
         Debug.Log("Player has finished some quest");
     }
     //public List<Task> GetAllTasks() // From whole quests.

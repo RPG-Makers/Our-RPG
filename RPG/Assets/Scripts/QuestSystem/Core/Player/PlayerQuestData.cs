@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,5 +6,5 @@ public class PlayerQuestData : ScriptableObject
 {
     public List<Quest> Quests = new List<Quest>();
     public List<Quest> CompletedQuests = new List<Quest>();
-    public int NumberOfCompletedQuests;
+    public int NumberOfCompletedQuests => CompletedQuests.Count;
 }
