@@ -14,13 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Adventure
   Description: Walk around and found new spots!
+  TextAfterAccept: Accept
+  TextAfterDecline: Decline
   Completed: 0
   AmountOfCompletedTasks: 0
   KillTasks: []
-  GoTasks:
-  - Name: Mountain
-    Description: Find the mountain.
-    _place: {fileID: 2610918203879831589, guid: 90df8fe0c1285c742ad7de0a3493f111, type: 3}
-  - Name: River
-    Description: Find the river.
-    _place: {fileID: 474456991955112519, guid: 13128b8543ccdfe489a7f797faebb0bc, type: 3}
+  GoTasks: []

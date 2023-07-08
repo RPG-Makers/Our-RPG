@@ -14,10 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Check out the village
   Description: Help villagers and leave this place
+  TextAfterAccept: Accept
+  TextAfterDecline: Decline
   Completed: 0
   AmountOfCompletedTasks: 0
   KillTasks: []
-  GoTasks:
-  - Name: Reach the second gates of the village
-    Description: Check out the village and leave it
-    _place: {fileID: 0}
+  GoTasks: []
