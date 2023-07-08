@@ -1,26 +1,22 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(SpriteRenderer), typeof(BoxCollider2D))]
 public class QuestGiver : MonoBehaviour
 {
-    [SerializeField] protected QuestGiverData _data;
+    [SerializeField] protected QuestGiverData data;
 
     public void GiveQuest(int index)
     {
-        if (index < 0 || index > _data.RemainingQuests.Count)
-        {
-            Debug.LogWarning("Incorrect index");
-            return;
-        }
-        GameManager.Instance.PlayerQuest.ReceiveQuest(_data.RemainingQuests[index]);
-        _data.RemainingQuests.Remove(_data.RemainingQuests[index]);
+        CheckIndex(index);
+        
+        GameManager.Instance.PlayerQuest.ReceiveQuest(data.RemainingQuests[index]);
+        data.RemainingQuests.Remove(data.RemainingQuests[index]);
     }
 
     private void OnMouseDown()
     {
         //ScriptStorage.Instance.DialogueSystemManager.InitializeDialogueSystem(_data.Greeting, _data.Dialogues, new List<string>() { "answer TEST" });
-        GameManager.Instance.DialogueSystemManager.InitializeDialogueSystem(_data, this);
+        GameManager.Instance.DialogueSystemManager.InitializeDialogueSystem(data, this);
 
         // Old
         //if (!_data.GivedQuest)
@@ -32,6 +28,12 @@ public class QuestGiver : MonoBehaviour
         //{
         //    Debug.Log("Will not give a Quest");
         //}
+    }
+
+    private void CheckIndex(int index)
+    {
+        if (index < 0 || index > data.RemainingQuests.Count)
+            Debug.LogWarning("Incorrect index");
     }
 
     private void OnTriggerEnter2D(Collider2D collision) // Temp!!!! Move to UI component!
