@@ -7,8 +7,8 @@ public class QuestData : ScriptableObject
     [Header("Info")]
     public string Name;
     public string Description;
-    [Tooltip("Means accept in dialogue with NPC")] public string TextAfterAccept;
-    [Tooltip("Means decline in dialogue with NPC")] public string TextAfterDecline;
+    // [Tooltip("Means accept in dialogue with NPC")] public string TextAfterAccept;
+    // [Tooltip("Means decline in dialogue with NPC")] public string TextAfterDecline;
     public bool Completed;
 
     [Header("Tasks")]
