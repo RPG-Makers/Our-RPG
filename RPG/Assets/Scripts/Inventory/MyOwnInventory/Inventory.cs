@@ -8,10 +8,7 @@ public class Inventory // Возможно, в этом скрипте имеет смысл использовать не I
 
     private CellInventory[] _cells;
     private List<Type> _itemsTypes; // Item types, that we already have in inventory.
-                                    //private int _length; // Maybe [SerializeField]?
-
-
-
+    //private int _length; // Maybe [SerializeField]?
 
     private void Init() // !!!!!!!!!!!!!!!!!!!!
     {
@@ -22,12 +19,6 @@ public class Inventory // Возможно, в этом скрипте имеет смысл использовать не I
     {
         Item.OnTake -= TryAdd;
     }
-
-
-
-
-
-
 
     public Inventory(int length)
     {
