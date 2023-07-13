@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class InventoryUI : MonoBehaviour
 {
-    [SerializeField] private GameObject _cellSample;
-    [SerializeField] private GameObject _emptyCell;
+    [SerializeField] private GameObject cellSample;
+    [SerializeField] private GameObject emptyCell;
 
     public static Action InstantiateInventory;
 
@@ -49,22 +49,22 @@ public class InventoryUI : MonoBehaviour
         {
             if (!cell.IsEmpty)
             {
-                _cellSample.GetComponentInChildren<Image>().sprite = cell.ItemData.Sprite;
-                _cellSample.GetComponentInChildren<TextMeshProUGUI>().text = Convert.ToString(cell.CurrentAmount);
-                GameObject temp = Instantiate(_cellSample, this.transform);
+                cellSample.GetComponentInChildren<Image>().sprite = cell.ItemData.Sprite;
+                cellSample.GetComponentInChildren<TextMeshProUGUI>().text = Convert.ToString(cell.CurrentAmount);
+                GameObject temp = Instantiate(cellSample, this.transform);
                 temp.AddComponent(cell.ItemType);
                 temp.GetComponent<Item>().SetItemData(cell.ItemData);
                 //Debug.Log("Instantiated");
             }
             else
             {
-                Instantiate(_emptyCell, this.transform);
+                Instantiate(emptyCell, this.transform);
                 //GameObject empty = new GameObject(string.Empty, typeof(RectTransform)); //Other way: Instantiate(new GameObject(string.Empty, typeof(RectTransform)), this.transform) Creates 2 GO instead of 1. It can be fixed by an Prefab, but I don't want to keep 1 more link in properties.
                 //empty.transform.SetParent(this.transform);
                 //Debug.Log("Empty Instantiated");
             }
         }
-        _cellSample.GetComponentInChildren<TextMeshProUGUI>().text = "8"; // What is it?
+        cellSample.GetComponentInChildren<TextMeshProUGUI>().text = "8"; // What is it?
     }
 
     /// <summary>
@@ -92,7 +92,7 @@ public class InventoryUI : MonoBehaviour
 
     //    foreach (CellInventory cell in _inventory.Cells)
     //    {
-    //        //if (_cellSample.GetComponentInChildren<SpriteRenderer>().sprite == null)
+    //        //if (cellSample.GetComponentInChildren<SpriteRenderer>().sprite == null)
     //        //{
     //        //    Debug.Log("1st empty");
     //        //}
@@ -100,9 +100,9 @@ public class InventoryUI : MonoBehaviour
     //        //{
     //        //    Debug.Log("2nd empty");
     //        //}
-    //        _cellSample.GetComponentInChildren<SpriteRenderer>().sprite = cell.Item._itemData.Sprite; //!!!!!!!!!!!!!!
-    //        _cellSample.GetComponentInChildren<TextMeshProUGUI>().text = cell.CurrentAmount.ToString();
-    //        cellsUI[index] = _cellSample;
+    //        cellSample.GetComponentInChildren<SpriteRenderer>().sprite = cell.Item._itemData.Sprite; //!!!!!!!!!!!!!!
+    //        cellSample.GetComponentInChildren<TextMeshProUGUI>().text = cell.CurrentAmount.ToString();
+    //        cellsUI[index] = cellSample;
     //        Debug.Log("—генерирован " + index);
     //        index++;
     //    }
