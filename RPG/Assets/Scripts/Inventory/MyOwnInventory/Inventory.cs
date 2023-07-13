@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Inventory // Возможно, в этом скрипте имеет смысл использовать не Item, а ItemData.
 {
-    public CellInventory[] Cells => _cells;
+    public CellInventory[] Cells => cells;
 
-    private CellInventory[] _cells;
-    private List<Type> _itemsTypes; // Item types, that we already have in inventory.
+    private CellInventory[] cells;
+    private List<Type> itemsTypes; // Item types, that we already have in inventory.
     //private int _length; // Maybe [SerializeField]?
 
     private void Init() // !!!!!!!!!!!!!!!!!!!!
@@ -25,16 +25,16 @@ public class Inventory // Возможно, в этом скрипте имеет смысл использовать не I
         if (length <= 0) Debug.LogError("Wrong length of Inventory!");
         else
         {
-            _cells = new CellInventory[length];
+            cells = new CellInventory[length];
 
-            // Initialize _cells.
+            // Initialize cells.
             // Возможно момент инициализации ячейки можно отложить до того момента, когда она понадобится.
-            for (int i = 0; i < _cells.Length; i++)
+            for (int i = 0; i < cells.Length; i++)
             {
-                _cells[i] = new CellInventory();
+                cells[i] = new CellInventory();
             }
 
-            _itemsTypes = new List<Type>();
+            itemsTypes = new List<Type>();
         }
         Init(); // !!!!!!!!!!!!!!!!!!!!
     }
@@ -50,7 +50,7 @@ public class Inventory // Возможно, в этом скрипте имеет смысл использовать не I
             added = false;
             return;
         }
-        _itemsTypes.Add(item.GetType());
+        itemsTypes.Add(item.GetType());
         // Deinit().!!!!!!!!!!!!!!!!!!!!!
         //item.Destroy(); Удаление происходит в самом Item по результатам added = false или true.
         //Debug.Log("Предмет добавлен");
@@ -64,9 +64,9 @@ public class Inventory // Возможно, в этом скрипте имеет смысл использовать не I
     {
         if (item.ItemData.Stackable)
         {
-            if (_itemsTypes.Contains(item.GetType()))
+            if (itemsTypes.Contains(item.GetType()))
             {
-                foreach (CellInventory cell in _cells)
+                foreach (CellInventory cell in cells)
                 {
                     if (cell.ItemType == item.GetType())
                     {
@@ -88,7 +88,7 @@ public class Inventory // Возможно, в этом скрипте имеет смысл использовать не I
     /// </summary>
     private bool TryPut(Item item)
     {
-        foreach (var cell in _cells)
+        foreach (var cell in cells)
         {
             if (cell.ItemType == null)
             {
@@ -105,14 +105,14 @@ public class Inventory // Возможно, в этом скрипте имеет смысл использовать не I
     /// </summary>
     //public void Remove(Item item) // Work not guaranteed!
     //{
-    //    if (_itemsTypes.Contains(item.GetType()))
+    //    if (itemsTypes.Contains(item.GetType()))
     //    {
-    //        foreach (CellInventory cell in _cells)
+    //        foreach (CellInventory cell in cells)
     //        {
     //            if (cell.ItemType == item.GetType())
     //            {
     //                cell.Subtract();
-    //                if (cell.IsEmpty) _itemsTypes.Remove(item.GetType());
+    //                if (cell.IsEmpty) itemsTypes.Remove(item.GetType());
     //                return;
     //            }
     //        }
@@ -134,7 +134,7 @@ public class Inventory // Возможно, в этом скрипте имеет смысл использовать не I
     /// PUBLIC!!! Probably BadPractice.
     public void SwapValuesOfCells(int firstIndex, int secondIndex)
     {
-        (_cells[firstIndex], _cells[secondIndex]) = (_cells[secondIndex], _cells[firstIndex]);
+        (cells[firstIndex], cells[secondIndex]) = (cells[secondIndex], cells[firstIndex]);
     }
 
     /// <summary>
@@ -142,11 +142,11 @@ public class Inventory // Возможно, в этом скрипте имеет смысл использовать не I
     /// </summary>
     public CellInventory GetCell(int index)
     {
-        return _cells[index];
+        return cells[index];
     }
 
     public bool DecreaseAmount(int indexOfCell, int amount)
     {
-        return _cells[indexOfCell].DecreaseAmount(amount);
+        return cells[indexOfCell].DecreaseAmount(amount);
     }
 }
