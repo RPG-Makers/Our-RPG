@@ -1,7 +1,4 @@
-using System;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UI;
 
 [RequireComponent(typeof(SpriteRenderer), typeof(Collider2D))]
 public abstract class Item : MonoBehaviour, IUsable

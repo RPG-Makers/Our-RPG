@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class Inventory // Возможно, в этом скрипте имеет смысл использовать не Item, а ItemData.
 {
-    public CellInventory[] Cells => cells;
+    public CellInventory[] Cells { get; }
 
-    private CellInventory[] cells;
-    private List<Type> itemsTypes; // Item types, that we already have in inventory.
+    private readonly List<Type> itemsTypes; // Item types, that we already have in inventory.
     //private int _length; // Maybe [SerializeField]?
 
     private void Init() // !!!!!!!!!!!!!!!!!!!!
@@ -25,13 +24,13 @@ public class Inventory // Возможно, в этом скрипте имеет смысл использовать не I
         if (length <= 0) Debug.LogError("Wrong length of Inventory!");
         else
         {
-            cells = new CellInventory[length];
+            Cells = new CellInventory[length];
 
             // Initialize cells.
             // Возможно момент инициализации ячейки можно отложить до того момента, когда она понадобится.
-            for (int i = 0; i < cells.Length; i++)
+            for (int i = 0; i < Cells.Length; i++)
             {
-                cells[i] = new CellInventory();
+                Cells[i] = new CellInventory();
             }
 
             itemsTypes = new List<Type>();
@@ -66,7 +65,7 @@ public class Inventory // Возможно, в этом скрипте имеет смысл использовать не I
         {
             if (itemsTypes.Contains(item.GetType()))
             {
-                foreach (CellInventory cell in cells)
+                foreach (CellInventory cell in Cells)
                 {
                     if (cell.ItemType == item.GetType())
                     {
@@ -88,7 +87,7 @@ public class Inventory // Возможно, в этом скрипте имеет смысл использовать не I
     /// </summary>
     private bool TryPut(Item item)
     {
-        foreach (var cell in cells)
+        foreach (var cell in Cells)
         {
             if (cell.ItemType == null)
             {
@@ -134,7 +133,7 @@ public class Inventory // Возможно, в этом скрипте имеет смысл использовать не I
     /// PUBLIC!!! Probably BadPractice.
     public void SwapValuesOfCells(int firstIndex, int secondIndex)
     {
-        (cells[firstIndex], cells[secondIndex]) = (cells[secondIndex], cells[firstIndex]);
+        (Cells[firstIndex], Cells[secondIndex]) = (Cells[secondIndex], Cells[firstIndex]);
     }
 
     /// <summary>
@@ -142,11 +141,11 @@ public class Inventory // Возможно, в этом скрипте имеет смысл использовать не I
     /// </summary>
     public CellInventory GetCell(int index)
     {
-        return cells[index];
+        return Cells[index];
     }
 
     public bool DecreaseAmount(int indexOfCell, int amount)
     {
-        return cells[indexOfCell].DecreaseAmount(amount);
+        return Cells[indexOfCell].DecreaseAmount(amount);
     }
 }
