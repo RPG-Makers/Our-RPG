@@ -1,49 +1,46 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.Remoting.Messaging;
 using UnityEngine;
 
 public class CellInventory
 {
     #region API
-    public Type ItemType => _itemType;
-    public ItemData ItemData => _itemData;
-    public bool IsEmpty => _itemType == null; // or _currentAmount == 0?
-    public int CurrentAmount => _currentAmount;
-    public bool IsFull => _currentAmount == _maxAmount;
+    public Type ItemType => itemType;
+    public ItemData ItemData => itemData;
+    public bool IsEmpty => itemType == null; // or currentAmount == 0?
+    public int CurrentAmount => currentAmount;
+    public bool IsFull => currentAmount == maxAmount;
     #endregion
 
-    private Type _itemType;
-    private ItemData _itemData; // Возможно, плохая практика хранить это. Приходится хранить это, т.к. оригинальный Item (который подобрали) уничтожаем, и соотвественно уничтожаем все его данные.
-    private int _currentAmount;
-    private int _maxAmount = 1; // If we will set 0 by start, IsFull will not allow Inventory.cs put an item.
+    private Type itemType;
+    private ItemData itemData; // Возможно, плохая практика хранить это. Приходится хранить это, т.к. оригинальный Item (который подобрали) уничтожаем, и соотвественно уничтожаем все его данные.
+    private int currentAmount;
+    private int maxAmount = 1; // If we will set 0 by start, IsFull will not allow Inventory.cs put an item.
 
     public void Add(Item item)
     {
         // Вообще-то заполнена ячейка или нет мы должны проверять тут и в инвентаре просто вызывать здешний TryAdd. Но, возможно, так будет затратнее, потому что каждый раз придётся заходить в функцию вместо того, чтобы просто смотреть значение IsFull.
-        if (_currentAmount == 0)
+        if (currentAmount == 0)
         {
             Init(item); // Initializing values if cell is empty.
         }
-        _currentAmount++;
+        currentAmount++;
         //Debug.Log("Добавили");
     }
 
     private void Init(Item item)
     {
-        _itemType = item.GetType(); // Так как после поднятия мы уничтожаем предмет, то значение item становится null, соответственно и _item становится null.
-        _itemData = item.ItemData;
-        // Поэтому возникает ошибка. Нужно заменить _item на _itemType. UPD: Заменено.
-        _maxAmount = item.ItemData.MaxAmount;
+        itemType = item.GetType(); // Так как после поднятия мы уничтожаем предмет, то значение item становится null, соответственно и _item становится null.
+        itemData = item.ItemData;
+        // Поэтому возникает ошибка. Нужно заменить _item на itemType. UPD: Заменено.
+        maxAmount = item.ItemData.MaxAmount;
     }
 
     private void DeInit()
     {
-        _itemType = null;
-        _itemData = null;
-        //_currentAmount = 0; Нужно ли?
-        _maxAmount = 1; // вот тут кстати у нас IsFull не будет проходить (при _maxAmount = 0), потому что
+        itemType = null;
+        itemData = null;
+        //currentAmount = 0; Нужно ли?
+        maxAmount = 1; // вот тут кстати у нас IsFull не будет проходить (при maxAmount = 0), потому что
         // в начале current == max и мы никогда не зайдем ни в какую ячейку.
         // Скорее всего, если мы будем проверять, можем ли поместить предмет, в методе ячейки, то такой проблемы не будет. Но опять-таки, столько раз вызывать функцию обосраться дорого.
     }
@@ -51,10 +48,10 @@ public class CellInventory
     public bool DecreaseAmount(int amount)
     {
         bool success = false;
-        int difference = _currentAmount - amount;
+        int difference = currentAmount - amount;
         if (difference == 0)
         {
-            _currentAmount -= amount;
+            currentAmount -= amount;
             success = true;
             DeInit();
             return success;
@@ -67,7 +64,7 @@ public class CellInventory
         }
         else
         {
-            _currentAmount -= amount;
+            currentAmount -= amount;
             success = true;
             return success;
         }
@@ -75,18 +72,18 @@ public class CellInventory
 
     //public void Subtract() Work not guaranteed.
     //{
-    //    if (_currentAmount == 0)
+    //    if (currentAmount == 0)
     //    {
     //        Debug.LogWarning("Cell is empty! We can't remove something!");
     //    }
-    //    else if (_currentAmount < 0)
+    //    else if (currentAmount < 0)
     //    {
     //        Debug.LogWarning("How?????? Negative index");
     //    }
-    //    else // _currentAmount > 0.
+    //    else // currentAmount > 0.
     //    {
-    //        _currentAmount--;
-    //        if (_currentAmount == 0) // Deinitializing values if cell is empty.
+    //        currentAmount--;
+    //        if (currentAmount == 0) // Deinitializing values if cell is empty.
     //        {
     //            DeInit();
     //        }
