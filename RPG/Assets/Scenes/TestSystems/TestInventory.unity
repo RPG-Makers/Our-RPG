@@ -828,7 +828,7 @@ GameObject:
   - component: {fileID: 689006099}
   - component: {fileID: 689006100}
   m_Layer: 5
-  m_Name: Underlayer
+  m_Name: InventoryUnderlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1889,7 +1889,7 @@ GameObject:
   - component: {fileID: 1278190588}
   - component: {fileID: 1278190587}
   m_Layer: 5
-  m_Name: Clear
+  m_Name: InventoryClearButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2700,7 +2700,7 @@ GameObject:
   - component: {fileID: 1841439845}
   - component: {fileID: 1841439846}
   m_Layer: 5
-  m_Name: Inventory
+  m_Name: InventoryUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
