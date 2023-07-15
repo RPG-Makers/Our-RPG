@@ -8,7 +8,7 @@ public class InventoryUI : MonoBehaviour
     [SerializeField] private GameObject cellSample;
     [SerializeField] private GameObject emptyCell;
 
-    public static Action InstantiateInventory;
+    // public static Action InstantiateInventory;
 
     public Inventory Inventory { get; private set; }
 
@@ -42,7 +42,7 @@ public class InventoryUI : MonoBehaviour
 
         // ƒл€ каждой €чейки нужно получить следующую информацию: Sprite предмета, количество вещей в €чейке.
 
-        InstantiateInventory?.Invoke();
+        // InstantiateInventory?.Invoke();
 
         foreach (CellInventory cell in Inventory.Cells)
         {
@@ -85,10 +85,6 @@ public class InventoryUI : MonoBehaviour
     //{
     //    GameObject[] cellsUI = new GameObject[4]; // 4!
     //    int index = 0;
-
-
-
-
     //    foreach (CellInventory cell in _inventory.Cells)
     //    {
     //        //if (cellSample.GetComponentInChildren<SpriteRenderer>().sprite == null)
