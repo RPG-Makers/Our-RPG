@@ -10,12 +10,11 @@ public class InventoryUI : MonoBehaviour
 
     public static Action InstantiateInventory;
 
-    private Inventory _inventory;
-    public Inventory Inventory => _inventory; // Probably BadPractice.
+    public Inventory Inventory { get; private set; }
 
     private void Awake()
     {
-        _inventory = new Inventory(9);
+        Inventory = new Inventory(9);
         gameObject.SetActive(false);
     }
 
@@ -45,7 +44,7 @@ public class InventoryUI : MonoBehaviour
 
         InstantiateInventory?.Invoke();
 
-        foreach (CellInventory cell in _inventory.Cells)
+        foreach (CellInventory cell in Inventory.Cells)
         {
             if (!cell.IsEmpty)
             {
