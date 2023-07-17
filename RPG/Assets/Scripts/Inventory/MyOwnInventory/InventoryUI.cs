@@ -12,9 +12,13 @@ public class InventoryUI : MonoBehaviour
 
     public Inventory Inventory { get; private set; }
 
+//test
+    [SerializeField] private InventoryData data;
+//test
+
     private void Awake()
     {
-        Inventory = new Inventory(9);
+        Inventory = new Inventory(data);
         gameObject.SetActive(false);
     }
 
@@ -48,15 +52,16 @@ public class InventoryUI : MonoBehaviour
         {
             if (!cell.IsEmpty)
             {
-                cellSample.GetComponentInChildren<Image>().sprite = cell.ItemData.Sprite;
-                cellSample.GetComponentInChildren<TextMeshProUGUI>().text = Convert.ToString(cell.CurrentAmount);
+                cellSample.GetComponentInChildren<Image>().sprite = cell.Data.ItemData.Sprite;
+                cellSample.GetComponentInChildren<TextMeshProUGUI>().text = Convert.ToString(cell.Data.CurrentAmount);
                 GameObject temp = Instantiate(cellSample, this.transform);
-                temp.AddComponent(cell.ItemType);
-                temp.GetComponent<Item>().SetItemData(cell.ItemData);
+                temp.AddComponent(cell.Data.ItemType);
+                temp.GetComponent<Item>().SetItemData(cell.Data.ItemData);
                 //Debug.Log("Instantiated");
             }
             else
             {
+                Debug.Log("I'm empty");
                 Instantiate(emptyCell, this.transform);
                 //GameObject empty = new GameObject(string.Empty, typeof(RectTransform)); //Other way: Instantiate(new GameObject(string.Empty, typeof(RectTransform)), this.transform) Creates 2 GO instead of 1. It can be fixed by an Prefab, but I don't want to keep 1 more link in properties.
                 //empty.transform.SetParent(this.transform);

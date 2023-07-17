@@ -2764,6 +2764,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cellSample: {fileID: 8644710298528374306, guid: 6112340c855cf804dac9c8da2158e8f4, type: 3}
   emptyCell: {fileID: 8644710298528374306, guid: 7477e9dc38bbb3a468668e56a479d1ac, type: 3}
+  data: {fileID: 11400000, guid: fe88918489cb9a14fa2b6c29d51bc41a, type: 2}
 --- !u!1 &1844344490
 GameObject:
   m_ObjectHideFlags: 0

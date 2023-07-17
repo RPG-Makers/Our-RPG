@@ -43,7 +43,7 @@ public class DropWindow : MonoBehaviour
 
     private void OnDisable()
     {
-        // Возможно, OnDisable() вызван кнопкой закрытия окна. В таком случае нужно вернуть ячейку на прежнее место.
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, OnDisable() пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ. пїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ.
     }
 
     public void InitializeValues(int indexOfCell, CellUIMovler inputCell)
@@ -53,9 +53,9 @@ public class DropWindow : MonoBehaviour
 
         CellInventory cell = _inventory.GetCell(indexOfCell);
 
-        _mainText.text = $"How many {cell.ItemType} do you want to drop?";
+        _mainText.text = $"How many {cell.Data.ItemType} do you want to drop?";
 
-        _maxValue.text = cell.CurrentAmount.ToString();
+        _maxValue.text = cell.Data.CurrentAmount.ToString();
         _slider.maxValue = Convert.ToInt32(_maxValue.text);
         _currentValue.text = _slider.value.ToString();
     }

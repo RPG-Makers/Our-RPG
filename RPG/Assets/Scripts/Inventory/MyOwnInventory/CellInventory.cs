@@ -1,43 +1,47 @@
-using System;
 using UnityEngine;
 
 public class CellInventory
 {
     // Public properties.
-    public bool IsEmpty => ItemType == null; // or currentAmount == 0?
-    public bool IsFull => CurrentAmount == maxAmount;
+    public bool IsEmpty => Data.ItemType == null; // or currentAmount == 0?
     
-    // Public properties (private set).
-    public Type ItemType { get; private set; }
-    public ItemData ItemData { get; private set; }
-    public int CurrentAmount { get; private set; }
+    public bool IsFull => Data.CurrentAmount == maxAmount;
+    
+    // Data.
+    public CellInventoryData Data { get; }
 
     // Private variables.
     private int maxAmount = 1; // If we will set 0 by start, IsFull will not allow Inventory.cs put an item.
 
+    public CellInventory(CellInventoryData data)
+    {
+        Data = data;
+        Debug.Log("Created cell with data");
+    }
+    
     public void Add(Item item)
     {
         // Вообще-то заполнена ячейка или нет мы должны проверять тут и в инвентаре просто вызывать здешний TryAdd. Но, возможно, так будет затратнее, потому что каждый раз придётся заходить в функцию вместо того, чтобы просто смотреть значение IsFull.
-        if (CurrentAmount == 0)
+        if (Data.CurrentAmount == 0)
         {
             Init(item); // Initializing values if cell is empty.
         }
-        CurrentAmount++;
+        Data.CurrentAmount++;
         //Debug.Log("Добавили");
     }
 
     private void Init(Item item)
     {
-        ItemType = item.GetType(); // Так как после поднятия мы уничтожаем предмет, то значение item становится null, соответственно и _item становится null.
-        ItemData = item.ItemData;
+        Data.ItemType = item.GetType(); // Так как после поднятия мы уничтожаем предмет, то значение item становится null, соответственно и _item становится null.
+        Data.ItemData = item.ItemData;
         // Поэтому возникает ошибка. Нужно заменить _item на itemType. UPD: Заменено.
         maxAmount = item.ItemData.MaxAmount;
     }
 
     private void DeInit()
     {
-        ItemType = null;
-        ItemData = null;
+        Data.ItemType = null;
+        Data.ItemData = null;
         //currentAmount = 0; Нужно ли?
         maxAmount = 1; // вот тут кстати у нас IsFull не будет проходить (при maxAmount = 0), потому что
         // в начале current == max и мы никогда не зайдем ни в какую ячейку.
@@ -47,10 +51,10 @@ public class CellInventory
     public bool DecreaseAmount(int amount)
     {
         bool success = false;
-        int difference = CurrentAmount - amount;
+        int difference = Data.CurrentAmount - amount;
         if (difference == 0)
         {
-            CurrentAmount -= amount;
+            Data.CurrentAmount -= amount;
             success = true;
             DeInit();
             return success;
@@ -63,7 +67,7 @@ public class CellInventory
         }
         else
         {
-            CurrentAmount -= amount;
+            Data.CurrentAmount -= amount;
             success = true;
             return success;
         }

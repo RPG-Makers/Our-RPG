@@ -19,18 +19,18 @@ public class Inventory // Возможно, в этом скрипте имеет смысл использовать не I
         Item.OnTake -= TryAdd;
     }
 
-    public Inventory(int length)
+    public Inventory(InventoryData data)
     {
-        if (length <= 0) Debug.LogError("Wrong length of Inventory!");
+        if (data.Cells.Length <= 0) Debug.LogError("Wrong length of Inventory!");
         else
         {
-            Cells = new CellInventory[length];
+            Cells = new CellInventory[data.Cells.Length];
 
             // Initialize cells.
             // Возможно момент инициализации ячейки можно отложить до того момента, когда она понадобится.
             for (int i = 0; i < Cells.Length; i++)
             {
-                Cells[i] = new CellInventory();
+                Cells[i] = new CellInventory(data.Cells[i]);
             }
 
             itemsTypes = new List<Type>();
@@ -67,7 +67,7 @@ public class Inventory // Возможно, в этом скрипте имеет смысл использовать не I
             {
                 foreach (CellInventory cell in Cells)
                 {
-                    if (cell.ItemType == item.GetType())
+                    if (cell.Data.ItemType == item.GetType())
                     {
                         if (!cell.IsFull)
                         {
@@ -89,7 +89,7 @@ public class Inventory // Возможно, в этом скрипте имеет смысл использовать не I
     {
         foreach (var cell in Cells)
         {
-            if (cell.ItemType == null)
+            if (cell.Data.ItemType == null)
             {
                 cell.Add(item);
                 //Debug.Log("Added without changing amount.");

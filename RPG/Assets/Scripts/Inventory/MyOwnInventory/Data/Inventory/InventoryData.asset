@@ -12,9 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7197e2804f3dcec42a57aad1dfa8ac9a, type: 3}
   m_Name: InventoryData
   m_EditorClassIdentifier: 
-  template: {fileID: 0}
-  cells:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  Cells:
+  - {fileID: 11400000, guid: cc97ae5b570ca21409efe5f42bd4ed84, type: 2}
+  - {fileID: 11400000, guid: cc97ae5b570ca21409efe5f42bd4ed84, type: 2}
+  - {fileID: 11400000, guid: cc97ae5b570ca21409efe5f42bd4ed84, type: 2}
+  - {fileID: 11400000, guid: cc97ae5b570ca21409efe5f42bd4ed84, type: 2}
+  - {fileID: 11400000, guid: cc97ae5b570ca21409efe5f42bd4ed84, type: 2}
+  - {fileID: 11400000, guid: cc97ae5b570ca21409efe5f42bd4ed84, type: 2}
+  - {fileID: 11400000, guid: cc97ae5b570ca21409efe5f42bd4ed84, type: 2}
+  - {fileID: 11400000, guid: cc97ae5b570ca21409efe5f42bd4ed84, type: 2}
+  - {fileID: 11400000, guid: cc97ae5b570ca21409efe5f42bd4ed84, type: 2}

@@ -28,7 +28,7 @@ public class ConfirmationWindow : MonoBehaviour
         _indexOfCell = indexOfCell;
         _amountToDrop = amountToDrop;
 
-        _mainText.text = $"Sure to drop {amountToDrop} {_inventory.GetCell(indexOfCell).ItemType}?";
+        _mainText.text = $"Sure to drop {amountToDrop} {_inventory.GetCell(indexOfCell).Data.ItemType}?";
         _buttonText.text = $"Drop {amountToDrop} items";
     }
 
