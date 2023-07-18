@@ -11,10 +11,8 @@ public class InventoryUI : MonoBehaviour
     // public static Action InstantiateInventory;
 
     public Inventory Inventory { get; private set; }
-
-//test
+    
     [SerializeField] private InventoryData data;
-//test
 
     private void Awake()
     {
