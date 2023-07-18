@@ -139,6 +139,7 @@ public class Inventory // Возможно, в этом скрипте имеет смысл использовать не I
     {
         (Cells[firstIndex], Cells[secondIndex]) = (Cells[secondIndex], Cells[firstIndex]);
         (data.Cells[firstIndex], data.Cells[secondIndex]) = (data.Cells[secondIndex], data.Cells[firstIndex]);
+        // Just change order of data (SO). Perfect to not change the order, but to change the values.
     }
 
     /// <summary>
