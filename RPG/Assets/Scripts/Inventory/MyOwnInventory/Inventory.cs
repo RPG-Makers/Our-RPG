@@ -120,6 +120,7 @@ public class Inventory // Возможно, в этом скрипте имеет смысл использовать не I
     //    }
     //}
 
+    #region Unused Swap
     /// <summary>
     /// Swaps the values of two CellInventory by reference.
     /// </summary>
@@ -128,6 +129,7 @@ public class Inventory // Возможно, в этом скрипте имеет смысл использовать не I
     {
         (firstCell, secondCell) = (secondCell, firstCell);
     }
+    #endregion
 
     /// <summary>
     /// Swaps the values of two CellInventory by index.
