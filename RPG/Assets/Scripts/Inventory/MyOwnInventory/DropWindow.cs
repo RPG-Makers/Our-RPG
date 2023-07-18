@@ -53,7 +53,7 @@ public class DropWindow : MonoBehaviour
 
         CellInventory cell = _inventory.GetCell(indexOfCell);
 
-        _mainText.text = $"How many {cell.Data.ItemType} do you want to drop?";
+        _mainText.text = $"How many {cell.Data.Type} do you want to drop?";
 
         _maxValue.text = cell.Data.CurrentAmount.ToString();
         _slider.maxValue = Convert.ToInt32(_maxValue.text);

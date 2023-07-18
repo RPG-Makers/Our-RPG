@@ -20,19 +20,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7245512c-04a6-4c81-9f22-b0537d1d78e0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Inventory/MyOwnInventory/Data/Inventory/CellInventoryData.asset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Inventory/MyOwnInventory/Data/Inventory/CellInventoryData.asset.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Inventory/MyOwnInventory/Data/Inventory/CellInventoryData.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Inventory/MyOwnInventory/Data/Inventory/CellInventoryData.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.RPG/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.RPG/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/TestSystems/TestInventory.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/TestSystems/TestInventory.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Inventory/MyOwnInventory/CellInventory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Inventory/MyOwnInventory/CellInventory.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Inventory/MyOwnInventory/ConfirmationWindow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Inventory/MyOwnInventory/ConfirmationWindow.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Inventory/MyOwnInventory/Data/Inventory/InventoryData.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Inventory/MyOwnInventory/Data/Inventory/InventoryData.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Inventory/MyOwnInventory/Data/Inventory/InventoryData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Inventory/MyOwnInventory/Data/Inventory/InventoryData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Inventory/MyOwnInventory/Data/Inventory/CellInventoryData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Inventory/MyOwnInventory/Data/Inventory/CellInventoryData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Inventory/MyOwnInventory/Data/Item/ItemData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Inventory/MyOwnInventory/Data/Item/ItemData.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Inventory/MyOwnInventory/DropWindow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Inventory/MyOwnInventory/DropWindow.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Inventory/MyOwnInventory/Inventory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Inventory/MyOwnInventory/Inventory.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Inventory/MyOwnInventory/InventoryUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Inventory/MyOwnInventory/InventoryUI.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Inventory/MyOwnInventory/Item.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Inventory/MyOwnInventory/Item.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Inventory/MyOwnInventory/Items/Books/IntelligenceBook.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Inventory/MyOwnInventory/Items/Books/IntelligenceBook.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -169,6 +166,7 @@
       <workItem from="1681983638701" duration="1170000" />
       <workItem from="1688794721625" duration="332000" />
       <workItem from="1689588600721" duration="1333000" />
+      <workItem from="1689640666153" duration="921000" />
     </task>
     <servers />
   </component>

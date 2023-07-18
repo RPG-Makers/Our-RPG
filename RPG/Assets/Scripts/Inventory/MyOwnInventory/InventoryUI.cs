@@ -31,7 +31,7 @@ public class InventoryUI : MonoBehaviour
     public void InstantiateInventoryUI()
     {
         Clear();
-        // Вообще здесь надо продумать. Будем ли мы пересоздавать UI при каждом открытии, или же будем менять UI при каждом подборе предмета.
+        // Р’РѕРѕР±С‰Рµ Р·РґРµСЃСЊ РЅР°РґРѕ РїСЂРѕРґСѓРјР°С‚СЊ. Р‘СѓРґРµРј Р»Рё РјС‹ РїРµСЂРµСЃРѕР·РґР°РІР°С‚СЊ UI РїСЂРё РєР°Р¶РґРѕРј РѕС‚РєСЂС‹С‚РёРё, РёР»Рё Р¶Рµ Р±СѓРґРµРј РјРµРЅСЏС‚СЊ UI РїСЂРё РєР°Р¶РґРѕРј РїРѕРґР±РѕСЂРµ РїСЂРµРґРјРµС‚Р°.
         #region Test Area
         //[SerializeField] private GameObject[] _itemsPrefabs;
         //foreach (var item in _itemsPrefabs)
@@ -40,11 +40,11 @@ public class InventoryUI : MonoBehaviour
         //    _inventory.TryAdd(item.GetComponent<Item>(), out success);
         //}
         #endregion
-        // У нас есть инвентарь, который хранит данные о ячейках.
-        // На основе этих данных нам нужно создать GameObject'ы, которые будут отображать данные соответствующей ячейки.
-        // Для этого у нас есть префаб ячейки, в котором нам нужно изменить данные.
+        // РЈ РЅР°СЃ РµСЃС‚СЊ РёРЅРІРµРЅС‚Р°СЂСЊ, РєРѕС‚РѕСЂС‹Р№ С…СЂР°РЅРёС‚ РґР°РЅРЅС‹Рµ Рѕ СЏС‡РµР№РєР°С….
+        // РќР° РѕСЃРЅРѕРІРµ СЌС‚РёС… РґР°РЅРЅС‹С… РЅР°Рј РЅСѓР¶РЅРѕ СЃРѕР·РґР°С‚СЊ GameObject'С‹, РєРѕС‚РѕСЂС‹Рµ Р±СѓРґСѓС‚ РѕС‚РѕР±СЂР°Р¶Р°С‚СЊ РґР°РЅРЅС‹Рµ СЃРѕРѕС‚РІРµС‚СЃС‚РІСѓСЋС‰РµР№ СЏС‡РµР№РєРё.
+        // Р”Р»СЏ СЌС‚РѕРіРѕ Сѓ РЅР°СЃ РµСЃС‚СЊ РїСЂРµС„Р°Р± СЏС‡РµР№РєРё, РІ РєРѕС‚РѕСЂРѕРј РЅР°Рј РЅСѓР¶РЅРѕ РёР·РјРµРЅРёС‚СЊ РґР°РЅРЅС‹Рµ.
 
-        // Для каждой ячейки нужно получить следующую информацию: Sprite предмета, количество вещей в ячейке.
+        // Р”Р»СЏ РєР°Р¶РґРѕР№ СЏС‡РµР№РєРё РЅСѓР¶РЅРѕ РїРѕР»СѓС‡РёС‚СЊ СЃР»РµРґСѓСЋС‰СѓСЋ РёРЅС„РѕСЂРјР°С†РёСЋ: Sprite РїСЂРµРґРјРµС‚Р°, РєРѕР»РёС‡РµСЃС‚РІРѕ РІРµС‰РµР№ РІ СЏС‡РµР№РєРµ.
 
         // InstantiateInventory?.Invoke();
 
@@ -55,7 +55,17 @@ public class InventoryUI : MonoBehaviour
                 cellSample.GetComponentInChildren<Image>().sprite = cell.Data.ItemData.Sprite;
                 cellSample.GetComponentInChildren<TextMeshProUGUI>().text = Convert.ToString(cell.Data.CurrentAmount);
                 GameObject temp = Instantiate(cellSample, this.transform);
-                temp.AddComponent(cell.Data.ItemType);
+                switch (cell.Data.Type)
+                {
+                    case ItemData.ItemType.Book:
+                        temp.AddComponent<IntelligenceBook>();
+                        break;
+                    case ItemData.ItemType.Sword:
+                        temp.AddComponent<Sword>();
+                        break;
+                    default:
+                        throw new ArgumentException("Unknown type of item.");
+                }
                 temp.GetComponent<Item>().SetItemData(cell.Data.ItemData);
                 //Debug.Log("Instantiated");
             }
@@ -103,7 +113,7 @@ public class InventoryUI : MonoBehaviour
     //        cellSample.GetComponentInChildren<SpriteRenderer>().sprite = cell.Item._itemData.Sprite; //!!!!!!!!!!!!!!
     //        cellSample.GetComponentInChildren<TextMeshProUGUI>().text = cell.CurrentAmount.ToString();
     //        cellsUI[index] = cellSample;
-    //        Debug.Log("Сгенерирован " + index);
+    //        Debug.Log("РЎРіРµРЅРµСЂРёСЂРѕРІР°РЅ " + index);
     //        index++;
     //    }
 

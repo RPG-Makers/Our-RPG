@@ -1,18 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class IntelligenceBook : MonoBehaviour
+public class IntelligenceBook : Item
 {
-    // Start is called before the first frame update
-    void Start()
+    public override void Use()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Debug.Log("Use inteli book");
     }
 }

@@ -3,12 +3,12 @@ using UnityEngine;
 public class CellInventory
 {
     // Public properties.
-    public bool IsEmpty => Data.ItemType == null; // or currentAmount == 0?
+    public bool IsEmpty => Data is null; // or currentAmount == 0?
     
     public bool IsFull => Data.CurrentAmount == maxAmount;
     
     // Data.
-    public CellInventoryData Data { get; }
+    public CellInventoryData Data { get; private set; }
 
     // Private variables.
     private int maxAmount = 1; // If we will set 0 by start, IsFull will not allow Inventory.cs put an item.
@@ -16,7 +16,6 @@ public class CellInventory
     public CellInventory(CellInventoryData data)
     {
         Data = data;
-        Debug.Log("Created cell with data");
     }
     
     public void Add(Item item)
@@ -32,7 +31,7 @@ public class CellInventory
 
     private void Init(Item item)
     {
-        Data.ItemType = item.GetType(); // Так как после поднятия мы уничтожаем предмет, то значение item становится null, соответственно и _item становится null.
+        Data.Type = item.ItemData.Type; // Так как после поднятия мы уничтожаем предмет, то значение item становится null, соответственно и _item становится null.
         Data.ItemData = item.ItemData;
         // Поэтому возникает ошибка. Нужно заменить _item на itemType. UPD: Заменено.
         maxAmount = item.ItemData.MaxAmount;
@@ -40,8 +39,7 @@ public class CellInventory
 
     private void DeInit()
     {
-        Data.ItemType = null;
-        Data.ItemData = null;
+        Data = null;
         //currentAmount = 0; Нужно ли?
         maxAmount = 1; // вот тут кстати у нас IsFull не будет проходить (при maxAmount = 0), потому что
         // в начале current == max и мы никогда не зайдем ни в какую ячейку.
