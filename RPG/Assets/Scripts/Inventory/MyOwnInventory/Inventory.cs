@@ -8,6 +8,10 @@ public class Inventory // Возможно, в этом скрипте имеет смысл использовать не I
 
     private readonly List<Type> itemsTypes; // Item types, that we already have in inventory.
     //private int _length; // Maybe [SerializeField]?
+    
+    //test
+    private InventoryData data;
+    //test
 
     private void Init() // !!!!!!!!!!!!!!!!!!!!
     {
@@ -19,22 +23,20 @@ public class Inventory // Возможно, в этом скрипте имеет смысл использовать не I
         Item.OnTake -= TryAdd;
     }
 
-    public Inventory(InventoryData data)
+    public Inventory(InventoryData inventoryData)
     {
-        if (data.Cells.Length <= 0) Debug.LogError("Wrong length of Inventory!");
-        else
+        CheckInventoryData(inventoryData);
+
+        data = inventoryData;
+        Cells = new CellInventory[data.Cells.Length];
+        // Initialize cells.
+        // Возможно момент инициализации ячейки можно отложить до того момента, когда она понадобится.
+        for (int i = 0; i < Cells.Length; i++)
         {
-            Cells = new CellInventory[data.Cells.Length];
-
-            // Initialize cells.
-            // Возможно момент инициализации ячейки можно отложить до того момента, когда она понадобится.
-            for (int i = 0; i < Cells.Length; i++)
-            {
-                Cells[i] = new CellInventory(data.Cells[i]);
-            }
-
-            itemsTypes = new List<Type>();
+            Cells[i] = new CellInventory(data.Cells[i]);
         }
+        itemsTypes = new List<Type>();
+        
         Init(); // !!!!!!!!!!!!!!!!!!!!
     }
 
@@ -134,6 +136,7 @@ public class Inventory // Возможно, в этом скрипте имеет смысл использовать не I
     public void SwapValuesOfCells(int firstIndex, int secondIndex)
     {
         (Cells[firstIndex], Cells[secondIndex]) = (Cells[secondIndex], Cells[firstIndex]);
+        (data.Cells[firstIndex], data.Cells[secondIndex]) = (data.Cells[secondIndex], data.Cells[firstIndex]);
     }
 
     /// <summary>
@@ -147,5 +150,10 @@ public class Inventory // Возможно, в этом скрипте имеет смысл использовать не I
     public bool DecreaseAmount(int indexOfCell, int amount)
     {
         return Cells[indexOfCell].DecreaseAmount(amount);
+    }
+
+    private void CheckInventoryData(InventoryData inventoryData)
+    {
+        if (inventoryData.Cells.Length <= 0) throw new ArgumentException("Wrong length of Inventory!");
     }
 }
