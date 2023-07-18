@@ -29,7 +29,7 @@ public class CellUIMovler : MonoBehaviour
         if (_allowClick)
         {
             Debug.Log($"На меня нажали, во мне {GetComponentInChildren<TextMeshProUGUI>().text} предметов");
-            GetComponent<Item>().Use();
+            GetComponent<ItemBase>().Use();
         }
     }
 
@@ -115,12 +115,12 @@ public class CellUIMovler : MonoBehaviour
 
         foreach (Collider2D col in results)
         {
-            if (col.gameObject.GetComponent<Item>() != null)
+            if (col.gameObject.GetComponent<ItemBase>() != null)
             {
                 collider = col;
                 foundCollider = true;
                 indexCollider = collider.transform.GetSiblingIndex();
-                //Debug.Log("Found Item");
+                //Debug.Log("Found ItemBase");
                 break;
             }
         }

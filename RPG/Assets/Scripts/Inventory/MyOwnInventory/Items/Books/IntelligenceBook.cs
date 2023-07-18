@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class IntelligenceBook : Item
+public class IntelligenceBook : ItemBase
 {
     public override void Use()
     {

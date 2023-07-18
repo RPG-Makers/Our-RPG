@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Kusarigama : Item
+public class Kusarigama : ItemBase
 {
     public override void Use()
     {

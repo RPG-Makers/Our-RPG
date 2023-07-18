@@ -35,7 +35,7 @@ public class InventoryUI : MonoBehaviour
         //foreach (var item in _itemsPrefabs)
         //{
         //    bool success;
-        //    _inventory.TryAdd(item.GetComponent<Item>(), out success);
+        //    _inventory.TryAdd(item.GetComponent<ItemBase>(), out success);
         //}
         #endregion
         // У нас есть инвентарь, который хранит данные о ячейках.
@@ -64,7 +64,7 @@ public class InventoryUI : MonoBehaviour
                     default:
                         throw new ArgumentException("Unknown type of item.");
                 }
-                temp.GetComponent<Item>().SetItemData(cell.Data.ItemData);
+                temp.GetComponent<ItemBase>().SetItemData(cell.Data.ItemData);
                 //Debug.Log("Instantiated");
             }
             else
@@ -103,11 +103,11 @@ public class InventoryUI : MonoBehaviour
     //        //{
     //        //    Debug.Log("1st empty");
     //        //}
-    //        //if (cell.Item.ItemData.Sprite == null)
+    //        //if (cell.ItemBase.ItemData.Sprite == null)
     //        //{
     //        //    Debug.Log("2nd empty");
     //        //}
-    //        cellSample.GetComponentInChildren<SpriteRenderer>().sprite = cell.Item._itemData.Sprite; //!!!!!!!!!!!!!!
+    //        cellSample.GetComponentInChildren<SpriteRenderer>().sprite = cell.ItemBase._itemData.Sprite; //!!!!!!!!!!!!!!
     //        cellSample.GetComponentInChildren<TextMeshProUGUI>().text = cell.CurrentAmount.ToString();
     //        cellsUI[index] = cellSample;
     //        Debug.Log("Сгенерирован " + index);

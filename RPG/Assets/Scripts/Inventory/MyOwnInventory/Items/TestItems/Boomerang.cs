@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Boomerang : Item
+public class Boomerang : ItemBase
 {
     public override void Use()
     {

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ingredient : Item
+public class Ingredient : ItemBase
 {
     public override void Use()
     {

@@ -2,11 +2,11 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Inventory // Возможно, в этом скрипте имеет смысл использовать не Item, а ItemData.
+public class Inventory // Возможно, в этом скрипте имеет смысл использовать не ItemBase, а ItemData.
 {
     public CellInventory[] Cells { get; }
 
-    private readonly List<Type> itemsTypes; // Item types, that we already have in inventory.
+    private readonly List<Type> itemsTypes; // ItemBase types, that we already have in inventory.
     //private int _length; // Maybe [SerializeField]?
     
     //test
@@ -15,12 +15,12 @@ public class Inventory // Возможно, в этом скрипте имеет смысл использовать не I
 
     private void Init() // !!!!!!!!!!!!!!!!!!!!
     {
-        Item.OnTake += TryAdd;
+        ItemBase.OnTake += TryAdd;
     }
 
     private void DeInit() // !!!!!!!!!!!!!!!!!!!!
     {
-        Item.OnTake -= TryAdd;
+        ItemBase.OnTake -= TryAdd;
     }
 
     public Inventory(InventoryData inventoryData)
@@ -41,39 +41,39 @@ public class Inventory // Возможно, в этом скрипте имеет смысл использовать не I
     }
 
     /// <summary>
-    /// Trying to add item in inventory.
+    /// Trying to add itemBase in inventory.
     /// </summary>
-    private void TryAdd(Item item, out bool added)
+    private void TryAdd(ItemBase itemBase, out bool added)
     {
-        if (!TryChangeAmount(item) && !TryPut(item))
+        if (!TryChangeAmount(itemBase) && !TryPut(itemBase))
         {
-            Debug.LogWarning("There are no space for this item!");
+            Debug.LogWarning("There are no space for this itemBase!");
             added = false;
             return;
         }
-        itemsTypes.Add(item.GetType());
+        itemsTypes.Add(itemBase.GetType());
         // Deinit().!!!!!!!!!!!!!!!!!!!!!
-        //item.Destroy(); Удаление происходит в самом Item по результатам added = false или true.
+        //itemBase.Destroy(); Удаление происходит в самом ItemBase по результатам added = false или true.
         //Debug.Log("Предмет добавлен");
         added = true;
     }
 
     /// <summary>
-    /// Trying to change amount of item in existing cell instead of occupation of free cell.
+    /// Trying to change amount of itemBase in existing cell instead of occupation of free cell.
     /// </summary>
-    private bool TryChangeAmount(Item item)
+    private bool TryChangeAmount(ItemBase itemBase)
     {
-        if (item.ItemData.Stackable)
+        if (itemBase.ItemData.Stackable)
         {
-            if (itemsTypes.Contains(item.GetType()))
+            if (itemsTypes.Contains(itemBase.GetType()))
             {
                 foreach (CellInventory cell in Cells)
                 {
-                    if (cell.Data.Type == item.ItemData.Type)
+                    if (cell.Data.Type == itemBase.ItemData.Type)
                     {
                         if (!cell.IsFull)
                         {
-                            cell.Add(item);
+                            cell.Add(itemBase);
                             //Debug.Log("Changed amount.");
                             return true;
                         }
@@ -85,15 +85,15 @@ public class Inventory // Возможно, в этом скрипте имеет смысл использовать не I
     }
 
     /// <summary>
-    /// Trying to find free cell in inventory and put an Item there.
+    /// Trying to find free cell in inventory and put an ItemBase there.
     /// </summary>
-    private bool TryPut(Item item)
+    private bool TryPut(ItemBase itemBase)
     {
         foreach (var cell in Cells)
         {
             if (cell.Data.Type == null) // just check data is null
             {
-                cell.Add(item);
+                cell.Add(itemBase);
                 //Debug.Log("Added without changing amount.");
                 return true;
             }
@@ -102,18 +102,18 @@ public class Inventory // Возможно, в этом скрипте имеет смысл использовать не I
     }
 
     /// <summary>
-    /// Removes item from inventory.
+    /// Removes itemBase from inventory.
     /// </summary>
-    //public void Remove(Item item) // Work not guaranteed!
+    //public void Remove(ItemBase itemBase) // Work not guaranteed!
     //{
-    //    if (itemsTypes.Contains(item.GetType()))
+    //    if (itemsTypes.Contains(itemBase.GetType()))
     //    {
     //        foreach (CellInventory cell in cells)
     //        {
-    //            if (cell.ItemType == item.GetType())
+    //            if (cell.ItemType == itemBase.GetType())
     //            {
     //                cell.Subtract();
-    //                if (cell.IsEmpty) itemsTypes.Remove(item.GetType());
+    //                if (cell.IsEmpty) itemsTypes.Remove(itemBase.GetType());
     //                return;
     //            }
     //        }

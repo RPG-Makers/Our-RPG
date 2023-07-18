@@ -1,10 +1,10 @@
 using System;
 using UnityEngine;
 
-public class ManaPotion : Item
+public class ManaPotion : ItemBase
 {
     [SerializeField] private int _restoreAmount;
-    public static Action OnManaPotionDrunk; // Игрока подписать на это событие и в подписанном методе восстановить ману.
+    public static Action OnManaPotionDrunk; // пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ.
 
     public override void Use()
     {

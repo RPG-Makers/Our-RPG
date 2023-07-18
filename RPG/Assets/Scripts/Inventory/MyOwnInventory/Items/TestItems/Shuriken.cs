@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Shuriken : Item
+public class Shuriken : ItemBase
 {
     public override void Use()
     {

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Sablya : Item
+public class Sablya : ItemBase
 {
     public override void Use()
     {

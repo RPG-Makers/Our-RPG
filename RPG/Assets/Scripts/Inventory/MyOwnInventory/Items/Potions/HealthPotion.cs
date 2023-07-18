@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class HealthPotion : Item
+public class HealthPotion : ItemBase
 {
     [SerializeField] private int _restoreAmount;
     public delegate void OnDrunk(int amount);

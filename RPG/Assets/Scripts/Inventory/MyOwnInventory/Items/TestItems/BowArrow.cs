@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BowArrow : Item
+public class BowArrow : ItemBase
 {
     public override void Use()
     {
