@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01724a3fce49ae541b8cdb41f49e120b, type: 3}
   m_Name: CellInventoryData 2
   m_EditorClassIdentifier: 
-  ItemData: {fileID: 11400000, guid: 5544bd50a305dfd4298cd8a2f7dc48bc, type: 2}
+  ItemData: {fileID: 0}
   Type: 0
-  CurrentAmount: 1
+  CurrentAmount: 0

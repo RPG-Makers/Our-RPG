@@ -20,7 +20,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7245512c-04a6-4c81-9f22-b0537d1d78e0" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Inventory/MyOwnInventory/Data/Item/ItemData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Inventory/MyOwnInventory/Data/Item/ItemData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.RPG/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.RPG/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Inventory/MyOwnInventory/CellInventory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Inventory/MyOwnInventory/CellInventory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Inventory/MyOwnInventory/Data/Inventory/Cells/CellInventoryData 0.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Inventory/MyOwnInventory/Data/Inventory/Cells/CellInventoryData 0.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Inventory/MyOwnInventory/Data/Inventory/Cells/CellInventoryData 1.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Inventory/MyOwnInventory/Data/Inventory/Cells/CellInventoryData 1.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Inventory/MyOwnInventory/Data/Inventory/Cells/CellInventoryData 2.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Inventory/MyOwnInventory/Data/Inventory/Cells/CellInventoryData 2.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Inventory/MyOwnInventory/Data/Inventory/Cells/CellInventoryData 3.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Inventory/MyOwnInventory/Data/Inventory/Cells/CellInventoryData 3.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Inventory/MyOwnInventory/Data/Inventory/Cells/CellInventoryData 4.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Inventory/MyOwnInventory/Data/Inventory/Cells/CellInventoryData 4.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Inventory/MyOwnInventory/Data/Inventory/Cells/CellInventoryData 5.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Inventory/MyOwnInventory/Data/Inventory/Cells/CellInventoryData 5.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Inventory/MyOwnInventory/Data/Inventory/Cells/CellInventoryData 6.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Inventory/MyOwnInventory/Data/Inventory/Cells/CellInventoryData 6.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Inventory/MyOwnInventory/Data/Inventory/Cells/CellInventoryData 7.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Inventory/MyOwnInventory/Data/Inventory/Cells/CellInventoryData 7.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Inventory/MyOwnInventory/Data/Inventory/Cells/CellInventoryData 8.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Inventory/MyOwnInventory/Data/Inventory/Cells/CellInventoryData 8.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

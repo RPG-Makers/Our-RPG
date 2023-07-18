@@ -3,7 +3,7 @@ using UnityEngine;
 public class CellInventory
 {
     // Public properties.
-    public bool IsEmpty => Data is null; // or currentAmount == 0?
+    public bool IsEmpty => Data.ItemData is null; // or currentAmount == 0?
     
     public bool IsFull => Data.CurrentAmount == maxAmount;
     
@@ -39,7 +39,9 @@ public class CellInventory
 
     private void DeInit()
     {
-        Data = null;
+        Data.ItemData = null;
+        // Data.Type = null;
+        Data.CurrentAmount = 0;
         //currentAmount = 0; Нужно ли?
         maxAmount = 1; // вот тут кстати у нас IsFull не будет проходить (при maxAmount = 0), потому что
         // в начале current == max и мы никогда не зайдем ни в какую ячейку.
