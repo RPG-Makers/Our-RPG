@@ -20,26 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7245512c-04a6-4c81-9f22-b0537d1d78e0" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Inventory/MyOwnInventory/CellInventory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Inventory/MyOwnInventory/CellInventory.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Inventory/MyOwnInventory/CellUIMovler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Inventory/MyOwnInventory/CellUIMovler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Inventory/MyOwnInventory/Data/Item/ItemData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Inventory/MyOwnInventory/Data/Item/ItemData.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Inventory/MyOwnInventory/Inventory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Inventory/MyOwnInventory/Inventory.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Inventory/MyOwnInventory/InventoryUI.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Inventory/MyOwnInventory/InventoryUI.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Inventory/MyOwnInventory/Item.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Inventory/MyOwnInventory/ItemBase.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Inventory/MyOwnInventory/Item.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Inventory/MyOwnInventory/ItemBase.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Inventory/MyOwnInventory/Items/Books/IntelligenceBook.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Inventory/MyOwnInventory/Items/Books/IntelligenceBook.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Inventory/MyOwnInventory/Items/Ingredients/Ingredient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Inventory/MyOwnInventory/Items/Ingredients/Ingredient.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Inventory/MyOwnInventory/Items/Potions/HealthPotion.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Inventory/MyOwnInventory/Items/Potions/HealthPotion.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Inventory/MyOwnInventory/Items/Potions/ManaPotion.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Inventory/MyOwnInventory/Items/Potions/ManaPotion.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Inventory/MyOwnInventory/Items/TestItems/Boomerang.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Inventory/MyOwnInventory/Items/TestItems/Boomerang.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Inventory/MyOwnInventory/Items/TestItems/BowArrow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Inventory/MyOwnInventory/Items/TestItems/BowArrow.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Inventory/MyOwnInventory/Items/TestItems/Cyborg.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Inventory/MyOwnInventory/Items/TestItems/Cyborg.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Inventory/MyOwnInventory/Items/TestItems/Hat.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Inventory/MyOwnInventory/Items/TestItems/Hat.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Inventory/MyOwnInventory/Items/TestItems/Kusarigama.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Inventory/MyOwnInventory/Items/TestItems/Kusarigama.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Inventory/MyOwnInventory/Items/TestItems/Orrery.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Inventory/MyOwnInventory/Items/TestItems/Orrery.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Inventory/MyOwnInventory/Items/TestItems/Sablya.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Inventory/MyOwnInventory/Items/TestItems/Sablya.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Inventory/MyOwnInventory/Items/TestItems/Shuriken.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Inventory/MyOwnInventory/Items/TestItems/Shuriken.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Inventory/MyOwnInventory/Items/TestItems/Sword.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Inventory/MyOwnInventory/Items/TestItems/Sword.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Inventory/MyOwnInventory/ItemBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Inventory/MyOwnInventory/ItemBase.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

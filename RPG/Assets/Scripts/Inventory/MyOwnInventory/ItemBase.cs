@@ -3,10 +3,10 @@ using UnityEngine;
 [RequireComponent(typeof(SpriteRenderer), typeof(Collider2D))]
 public abstract class ItemBase : MonoBehaviour, IUsable
 {
-    [SerializeField] private ItemData _itemData;
-    public ItemData ItemData => _itemData;
+    [SerializeField] private ItemData itemData;
+    public ItemData ItemData => itemData;
 
-    private bool _takeable;
+    private bool takeable;
 
     //public Action OnCellInventoryClicked; ???
 
@@ -18,7 +18,7 @@ public abstract class ItemBase : MonoBehaviour, IUsable
     private void OnMouseDown()
     {
         //Debug.Log("?? ???? ??????");
-        if (_takeable)
+        if (takeable)
         {
             //Debug.Log("?? ????? ????????");
             // ???? ?? ????? ??? ?????????, ?? ????????? ??????.
@@ -67,13 +67,13 @@ public abstract class ItemBase : MonoBehaviour, IUsable
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            _takeable = false;
+            takeable = false;
             //Debug.Log("?? ????? ?????????");
         }
     }
 
     public void SetItemData(ItemData data)
     {
-        _itemData = data;
+        itemData = data;
     }
 }
