@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: BowArrowData
   m_EditorClassIdentifier: 
   Name: bowar
+  Type: 6
   Price: 1
   MaxAmount: 1
   Sprite: {fileID: 21300000, guid: d410abd34ae47d848a2780df295cbf32, type: 3}

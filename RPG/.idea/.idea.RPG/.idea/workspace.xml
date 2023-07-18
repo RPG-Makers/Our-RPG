@@ -20,14 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7245512c-04a6-4c81-9f22-b0537d1d78e0" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Inventory/MyOwnInventory/Data/Inventory/CellInventoryData.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Inventory/MyOwnInventory/Data/Inventory/CellInventoryData.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Inventory/MyOwnInventory/Data/Inventory/CellInventoryData.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Inventory/MyOwnInventory/Data/Inventory/CellInventoryData.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Inventory/MyOwnInventory/Data/Inventory/InventoryData.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Inventory/MyOwnInventory/Data/Inventory/InventoryData.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Inventory/MyOwnInventory/Data/Inventory/InventoryData.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Inventory/MyOwnInventory/Data/Inventory/InventoryData.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Inventory/MyOwnInventory/Data/Item/ItemData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Inventory/MyOwnInventory/Data/Item/ItemData.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

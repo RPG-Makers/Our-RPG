@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: SablyaData
   m_EditorClassIdentifier: 
   Name: sablya
+  Type: 11
   Price: 1
   MaxAmount: 1
   Sprite: {fileID: 21300000, guid: 4f3b9ed98f40f0641b696f4146678a6f, type: 3}

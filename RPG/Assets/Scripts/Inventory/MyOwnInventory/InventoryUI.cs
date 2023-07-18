@@ -55,8 +55,44 @@ public class InventoryUI : MonoBehaviour
                 GameObject temp = Instantiate(cellSample, this.transform);
                 switch (cell.Data.Type)
                 {
-                    case ItemData.ItemType.Book:
+                    case ItemData.ItemType.IntelligenceBook:
                         temp.AddComponent<IntelligenceBook>();
+                        break;
+                    case ItemData.ItemType.StrenghtBook:
+                        temp.AddComponent<StrenghtBook>();
+                        break;
+                    case ItemData.ItemType.Ingredient:
+                        temp.AddComponent<Ingredient>();
+                        break;
+                    case ItemData.ItemType.HealthPotion:
+                        temp.AddComponent<HealthPotion>();
+                        break;
+                    case ItemData.ItemType.ManaPotion:
+                        temp.AddComponent<ManaPotion>();
+                        break;
+                    case ItemData.ItemType.Boomerang:
+                        temp.AddComponent<Boomerang>();
+                        break;
+                    case ItemData.ItemType.BowArrow:
+                        temp.AddComponent<BowArrow>();
+                        break;
+                    case ItemData.ItemType.Cyborg:
+                        temp.AddComponent<Cyborg>();
+                        break;
+                    case ItemData.ItemType.Hat:
+                        temp.AddComponent<Hat>();
+                        break;
+                    case ItemData.ItemType.Kusarigama:
+                        temp.AddComponent<Kusarigama>();
+                        break;
+                    case ItemData.ItemType.Orrery:
+                        temp.AddComponent<Orrery>();
+                        break;
+                    case ItemData.ItemType.Sablya:
+                        temp.AddComponent<Sablya>();
+                        break;
+                    case ItemData.ItemType.Shuriken:
+                        temp.AddComponent<Shuriken>();
                         break;
                     case ItemData.ItemType.Sword:
                         temp.AddComponent<Sword>();

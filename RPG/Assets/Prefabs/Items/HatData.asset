@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: HatData
   m_EditorClassIdentifier: 
   Name: hat
+  Type: 8
   Price: 1
   MaxAmount: 1
   Sprite: {fileID: 21300000, guid: 5772b53a8db0840498964e0dce96d477, type: 3}

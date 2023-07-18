@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: SwordData
   m_EditorClassIdentifier: 
   Name: swordd
+  Type: 13
   Price: 1
   MaxAmount: 1
   Sprite: {fileID: 21300000, guid: ceaa5279ca48bd047965e6ac60fb722d, type: 3}

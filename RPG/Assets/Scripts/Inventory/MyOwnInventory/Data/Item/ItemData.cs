@@ -12,7 +12,19 @@ public class ItemData : ScriptableObject
 
     public enum ItemType
     {
-        Book,
+        IntelligenceBook,
+        StrenghtBook,
+        Ingredient,
+        HealthPotion,
+        ManaPotion,
+        Boomerang,
+        BowArrow,
+        Cyborg,
+        Hat,
+        Kusarigama,
+        Orrery,
+        Sablya,
+        Shuriken,
         Sword
     }
 }
