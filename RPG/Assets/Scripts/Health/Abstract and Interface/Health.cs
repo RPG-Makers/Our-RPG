@@ -3,7 +3,7 @@ using UnityEngine;
 
 public abstract class Health : MonoBehaviour, IDamageable
 {
-    [SerializeField] private int _health;
+    [SerializeField] private int health;
 
     public delegate void OnDeath(Type type);
     public static event OnDeath Notify;
@@ -15,8 +15,8 @@ public abstract class Health : MonoBehaviour, IDamageable
     public void GetDamage(int damage)
     {
         Debug.Log("Я получил дамаг");
-        _health -= damage;
-        if (_health <= 0)
+        health -= damage;
+        if (health <= 0)
         {
             Death();
             Destroy(gameObject);
