@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,11 +12,38 @@ public class StatsLogic : MonoBehaviour
 
     private Dictionary<Type, int> _data;
 
+    private void OnEnable()
+    {
+        EventBus.EnemyDeath.Subscribe(Handle_EnemyDeath);
+        EventBus.SkeletonDeath.Subscribe(Handle_SkeletonDeath);
+        EventBus.BoxDeath.Subscribe(Handle_BoxDeath);
+    }
+
+    private void OnDisable()
+    {
+        EventBus.EnemyDeath.Unsubscribe(Handle_EnemyDeath);
+        EventBus.SkeletonDeath.Unsubscribe(Handle_SkeletonDeath);
+        EventBus.BoxDeath.Unsubscribe(Handle_BoxDeath);
+    }
+
     private void Awake()
     {
         _data = new Dictionary<Type, int>();
-        //Health.Notify += Detect;
-        // Need to change for EventBus
+    }
+
+    private void Handle_EnemyDeath()
+    {
+        
+    }
+
+    private void Handle_SkeletonDeath()
+    {
+        
+    }
+
+    private void Handle_BoxDeath()
+    {
+        
     }
 
     /// <summary>
@@ -26,19 +52,19 @@ public class StatsLogic : MonoBehaviour
     /// <param name="entity">Entity, that died.</param>
     private void Detect(Type entity)
     {
-        //Debug.Log("��������� ������� Detect");
+        //Debug.Log("In Detect");
         if (_data.ContainsKey(entity))
         {
-            //Debug.Log("���������� ��� �������� " + entity.ToString());
+            //Debug.Log("Stats already contains " + entity.ToString());
             _data[entity] += 1;
 
             //int count;
             //_data.TryGetValue(entity, out count);
-            //Debug.Log($"����� {count} {entity}");
+            //Debug.Log($"Killed {count} {entity}");
         }
         else
         {
-            //Debug.Log("���� ��� � ���������� ��� " + entity.ToString());
+            //Debug.Log("Now stats doesn't have " + entity.ToString());
             _data.Add(entity, 1);
         }
     }
