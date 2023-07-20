@@ -16,7 +16,8 @@ public class StatsLogic : MonoBehaviour
     private void Awake()
     {
         _data = new Dictionary<Type, int>();
-        Health.Notify += Detect;
+        //Health.Notify += Detect;
+        // Need to change for EventBus
     }
 
     /// <summary>
@@ -25,19 +26,19 @@ public class StatsLogic : MonoBehaviour
     /// <param name="entity">Entity, that died.</param>
     private void Detect(Type entity)
     {
-        //Debug.Log("Сработала функция Detect");
+        //Debug.Log("пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ Detect");
         if (_data.ContainsKey(entity))
         {
-            //Debug.Log("Статистика уже содержит " + entity.ToString());
+            //Debug.Log("пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ " + entity.ToString());
             _data[entity] += 1;
 
             //int count;
             //_data.TryGetValue(entity, out count);
-            //Debug.Log($"Убито {count} {entity}");
+            //Debug.Log($"пїЅпїЅпїЅпїЅпїЅ {count} {entity}");
         }
         else
         {
-            //Debug.Log("Пока что в статистике нет " + entity.ToString());
+            //Debug.Log("пїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ " + entity.ToString());
             _data.Add(entity, 1);
         }
     }
