@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding" addBOMForNewFiles="with BOM under Windows, with no BOM otherwise">
+    <file url="file://$PROJECT_DIR$/Assets/Scripts/Health/Abstract and Interface/Health.cs" charset="windows-1251" />
     <file url="file://$PROJECT_DIR$/Assets/Scripts/Inventory/MyOwnInventory/CellUIMovler.cs" charset="windows-1251" />
     <file url="file://$PROJECT_DIR$/Assets/Scripts/Inventory/MyOwnInventory/Inventory.cs" charset="windows-1251" />
     <file url="file://$PROJECT_DIR$/Assets/Scripts/Inventory/MyOwnInventory/InventoryUI.cs" charset="windows-1251" />
-    <file url="file://$PROJECT_DIR$/Assets/Scripts/Inventory/MyOwnInventory/ItemBase.cs" charset="windows-1251" />
     <file url="file://$PROJECT_DIR$/Assets/Scripts/Inventory/MyOwnInventory/ItemBase.cs" charset="UTF-16" />
     <file url="file://$PROJECT_DIR$/Assets/Scripts/QuestSystem/Core/Quests/Quest.cs" charset="windows-1251" />
   </component>
